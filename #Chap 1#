@@ -113,7 +113,7 @@ Inductive nat : Type :=
  | O : nat
  | S : nat -> nat.
 
-‎Definition pred (n:nat) : nat :=
+Definition pred (n:nat) : nat :=
  match n with
  | O => O
  | S n' => n'
@@ -131,3 +131,9 @@ Definition minustwo (n : nat) : nat :=
 Check (S (S (S (S O)))).
 
 Eval simpl in (minustwo 4).
+
+Check S.
+
+Check pred.
+
+Check minustwo.
