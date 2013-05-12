@@ -435,3 +435,84 @@ Proof.
   Case "n = S n'".
     simpl. rewrite -> IHn'. rewrite -> plus_n_Sm. reflexivity. Qed.
 
+Fixpoint double (n : nat) :=
+  match n with
+  | O => O
+  | S n' => S ( S ( double n' ) )
+  end.
+
+(* Ecercise double_plus *)
+
+Lemma double_plus : forall n,
+  double n = n + n.
+Proof.
+  intros n. induction n as [| n'].
+  Case "n = 0".
+  simpl. reflexivity.
+  Case "n = S n'".
+  simpl. rewrite -> IHn'. rewrite -> plus_n_Sm. reflexivity. Qed.
+
+(* destruct a simple case handling while induction
+ follows all cases by PMI *)
+
+Theorem plus_assoc' : forall n m p : nat,
+  n + (m + p) = (n + m) + p.
+Proof. intros n m p. induction n as [| n'].
+  Case "n = 0".
+    reflexivity.
+  Case "n = S n'".
+    simpl. rewrite -> IHn'. reflexivity. Qed.
+
+(* Excercise plus_comm_informal *)
+
+(*
+
+Theorem for any n and m,
+  n + m = m + n.
+Proof. By induction on n.
+  o First suppose n = 0. We must show
+      0 + m = m + 0.
+    From definition of + we must show
+      m = m + 0.
+    This follows from theorem plus_0_r : forall n: nat,
+      n + 0 = n.
+  o Next suppose n = S n'. We must show
+      (S n') + m = m + ( S n')
+    From definition of +
+      S (n' + m) = m + ( S n')
+    From Induction Hypothesis.
+      S (m + n') = m + ( S n')
+    Which is immediate from theorem plus_n_Sm.
+
+*)
+
+(* Excercise beq_nat_refl_informal *)
+
+(*
+
+Theorem for any n,
+  true = beq_nat n n.
+Proof. By induction on n.
+  o When n = 0. We must show
+      true = beq_nat 0 0.
+    This follows from definition of beq_nat.
+  o When n = S n' We must show
+      true = beq_nat (S n') (S n').
+    Using definition of beq_nat we must show
+      true = beq_nat n' n'.
+    This directly comes from induction hypothesis.
+
+*)
+
+(* Excercise beq_nat_refl *)
+
+Theorem beq_nat_refl : forall n : nat,
+  true = beq_nat n n.
+Proof.
+  intros n.
+  induction n as [| n'].
+  Case "n = 0".
+    reflexivity.
+  Case "n = S n'".
+    simpl. rewrite <- IHn'. reflexivity. Qed.
+
