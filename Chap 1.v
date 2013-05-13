@@ -455,7 +455,7 @@ Proof.
 (* destruct a simple case handling while induction
  follows all cases by PMI *)
 
-Theorem plus_assoc' : forall n m p : nat,
+Theorem plus_assoc : forall n m p : nat,
   n + (m + p) = (n + m) + p.
 Proof. intros n m p. induction n as [| n'].
   Case "n = 0".
@@ -516,3 +516,482 @@ Proof.
   Case "n = S n'".
     simpl. rewrite <- IHn'. reflexivity. Qed.
 
+Theorem mult_0_plus' : forall n m : nat,
+  (0 + n) * m = n * m.
+Proof.
+  intros n m.
+  assert (H: 0 + n = n).
+    Case "Proof of assertion". reflexivity.
+  rewrite -> H.
+  reflexivity. Qed.
+
+Theorem plus_rearrange : forall n m p q : nat,
+  (n + m) + (p + q) = (m + n) + (p + q).
+Proof.
+  intros n m p q.
+  assert (H: n + m = m + n).
+    Case "Proof of assertion".
+    rewrite -> plus_comm. reflexivity.
+  rewrite -> H. reflexivity. Qed.
+
+(* Excercise mult_comm *)
+
+Theorem plus_swap : forall n m p : nat,
+  n + (m + p) = m + (n + p).
+Proof.
+  intros n m p.
+  rewrite -> plus_comm.
+  rewrite <- plus_assoc.
+  assert (H: p + n = n + p).
+    rewrite -> plus_comm. reflexivity.
+  rewrite -> H. reflexivity. Qed.
+
+Theorem mult_n_Sm : forall n m : nat,
+  n * S m = n + n * m.
+Proof.
+  intros n m.
+  induction n as [| n'].
+  Case "n = 0".
+    reflexivity.
+  Case "n = S n'".
+    simpl.
+    rewrite -> IHn'.
+    rewrite -> plus_swap.
+    reflexivity.
+    Qed.
+  
+
+
+Theorem mult_comm : forall m n : nat,
+  m * n = n * m.
+Proof.
+  intros n m.
+  induction m as [| m'].
+  Case "m = 0".
+    simpl. rewrite mult_0_r. reflexivity.
+  Case "m = S m'".
+    simpl.
+    rewrite <- IHm'.
+    rewrite <- mult_n_Sm.
+    reflexivity.
+    Qed.
+
+(* Excercise evenb_n_oddb_Sn *)
+
+Theorem evenb_n_oddb_Sn : forall n : nat,
+  evenb n = negb ( evenb ( S n )).
+Proof.
+  intros n. induction n as [| n'].
+  Case "n = 0".
+    reflexivity.
+  Case "n = S n'".
+    assert (H : evenb n' = evenb (S (S n'))).
+      reflexivity.
+    rewrite <- H.
+    assert (H' : negb (negb (evenb (S n'))) = evenb (S n')).
+      rewrite -> negb_involutive. reflexivity.
+    rewrite -> IHn'.
+    rewrite -> H'.
+    reflexivity.
+    Qed.
+
+(* Excercise more_excercises *)
+
+Theorem ble_nat_refl : forall n : nat,
+  true = ble_nat n n.
+Proof.
+  intros n.
+  induction n as [| n'].
+  Case "n = 0".
+    reflexivity.
+  Case "n = S n'".
+    simpl. rewrite <- IHn'. reflexivity. Qed.
+
+Theorem zero_nbeq_S : forall n : nat,
+  beq_nat 0 (S n) = false.
+Proof.
+  intros n.
+  reflexivity. Qed.
+
+Theorem andb_false_r : forall b : bool,
+  andb b false = false.
+Proof.
+  intros b.
+  destruct b as [].
+  Case "b = true".
+    reflexivity.
+  Case "b = false".
+    reflexivity.
+  Qed.
+
+Theorem plus_ble_compat_1 : forall n m p : nat,
+  ble_nat n m = true -> ble_nat (p + n) (p + m) = true.
+Proof.
+  intros n m p H.
+  induction p as [| p'].
+  Case "p = 0".
+    simpl. rewrite -> H. reflexivity.
+  Case "p = S p'".
+    simpl. rewrite -> IHp'. reflexivity.
+  Qed.
+
+Theorem S_nbeq_0 : forall n : nat,
+  beq_nat (S n) 0 = false.
+Proof.
+  intros n.
+  reflexivity.
+  Qed.
+
+Theorem mult_1_1 : forall n : nat, 1 * n = n.
+Proof.
+  intros n.
+  simpl.
+  rewrite -> plus_0_r.
+  reflexivity.
+  Qed.
+
+Theorem all3_spec : forall b c : bool,
+  orb (andb b c)
+    (orb (negb b) (negb c)) = true.
+Proof.
+  intros b c.
+  destruct b as [].
+  assert(or_neg : orb c (negb c) = true).
+    destruct c as [].
+    SCase "c = true".
+      reflexivity.
+    SCase "c = false".
+      reflexivity.
+  Case "b = true".
+    simpl.
+    rewrite -> or_neg.
+    reflexivity.
+  Case "b = false".
+    reflexivity.
+  Qed.
+
+Theorem mult_plus_distr_r : forall n m p : nat,
+  (n + m) * p = (n * p) + (m * p).
+Proof.
+  intros n m p.
+  induction p as [| p'].
+  Case "p = 0".
+    rewrite -> mult_0_r.
+    rewrite -> mult_0_r.
+    rewrite -> mult_0_r.
+    reflexivity.
+  Case "p = p'".
+    rewrite -> mult_n_Sm.
+    rewrite -> mult_n_Sm.
+    rewrite -> mult_n_Sm.
+    rewrite -> IHp'.
+    rewrite -> plus_comm.
+    rewrite -> plus_swap.
+    assert( H : n * p' + m * p' + m =
+      n * p' + (m + m * p')).
+      rewrite -> plus_swap.
+      rewrite -> plus_comm.
+      reflexivity.
+    rewrite -> H.
+    rewrite -> plus_assoc.
+    reflexivity.
+  Qed.
+
+Theorem mult_assoc : forall n m p : nat,
+  n * ( m * p ) = ( n * m ) * p.
+Proof.
+  intros n m p.
+  induction n as [| n'].
+  Case "n = 0".
+    reflexivity.
+  Case "n = S n'".
+    simpl.
+    rewrite -> mult_plus_distr_r.
+    rewrite -> IHn'.
+    reflexivity.
+  Qed.
+
+Theorem plus_swap' : forall n m p,
+  n + (m + p) = m + (n + p).
+Proof.
+  intros n m p.
+  replace (m + p) with (p + m).
+  rewrite -> plus_assoc.
+  rewrite -> plus_comm.
+  reflexivity.
+  rewrite -> plus_comm.
+  reflexivity.
+  Qed.
+
+Theorem bool_fn_applied_thrice : 
+  forall (f : bool -> bool) (b : bool),
+  f (f (f b)) = f b.
+Proof.
+  intros f b.
+  destruct b.
+  Case "b = true".
+  remember (f true) as ftrue.
+    destruct ftrue.
+    SCase "f true = true".
+      rewrite <- Heqftrue.
+      symmetry.
+      apply Heqftrue.
+    SCase "f true = false".
+      remember (f false) as ffalse.
+      destruct ffalse.
+      SSCase "f false = true".
+        symmetry.
+        apply Heqftrue.
+      SSCase "f false = false".
+        symmetry.
+        apply Heqffalse.
+  remember (f false) as ffalse.
+    destruct ffalse.
+    SCase "f false = true".
+      remember (f true) as ftrue.
+      destruct ftrue.
+      SSCase "f true = true".
+        symmetry.
+        apply Heqftrue.
+      SSCase "f true = false".
+        symmetry.
+        apply Heqffalse.
+    SCase "f false = false".
+      rewrite <- Heqffalse.
+      symmetry.
+      apply Heqffalse.
+Qed.
+
+(* Excercise binary *)
+
+Inductive bin : Type :=
+  | O : bin
+  | Tn : bin -> bin
+  | T1n : bin -> bin.
+
+Fixpoint inc (n : bin) : bin :=
+  match n with
+  | O => T1n O
+  | T1n n => Tn (inc n)
+  | Tn n => T1n n
+  end.
+
+Fixpoint bin_unary (n : bin) : nat :=
+  match n with
+  | O => 0
+  | (T1n n) => S ( double ( bin_unary n))
+  | (Tn n) => double (bin_unary n)
+  end.
+
+Theorem inc_comm : forall n,
+  bin_unary( inc n) = S ( bin_unary n).
+Proof.
+  intros n.
+  induction n as [| n'| n'].
+  Case "n = 0".
+    simpl.
+    reflexivity.
+  Case "n = Tn n'".
+    simpl.
+    reflexivity.
+  Case "n = T1n n'".
+    simpl.
+    rewrite -> IHn'.
+    simpl.
+    reflexivity.
+  Qed.
+
+(* Excercise binary_inverse *)
+
+Fixpoint nat_bin (n : nat) : bin :=
+  match n with
+  | 0 => O
+  | S n' => inc ( nat_bin n')
+  end.
+
+Theorem eq_bin_nat : forall n : nat,
+  bin_unary ( nat_bin n ) = n.
+Proof.
+  intros n.
+  induction n as [| n'].
+  Case "n = 0".
+    reflexivity.
+  Case "n = S n'".
+    simpl.
+    rewrite -> inc_comm.
+    rewrite -> IHn'.
+    reflexivity.
+Qed.
+
+(*
+
+Since bin_unary is many one. while nat_bin is
+one one function. Also nat_bin is inverse of
+bin_unary hence bin_unary(nat_bin(n)) = n.
+But bin_unary isn't inverse of nat_bin being
+many one so nat_bin(bin_unary(n)) = n isn't 
+true. For example. Take two binary numbers
+O and Tn O. Both convert to 0 in nat. But from
+nat 0 converts only to O not Tn O.
+
+*)
+
+Fixpoint normalize (b : bin) : bin :=
+  match b with
+  | O => O
+  | T1n b' => T1n ( normalize b' )
+  | Tn b' => match ( normalize b' ) with
+    | O => O
+    | _ => Tn b'
+    end
+  end.
+
+Theorem norm_unorm_nat : forall b : bin,
+  bin_unary b = bin_unary ( normalize b).
+Proof.
+  intros b.
+  induction b as [| b' | b'].
+  Case "b = O".
+    reflexivity.
+  Case "b = 2*b'".
+    simpl.
+    remember (normalize b') as normb'.
+    destruct normb' as [| n' | n'].
+    SCase "b' = 0".
+      rewrite -> IHb'.
+      simpl.
+      reflexivity.
+    SCase "b' = 2*n'".
+      rewrite -> IHb'.
+      simpl.
+      rewrite -> IHb'.
+      reflexivity.
+    SCase "b' = 2*n + 1".
+      rewrite IHb'.
+      simpl.
+      rewrite IHb'.
+      reflexivity.
+  simpl.
+  rewrite -> IHb'.
+  reflexivity.
+  Qed.
+
+Theorem norm_dub : forall b : bin,
+  normalize ( normalize b ) = normalize b.
+Proof.
+  intros b.
+  induction b as [| b'|b'].
+  reflexivity.
+  remember (normalize b') as normb.
+  destruct normb.
+    simpl. rewrite <- Heqnormb. reflexivity.
+    simpl. rewrite <- Heqnormb. simpl. rewrite <- Heqnormb. reflexivity.
+    simpl. rewrite <- Heqnormb. simpl. rewrite <- Heqnormb. reflexivity.
+  remember (normalize b') as normb.
+  destruct normb.
+    simpl. rewrite <- Heqnormb. reflexivity.
+    simpl. rewrite <- Heqnormb. rewrite -> IHb'. reflexivity.
+    simpl. rewrite <- Heqnormb. rewrite -> IHb'. reflexivity.
+  Qed.
+
+Theorem norm_norm : forall b b' : bin,
+  normalize b = b' -> normalize b' = b'.
+Proof.
+  intros b b' H.
+  rewrite <- H.
+  rewrite -> norm_dub.
+  reflexivity.
+  Qed.
+
+Theorem norm_T1n : forall b : bin,
+  normalize (T1n b) = T1n (normalize b).
+Proof.
+  intros b.
+  destruct b as [| b2| b2].
+  reflexivity.
+  reflexivity.
+  reflexivity.
+  Qed.
+
+Theorem norm_Tn : forall b b' : bin,
+  normalize b = Tn b' -> Tn ( normalize b) = normalize (Tn b).
+Proof.
+  intros b b'.
+  induction b as [| b2| b2].
+  simpl.
+  induction b' as [| b3 | b3].
+  intros H. rewrite <- H. reflexivity.
+  intros H. symmetry. rewrite -> H. assert(H2:Tn (Tn (Tn b3)) = Tn O).
+    rewrite <- H. reflexivity.
+  rewrite -> H2. rewrite <- IHb3.
+
+Theorem double_nat : forall n : nat,
+  nat_bin ( double n ) = normalize (Tn (nat_bin n)).
+Proof.
+  intros n.
+  induction n as [| n'].
+  Case "n = 0".
+    reflexivity.
+  Case "n = S n'".
+    assert( H : Tn (nat_bin (S n')) = Tn ( inc (nat_bin n'))).
+      reflexivity.
+    rewrite -> H.
+    simpl.
+    rewrite -> IHn'.
+    remember (nat_bin n') as nprime.
+    destruct nprime as [| n''| n''].
+    SCase "n'' = 0".
+      reflexivity.
+    SCase "n'' = Tn b''".
+      simpl. reflexivity.
+    SCase "n'' = T1n b''".
+      reflexivity.
+  Qed.
+
+Theorem eq_nat_bin_norm : forall b : bin,
+  nat_bin ( bin_unary b) = normalize b.
+Proof.
+  intros b.
+  induction b as [| b'| b'].
+  Case "b = 0".
+    reflexivity.
+  Case "b = Tn b'".
+    simpl.
+    remember (normalize b') as normb'.
+    destruct normb' as [| b''| b''].
+    SCase "b'' = 0".
+    simpl. simpl.
+
+Theorem norm_inc : forall b : bin,
+  normalize (inc b) = inc (normalize b).
+Proof.
+  intros b.
+  induction b as [| b2| b2].
+  reflexivity.
+  simpl. 
+  remember (normalize b2) as normb.
+  destruct normb as [| nb2| nb2].
+    reflexivity.
+    reflexivity.
+    reflexivity.
+
+Theorem nat_double : forall n : nat,
+  nat_bin ( double n) = normalize (Tn nat_bin n)      
+
+Theorem norm_Tn_norm : forall b : bin,
+  normalize ( Tn b ) = normalize ( Tn ( normalize b ) ).
+Proof.
+  intros b.
+  induction b as [| b' | b'].
+  Case "b = 0".
+    reflexivity.
+  Case "b = 2b'".
+    remember (Tn b') as b.
+    simpl.
+    rewrite -> IHb'.
+    replace (normalize (normalize (Tn (normalize b')))) 
+      with (normalize ( Tn b )).
+    simpl.
+    reflexivity.
+    reflexivity.
+    reflexivity.
