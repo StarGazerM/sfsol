@@ -836,17 +836,39 @@ nat 0 converts only to O not Tn O.
 
 *)
 
+Fixpoint norm0 (b : bin) : bool :=
+  match b with
+  | O => true
+  | T1n _ => false
+  | Tn b' => norm0 b'
+  end.
+
 Fixpoint normalize (b : bin) : bin :=
   match b with
   | O => O
-  | T1n b' => T1n ( normalize b' )
-  | Tn b' => match ( normalize b' ) with
-    | O => O
-    | _ => Tn ( normalize b' )
+  | T1n b' => T1n (normalize b')
+  | Tn b' => match (norm0 b') with
+    | true => O
+    | false => Tn (normalize b')
     end
   end.
 
-Eval simpl in nat_bin (2).
+Theorem eqnorm0_norm : forall b : bin,
+  norm0 b = true -> normalize b = O.
+Proof.
+  intros b.
+  induction b as [| b'| b'].
+  reflexivity.
+  simpl.
+  intros H.
+  assert (H2: normalize b' = O).
+    rewrite -> IHb'.
+  reflexivity.
+  rewrite -> H. reflexivity.
+  rewrite -> H2. rewrite -> H. reflexivity.
+  intros H.
+  inversion H.
+  Qed.
 
 Theorem norm_unorm_nat : forall b : bin,
   bin_unary b = bin_unary ( normalize b).
@@ -857,65 +879,78 @@ Proof.
     reflexivity.
   Case "b = 2*b'".
     simpl.
-    remember (normalize b') as normb'.
-    destruct normb' as [| n' | n'].
+    remember (norm0 b') as norm0b'.
+    destruct norm0b'.
     SCase "b' = 0".
       rewrite -> IHb'.
       simpl.
-      reflexivity.
+      assert (H : normalize b' = O).
+        apply eqnorm0_norm.
+      symmetry. apply Heqnorm0b'.
+      rewrite -> H. reflexivity.
     SCase "b' = 2*n'".
       rewrite -> IHb'.
       simpl.
       reflexivity.
     SCase "b' = 2*n + 1".
-      rewrite IHb'.
       simpl.
+      rewrite -> IHb'.
       reflexivity.
+  Qed.
+
+Theorem eqnorm_norm0 : forall b : bin,
+  normalize b = O -> norm0 b = true.
+Proof.
+  intros b.
+  induction b as [| b' | b'].
+  reflexivity.
+  simpl. intros H.
+  destruct (norm0 b').
+    reflexivity.
+    inversion H.
+  intros H.
+  inversion H.
+  Qed.
+
+Theorem norm0_norm : forall b : bin,
+  norm0 ( normalize b ) = norm0 b.
+Proof.
+  intros b.
+  induction b as [| b' | b' ].
+  reflexivity.
   simpl.
-  rewrite -> IHb'.
+  destruct (norm0 b').
+    reflexivity.
+    simpl. apply IHb'.
   reflexivity.
   Qed.
 
-(* Eval simpl in nat_bin ( double ( 0 ) ). *)
-
-(* Theorem norm_dub : forall b : bin,
+Theorem norm_dub : forall b : bin,
   normalize ( normalize b ) = normalize b.
 Proof.
   intros b.
   induction b as [| b'|b'].
   reflexivity.
-  remember (normalize b') as normb.
-  destruct normb.
-    simpl. rewrite <- Heqnormb. reflexivity.
-    simpl. rewrite <- Heqnormb. assert(H:normalize (Tn (Tn normb)) = Tn (normalize (Tn normb))).
-      simpl.
+  simpl.
+  remember (norm0 b') as nb.
+  destruct (nb).
+    reflexivity.
+    simpl. rewrite -> IHb'.
+    assert (H : norm0 (normalize b') = norm0 b').
+      apply norm0_norm.
+    rewrite -> H.
+    rewrite <- Heqnb.
+    reflexivity.
+    simpl.
     rewrite -> IHb'. reflexivity.
-    simpl. rewrite <- Heqnormb. simpl. rewrite <- Heqnormb. reflexivity.
-  remember (normalize b') as normb.
-  destruct normb.
-    simpl. rewrite <- Heqnormb. reflexivity.
-    simpl. rewrite <- Heqnormb. rewrite -> IHb'. reflexivity.
-    simpl. rewrite <- Heqnormb. rewrite -> IHb'. reflexivity.
   Qed. 
-
-Theorem norm_norm : forall b b' : bin,
-  normalize b = b' -> normalize b' = b'.
-Proof.
-  intros b b' H.
-  rewrite <- H.
-  rewrite -> norm_dub.
-  reflexivity.
-  Qed.
 
 Theorem norm_T1n : forall b : bin,
   normalize (T1n b) = T1n (normalize b).
 Proof.
   intros b.
-  destruct b as [| b2| b2].
   reflexivity.
-  reflexivity.
-  reflexivity.
-  Qed. *)
+  Qed.
 
 Theorem double_r : forall n : nat,
   double n = n + n.
@@ -927,7 +962,21 @@ Proof.
   reflexivity.
   Qed.
 
-(*
+Theorem plus1_n_m : forall n m : nat,
+  1 + n = 1 + m -> n = m.
+Proof.
+  intros n m H.
+  assert(H1 : n = pred (1 + n)).
+    reflexivity.
+  rewrite -> H1.
+  assert(H2 : m = pred (1 + m)).
+    reflexivity.
+  rewrite -> H2.
+  rewrite -> H.
+  reflexivity.
+  Qed.
+
+Check plus1_n_m.
 
 Theorem eqplus_n_m_p : forall n m p : nat,
   n + m = n + p -> m = p.
@@ -935,135 +984,206 @@ Proof.
   intros n m p.
   induction n as [| n'].
   simpl. intros H. rewrite -> H. reflexivity.
-  rewrite -> IHn'.
-  
+  replace (S n' + m) with (1 + (n' + m)).
+  replace (S n' + p) with (1 + (n' + p)).
+  intros H.
+  assert(H2 : (n' + m) = (n' + p)).
+    apply plus1_n_m. rewrite -> H. reflexivity.
+  apply IHn'. rewrite -> H2. reflexivity.
+  reflexivity. reflexivity.
+  Qed.
+
+Theorem eqplus_n_0 : forall n : nat,
+  n + n = n -> n = 0.
+Proof.
+  intros n H.
+  assert (H2 : n + n = n + 0).
+    rewrite -> plus_0_r. rewrite -> H. reflexivity.
+  apply eqplus_n_m_p with (n := n).
+  rewrite -> plus_0_r.
+  rewrite -> H.
+  reflexivity.
+  Qed.
 
 Theorem eqplus_n_n_0 : forall n : nat,
   n + n = 0 -> n = 0.
+Proof.
+  intros n H.
+  destruct n.
+  reflexivity.
+  inversion H.
+  Qed.
 
-
-
-Theorem norm_0 : forall b : bin,
-  bin_unary ( b ) = 0 -> normalize( b ) = O.
+Theorem inc_norm0 : forall b : bin,
+  norm0 ( inc b ) = false.
 Proof.
   intros b.
-  induction b as [| b2 | b2].
+  induction b as [| b'| b'].
   reflexivity.
+  reflexivity.
+  simpl. rewrite -> IHb'. reflexivity.
+  Qed.
+
+Theorem inc_norm : forall b : bin,
+  normalize (inc b) = inc (normalize b).
+Proof.
+  intros b.
+  induction b as [| b'| b'].
+  reflexivity.
+  simpl.
+  remember (norm0 b') as nb.
+  destruct (nb).
+  assert( H : normalize b' = O).
+    apply eqnorm0_norm. rewrite -> Heqnb. reflexivity.
+  rewrite -> H. reflexivity.
+  simpl. reflexivity. simpl.
+  rewrite -> IHb'.
+  assert (norm0 (inc b') = false).
+    apply inc_norm0.
+  rewrite -> H. reflexivity.
+  Qed.
+
+Theorem nat_double1  : forall n : nat,
+  nat_bin ( double (S n)) = inc ( inc (nat_bin (double n))).
+Proof.
+  intros n.
+  reflexivity.
+  Qed.
+
+Theorem bin_norm0 : forall n,
+  bin_unary n = 0 -> norm0 n = true.
+Proof.
+  intros n.
+  induction n as [| n2| n2].
+  reflexivity.
+  simpl.
   intros H.
-  assert (H2 : double (bin_unary b2) = 0).
-    rewrite <- H. reflexivity.
-  simpl. rewrite -> IHb2. reflexivity.
+  assert ((bin_unary n2) + (bin_unary n2) = 0).
+    rewrite <- H. symmetry. apply double_r with (n := bin_unary n2 ).
+  assert (bin_unary n2 = 0).
+    apply eqplus_n_n_0. rewrite -> H0. reflexivity.
+  apply IHn2. apply H1.
+  simpl. intros H. inversion H.
+  Qed.
+
+Theorem dub_inc : forall b : bin,
+  inc (inc (normalize (Tn b))) = Tn (inc (normalize b)).
+Proof.
+  intros b.
+  induction b as [| b'| b'].
+  reflexivity.
+  simpl.
+  destruct (norm0 b').
+  reflexivity.
+  reflexivity.
+  reflexivity.
+Qed.
+
+Theorem double_norm_comm : forall n : nat,
+  nat_bin ( double n ) = normalize ( Tn (nat_bin n)).
+Proof.
+  intros n.
+  induction n as [| n'].
+  reflexivity.
+  simpl.
+    assert(norm0 (inc (nat_bin n')) = false).
+    apply inc_norm0 with (b := nat_bin n').
+  rewrite -> H.
+  assert(normalize (inc (nat_bin n')) = inc (normalize (nat_bin n'))).
+    apply inc_norm with (b := nat_bin n').
+  rewrite -> H0.
+  rewrite -> IHn'.
+  rewrite -> dub_inc.
+  reflexivity.
+  Qed.
+
+Theorem norm_nat : forall n : nat,
+  nat_bin n = normalize (nat_bin n).
+Proof.
+  intros n.
+  induction n as [| n'].
+  reflexivity.
+  simpl. rewrite -> inc_norm. rewrite <- IHn'. reflexivity.
+Qed.
+
+Theorem nat_double : forall b : bin,
+  norm0 b = false -> nat_bin ( double ( bin_unary b)) = Tn ( nat_bin ( bin_unary b )).
+Proof.
+  intros b.
+  induction b as [| b'| b'].
+  intros H.
+  inversion H.
+  remember (bin_unary (Tn b')) as b2.
+  destruct b2 as [| n'].
+  simpl.
+  assert (H : norm0 b' = true).
+    assert (H2 : norm0 (Tn b') = norm0 b').
+      reflexivity.
+    rewrite <- H2.
+    apply bin_norm0. rewrite <- Heqb2. reflexivity.
+  rewrite -> H.
+  intros H2.
+  inversion H2.
+  intros H.
+  simpl.
+  rewrite -> double_norm_comm.
+  rewrite -> dub_inc.
+  rewrite <- norm_nat.
+  reflexivity.
+  simpl.
+  rewrite -> double_norm_comm.
+  rewrite -> dub_inc.
+  rewrite <- norm_nat.
+  reflexivity.
+  Qed.
+  
 
 Theorem eq_nat_bin_norm : forall b : bin,
   nat_bin ( bin_unary (normalize b)) = normalize b.
 Proof.
   intros b.
-  induction b as [| b2| b2].
-  reflexivity.
-  rewrite <- norm_unorm_nat.
-  remember (normalize (Tn b2)) as temp.
-  simpl.
-  rewrite -> norm_unorm_nat.
-  remember (normalize b2) as bb2.
-  destruct bb2 as [| b3| b3].
-  rewrite -> Heqtemp. simpl. rewrite <- Heqbb2. reflexivity. 
-  rewrite -> Heqbb2.
-  remember (bin_unary (normalize b2)) as b4.
-  destruct b4 as [| n2].
-    simpl.
-    assert (H: O = nat_bin(bin_unary(Tn b3))).
-    rewrite -> Heqbb2. rewrite <- Heqb4. reflexivity.
-    rewrite -> H. rewrite -> IHb2. rewrite -> Heqtemp. rewrite -> Heqbb2.
-    assert (H2: normalize b2 = O).
-      
-  rewrite <- Heqnb. simpl. reflexivity.
-  remember (bin_unary b') as newb.
-  destruct newb as [| n2].
-    
-  rewrite -> norm_unorm_nat.
-  rewrite <- Heqnb. simpl.
-
-Theorem norm_Tn : forall b b' : bin,
-  normalize b = Tn b' -> Tn ( normalize b) = normalize (Tn b).
-Proof.
-  intros b b'.
-  induction b as [| b2| b2].
-  simpl.
-  induction b' as [| b3 | b3].
-  intros H. rewrite <- H. reflexivity.
-  intros H. symmetry. rewrite -> H. assert(H2:Tn (Tn (Tn b3)) = Tn O).
-    rewrite <- H. reflexivity.
-  rewrite -> H2. rewrite <- IHb3.
-
-Theorem double_nat : forall n : nat,
-  nat_bin ( double n ) = normalize (Tn (nat_bin n)).
-Proof.
-  intros n.
-  induction n as [| n'].
-  Case "n = 0".
-    reflexivity.
-  Case "n = S n'".
-    assert( H : Tn (nat_bin (S n')) = Tn ( inc (nat_bin n'))).
-      reflexivity.
-    rewrite -> H.
-    simpl.
-    rewrite -> IHn'.
-    remember (nat_bin n') as nprime.
-    destruct nprime as [| n''| n''].
-    SCase "n'' = 0".
-      reflexivity.
-    SCase "n'' = Tn b''".
-      simpl. reflexivity.
-    SCase "n'' = T1n b''".
-      reflexivity.
-  Qed.
-
-Theorem eq_nat_bin_norm : forall b : bin,
-  nat_bin ( bin_unary b) = normalize b.
-Proof.
-  intros b.
-  induction b as [| b'| b'].
-  Case "b = 0".
-    reflexivity.
-  Case "b = Tn b'".
-    simpl.
-    remember (normalize b') as normb'.
-    destruct normb' as [| b''| b''].
-    SCase "b'' = 0".
-    simpl. simpl.
-
-Theorem norm_inc : forall b : bin,
-  normalize (inc b) = inc (normalize b).
-Proof.
-  intros b.
-  induction b as [| b2| b2].
-  reflexivity.
-  simpl. 
-  remember (normalize b2) as normb.
-  destruct normb as [| nb2| nb2].
-    reflexivity.
-    reflexivity.
-    reflexivity.
-
-Theorem nat_double : forall n : nat,
-  nat_bin ( double n) = normalize (Tn nat_bin n)      
-
-Theorem norm_Tn_norm : forall b : bin,
-  normalize ( Tn b ) = normalize ( Tn ( normalize b ) ).
-Proof.
-  intros b.
   induction b as [| b' | b'].
-  Case "b = 0".
+  reflexivity.
+  simpl.
+  remember (norm0 b') as nb.
+  destruct nb.
     reflexivity.
-  Case "b = 2b'".
-    remember (Tn b') as b.
     simpl.
+    destruct b'.
+      inversion Heqnb.
+      simpl.
+      remember (norm0 b') as nb'.
+      destruct (nb').
+        assert (norm0 b' = false).
+          rewrite -> Heqnb. reflexivity.
+        assert (true = false).
+          rewrite -> Heqnb'. rewrite <- H. reflexivity.
+        inversion H0.
+    rewrite -> nat_double.
+    assert (Tn (normalize b') = normalize (Tn b')).
+    simpl. rewrite <- Heqnb'. reflexivity.
+    rewrite -> H.
     rewrite -> IHb'.
-    replace (normalize (normalize (Tn (normalize b')))) 
-      with (normalize ( Tn b )).
+    reflexivity.
+    simpl. rewrite -> norm0_norm. rewrite <- Heqnb'. reflexivity.
+    rewrite -> nat_double.
+    rewrite -> IHb'.
+    reflexivity.
+    reflexivity.
     simpl.
+    destruct b' as [| b2| b2].
+      reflexivity.
+      remember (norm0 b2) as nb2.
+      destruct nb2.
+        assert (normalize (Tn b2) = O).
+        simpl. rewrite <- Heqnb2. reflexivity.
+        rewrite -> H. reflexivity.
+    rewrite -> nat_double.
+    rewrite -> IHb'.
     reflexivity.
+    simpl. rewrite <- Heqnb2. simpl. rewrite -> norm0_norm. rewrite -> Heqnb2. reflexivity.
+    rewrite -> nat_double.
+    rewrite -> IHb'.
     reflexivity.
-    reflexivity.
-
-*)
+    simpl. reflexivity.
+  Qed.
