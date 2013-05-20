@@ -302,7 +302,7 @@ Proof.
   reflexivity.
   Qed.
 
-Theorem mult_0_plus : forall n m : nat,
+Theorem mult_O_plus : forall n m : nat,
   (0 + n) * m = n * m.
 Proof.
   intros n m.
@@ -398,10 +398,10 @@ Proof.
     reflexivity.
   Qed.
 
-Theorem plus_0_r : forall n : nat, n + 0 = n.
+Theorem plus_O_r : forall n : nat, n + 0 = n.
 Proof.
   intros n. induction n as [| n'].
-  Case "n = 0". reflexivity.
+  Case "n = O". reflexivity.
   Case "n = S n'". simpl. rewrite IHn'. reflexivity. Qed.
 
 (* What about double induction i.e. like one with two basis or two branches*)
@@ -431,7 +431,7 @@ Theorem plus_comm : forall n m : nat,
 Proof.
   intros n m. induction n as [| n'].
   Case "n = 0".
-    simpl. rewrite -> plus_0_r. reflexivity.
+    simpl. rewrite -> plus_O_r. reflexivity.
   Case "n = S n'".
     simpl. rewrite -> IHn'. rewrite -> plus_n_Sm. reflexivity. Qed.
 
@@ -458,7 +458,7 @@ Proof.
 Theorem plus_assoc : forall n m p : nat,
   n + (m + p) = (n + m) + p.
 Proof. intros n m p. induction n as [| n'].
-  Case "n = 0".
+  Case "n = O".
     reflexivity.
   Case "n = S n'".
     simpl. rewrite -> IHn'. reflexivity. Qed.
@@ -635,7 +635,7 @@ Proof.
     simpl. rewrite -> IHp'. reflexivity.
   Qed.
 
-Theorem S_nbeq_0 : forall n : nat,
+Theorem S_nbeq_O : forall n : nat,
   beq_nat (S n) 0 = false.
 Proof.
   intros n.
@@ -646,7 +646,7 @@ Theorem mult_1_1 : forall n : nat, 1 * n = n.
 Proof.
   intros n.
   simpl.
-  rewrite -> plus_0_r.
+  rewrite -> plus_O_r.
   reflexivity.
   Qed.
 
@@ -765,20 +765,20 @@ Qed.
 (* Excercise binary *)
 
 Inductive bin : Type :=
-  | O : bin
+  | BO : bin
   | Tn : bin -> bin
   | T1n : bin -> bin.
 
 Fixpoint inc (n : bin) : bin :=
   match n with
-  | O => T1n O
+  | BO => T1n BO
   | T1n n => Tn (inc n)
   | Tn n => T1n n
   end.
 
 Fixpoint bin_unary (n : bin) : nat :=
   match n with
-  | O => 0
+  | BO => 0
   | (T1n n) => S ( double ( bin_unary n))
   | (Tn n) => double (bin_unary n)
   end.
@@ -805,7 +805,7 @@ Proof.
 
 Fixpoint nat_bin (n : nat) : bin :=
   match n with
-  | 0 => O
+  | 0 => BO
   | S n' => inc ( nat_bin n')
   end.
 
@@ -831,37 +831,37 @@ bin_unary hence bin_unary(nat_bin(n)) = n.
 But bin_unary isn't inverse of nat_bin being
 many one so nat_bin(bin_unary(n)) = n isn't 
 true. For example. Take two binary numbers
-O and Tn O. Both convert to 0 in nat. But from
-nat 0 converts only to O not Tn O.
+BO and Tn BO. Both convert to 0 in nat. But from
+nat 0 converts only to BO not Tn BO.
 
 *)
 
 Fixpoint norm0 (b : bin) : bool :=
   match b with
-  | O => true
+  | BO => true
   | T1n _ => false
   | Tn b' => norm0 b'
   end.
 
 Fixpoint normalize (b : bin) : bin :=
   match b with
-  | O => O
+  | BO => BO
   | T1n b' => T1n (normalize b')
   | Tn b' => match (norm0 b') with
-    | true => O
+    | true => BO
     | false => Tn (normalize b')
     end
   end.
 
 Theorem eqnorm0_norm : forall b : bin,
-  norm0 b = true -> normalize b = O.
+  norm0 b = true -> normalize b = BO.
 Proof.
   intros b.
   induction b as [| b'| b'].
   reflexivity.
   simpl.
   intros H.
-  assert (H2: normalize b' = O).
+  assert (H2: normalize b' = BO).
     rewrite -> IHb'.
   reflexivity.
   rewrite -> H. reflexivity.
@@ -875,7 +875,7 @@ Theorem norm_unorm_nat : forall b : bin,
 Proof.
   intros b.
   induction b as [| b' | b'].
-  Case "b = O".
+  Case "b = BO".
     reflexivity.
   Case "b = 2*b'".
     simpl.
@@ -884,7 +884,7 @@ Proof.
     SCase "b' = 0".
       rewrite -> IHb'.
       simpl.
-      assert (H : normalize b' = O).
+      assert (H : normalize b' = BO).
         apply eqnorm0_norm.
       symmetry. apply Heqnorm0b'.
       rewrite -> H. reflexivity.
@@ -899,7 +899,7 @@ Proof.
   Qed.
 
 Theorem eqnorm_norm0 : forall b : bin,
-  normalize b = O -> norm0 b = true.
+  normalize b = BO -> norm0 b = true.
 Proof.
   intros b.
   induction b as [| b' | b'].
@@ -998,9 +998,9 @@ Theorem eqplus_n_0 : forall n : nat,
 Proof.
   intros n H.
   assert (H2 : n + n = n + 0).
-    rewrite -> plus_0_r. rewrite -> H. reflexivity.
+    rewrite -> plus_O_r. rewrite -> H. reflexivity.
   apply eqplus_n_m_p with (n := n).
-  rewrite -> plus_0_r.
+  rewrite -> plus_O_r.
   rewrite -> H.
   reflexivity.
   Qed.
@@ -1033,7 +1033,7 @@ Proof.
   simpl.
   remember (norm0 b') as nb.
   destruct (nb).
-  assert( H : normalize b' = O).
+  assert( H : normalize b' = BO).
     apply eqnorm0_norm. rewrite -> Heqnb. reflexivity.
   rewrite -> H. reflexivity.
   simpl. reflexivity. simpl.
@@ -1175,7 +1175,7 @@ Proof.
       reflexivity.
       remember (norm0 b2) as nb2.
       destruct nb2.
-        assert (normalize (Tn b2) = O).
+        assert (normalize (Tn b2) = BO).
         simpl. rewrite <- Heqnb2. reflexivity.
         rewrite -> H. reflexivity.
     rewrite -> nat_double.

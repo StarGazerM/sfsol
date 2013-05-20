@@ -1,6 +1,5 @@
 Add LoadPath "D:\sfsol".
 Require Export Chap2.
-Module Polymorphic_list.
 
 Inductive list (X:Type) : Type :=
   | nil : list X
@@ -1068,5 +1067,3 @@ Proof.
   Qed.
 
 (* Informal proof yet to write for ∀ X n l, length l = n → @index X (S n) l = None. *)
-
-End Polymorphic_list.
