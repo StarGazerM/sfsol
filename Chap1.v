@@ -404,6 +404,10 @@ Proof.
   Case "n = O". reflexivity.
   Case "n = S n'". simpl. rewrite IHn'. reflexivity. Qed.
 
+Theorem plus_0_r : forall n : nat, n + 0 = n.
+Proof.
+  apply plus_O_r. Qed.
+
 (* What about double induction i.e. like one with two basis or two branches*)
 
 (* Excercise basic_induction *)

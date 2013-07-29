@@ -1,4 +1,4 @@
-Add LoadPath "D:\sfsol".
+Add LoadPath "F:\sfsol".
 Require Export Chap1.
 Module NatList.
   Inductive natprod : Type :=
@@ -60,6 +60,8 @@ Module NatList.
   Notation "[ ]" := nil.
 
   Notation "[ x , .. , y ]" := (cons x .. (cons y nil) ..).
+
+  Notation "[ x ; .. ; y ]" := (cons x .. (cons y nil) ..).
 
   Definition mylist1 := 1 :: (2 :: (3 :: nil)).
   Definition mylist2 := 1 :: 2 :: 3 :: nil.

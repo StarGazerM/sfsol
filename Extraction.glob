@@ -1,0 +1,12 @@
+DIGEST 4444c4fcaa0099489e32e7b89482fc50
+FExtraction
+R68:72 SfLib <> <> lib
+R90:100 ImpCEvalFun <> <> lib
+R165:168 Coq.Init.Datatypes <> bool ind
+R219:221 Coq.Init.Datatypes <> nat ind
+R530:534 Coq.Strings.Ascii <> <> lib
+R536:541 Coq.Strings.String <> <> lib
+R562:566 Coq.Strings.Ascii <> ascii ind
+R1233:1239 Coq.Init.Specif <> sumbool ind
+R1285:1287 Imp <> <> lib
+R1305:1313 ImpParser <> <> lib

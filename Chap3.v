@@ -1,4 +1,4 @@
-Add LoadPath "D:\sfsol".
+Add LoadPath "F:\sfsol".
 Require Export Chap2.
 
 Inductive list (X:Type) : Type :=

@@ -1,4 +1,4 @@
-Add LoadPath "D:\sfsol".
+Add LoadPath "F:\sfsol".
 Require Export Chap3.
 
 Theorem double_injective' : forall n m,

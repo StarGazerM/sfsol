@@ -1,0 +1,1281 @@
+DIGEST 954fe515d6479e7322d2c97a853f5b55
+FChap5
+R40:44 Chap4 <> <> lib
+ind 58:66 <> beautiful
+constr 87:89 <> b_0
+constr 107:109 <> b_3
+constr 127:129 <> b_5
+constr 147:151 <> b_sum
+R70:72 Coq.Init.Datatypes <> nat ind
+R93:101 Chap5 <> beautiful ind
+R113:121 Chap5 <> beautiful ind
+R133:141 Chap5 <> beautiful ind
+R197:205 Chap5 <> beautiful ind
+R209:209 Chap1 <> :nat_scope:x_'+'_x not
+R208:208 Chap5 <> n var
+R210:210 Chap5 <> m var
+R182:190 Chap5 <> beautiful ind
+R192:192 Chap5 <> m var
+R167:175 Chap5 <> beautiful ind
+R177:177 Chap5 <> n var
+prf 223:240 <> three_is_beautiful
+R243:251 Chap5 <> beautiful ind
+R271:273 Chap5 <> b_3 constr
+R271:273 Chap5 <> b_3 constr
+prf 292:309 <> eight_is_beautiful
+R312:320 Chap5 <> beautiful ind
+R341:345 Chap5 <> b_sum constr
+R341:345 Chap5 <> b_sum constr
+R376:378 Chap5 <> b_3 constr
+R376:378 Chap5 <> b_3 constr
+R390:392 Chap5 <> b_5 constr
+R390:392 Chap5 <> b_5 constr
+prf 409:427 <> eight_is_beautiful'
+R430:438 Chap5 <> beautiful ind
+R460:464 Chap5 <> b_sum constr
+R474:476 Chap5 <> b_5 constr
+R470:472 Chap5 <> b_3 constr
+R460:464 Chap5 <> b_sum constr
+R474:476 Chap5 <> b_5 constr
+R470:472 Chap5 <> b_3 constr
+prf 494:513 <> eight_is_beautiful''
+R516:524 Chap5 <> beautiful ind
+R545:549 Chap5 <> b_sum constr
+R545:549 Chap5 <> b_sum constr
+R595:597 Chap5 <> b_3 constr
+R595:597 Chap5 <> b_3 constr
+R624:626 Chap5 <> b_5 constr
+R624:626 Chap5 <> b_5 constr
+def 661:681 <> eight_is_beautiful'''
+R685:693 Chap5 <> beautiful ind
+R702:706 Chap5 <> b_sum constr
+R716:718 Chap5 <> b_5 constr
+R712:714 Chap5 <> b_3 constr
+prf 844:859 <> six_is_beautiful
+R865:873 Chap5 <> beautiful ind
+R893:897 Chap5 <> b_sum constr
+R893:897 Chap5 <> b_sum constr
+R927:929 Chap5 <> b_3 constr
+R927:929 Chap5 <> b_3 constr
+R940:942 Chap5 <> b_3 constr
+R940:942 Chap5 <> b_3 constr
+def 964:980 <> six_is_beautiful'
+R984:992 Chap5 <> beautiful ind
+R1001:1005 Chap5 <> b_sum constr
+R1015:1017 Chap5 <> b_3 constr
+R1011:1013 Chap5 <> b_3 constr
+prf 1029:1035 <> b_plus3
+R1063:1071 Chap5 <> beautiful ind
+R1075:1075 Chap1 <> :nat_scope:x_'+'_x not
+R1076:1076 Chap5 <> n var
+R1048:1056 Chap5 <> beautiful ind
+R1058:1058 Chap5 <> n var
+R1111:1115 Chap5 <> b_sum constr
+R1111:1115 Chap5 <> b_sum constr
+R1127:1129 Chap5 <> b_3 constr
+R1127:1129 Chap5 <> b_3 constr
+def 1161:1168 <> b_plus3'
+R1197:1205 Chap5 <> beautiful ind
+R1209:1209 Chap1 <> :nat_scope:x_'+'_x not
+R1210:1210 Chap5 <> n var
+R1182:1190 Chap5 <> beautiful ind
+R1192:1192 Chap5 <> n var
+R1235:1243 Chap5 <> beautiful ind
+R1245:1245 Chap5 <> n var
+R1254:1258 Chap5 <> b_sum constr
+R1268:1268 Chap5 <> H var
+R1264:1266 Chap5 <> b_3 constr
+R1262:1262 Chap5 <> n var
+R1295:1303 Chap5 <> beautiful ind
+R1305:1305 Chap5 <> n var
+R1310:1314 Chap5 <> b_sum constr
+R1324:1324 Chap5 <> H var
+R1320:1322 Chap5 <> b_3 constr
+R1318:1318 Chap5 <> n var
+def 1340:1348 <> b_plus3''
+R1355:1357 Coq.Init.Datatypes <> nat ind
+R1365:1373 Chap5 <> beautiful ind
+R1375:1375 Chap5 <> n var
+R1380:1388 Chap5 <> beautiful ind
+R1392:1392 Chap1 <> :nat_scope:x_'+'_x not
+R1393:1393 Chap5 <> n var
+R1401:1405 Chap5 <> b_sum constr
+R1415:1415 Chap5 <> H var
+R1411:1413 Chap5 <> b_3 constr
+R1409:1409 Chap5 <> n var
+R1424:1432 Chap5 <> b_plus3'' def
+prf 1444:1451 <> b_times2
+R1479:1487 Chap5 <> beautiful ind
+R1491:1491 Chap1 <> :nat_scope:x_'*'_x not
+R1492:1492 Chap5 <> n var
+R1464:1472 Chap5 <> beautiful ind
+R1474:1474 Chap5 <> n var
+R1534:1538 Chap5 <> b_sum constr
+R1534:1538 Chap5 <> b_sum constr
+R1560:1564 Chap5 <> b_sum constr
+R1560:1564 Chap5 <> b_sum constr
+R1586:1588 Chap5 <> b_0 constr
+R1586:1588 Chap5 <> b_0 constr
+def 1610:1618 <> b_times2'
+R1646:1654 Chap5 <> beautiful ind
+R1658:1658 Chap1 <> :nat_scope:x_'*'_x not
+R1659:1659 Chap5 <> n var
+R1631:1639 Chap5 <> beautiful ind
+R1641:1641 Chap5 <> n var
+R1684:1692 Chap5 <> beautiful ind
+R1694:1694 Chap5 <> n var
+R1699:1703 Chap5 <> b_sum constr
+R1718:1722 Chap5 <> b_sum constr
+R1730:1732 Chap5 <> b_0 constr
+R1728:1728 Chap5 <> H var
+R1724:1724 Chap5 <> n var
+R1715:1715 Chap5 <> H var
+R1709:1711 Chap1 <> :nat_scope:x_'+'_x not
+R1708:1708 Chap5 <> n var
+R1705:1705 Chap5 <> n var
+R1742:1750 Chap5 <> b_times2' def
+prf 1762:1769 <> b_timesm
+R1799:1807 Chap5 <> beautiful ind
+R1811:1811 Chap1 <> :nat_scope:x_'*'_x not
+R1810:1810 Chap5 <> m var
+R1812:1812 Chap5 <> n var
+R1784:1792 Chap5 <> beautiful ind
+R1794:1794 Chap5 <> n var
+R1869:1871 Chap5 <> b_0 constr
+R1869:1871 Chap5 <> b_0 constr
+R1891:1895 Chap5 <> b_sum constr
+R1891:1895 Chap5 <> b_sum constr
+ind 1940:1947 <> gorgeous
+constr 1968:1970 <> g_0
+constr 1987:1993 <> g_plus3
+constr 2038:2044 <> g_plus5
+R1951:1953 Coq.Init.Datatypes <> nat ind
+R1974:1981 Chap5 <> gorgeous ind
+R2021:2028 Chap5 <> gorgeous ind
+R2032:2032 Chap1 <> :nat_scope:x_'+'_x not
+R2033:2033 Chap5 <> n var
+R2007:2014 Chap5 <> gorgeous ind
+R2016:2016 Chap5 <> n var
+R2072:2079 Chap5 <> gorgeous ind
+R2083:2083 Chap1 <> :nat_scope:x_'+'_x not
+R2084:2084 Chap5 <> n var
+R2058:2065 Chap5 <> gorgeous ind
+R2067:2067 Chap5 <> n var
+prf 2097:2115 <> gorgeous__beautiful
+R2145:2153 Chap5 <> beautiful ind
+R2155:2155 Chap5 <> n var
+R2131:2138 Chap5 <> gorgeous ind
+R2140:2140 Chap5 <> n var
+R2232:2234 Chap5 <> b_0 constr
+R2232:2234 Chap5 <> b_0 constr
+R2269:2273 Chap5 <> b_sum constr
+R2269:2273 Chap5 <> b_sum constr
+R2282:2284 Chap5 <> b_3 constr
+R2282:2284 Chap5 <> b_3 constr
+R2344:2348 Chap5 <> b_sum constr
+R2344:2348 Chap5 <> b_sum constr
+R2357:2359 Chap5 <> b_5 constr
+R2357:2359 Chap5 <> b_5 constr
+prf 2394:2408 <> gorgeous_plus13
+R2437:2444 Chap5 <> gorgeous ind
+R2449:2449 Chap1 <> :nat_scope:x_'+'_x not
+R2450:2450 Chap5 <> n var
+R2423:2430 Chap5 <> gorgeous ind
+R2432:2432 Chap5 <> n var
+R2479:2485 Chap5 <> g_plus3 constr
+R2479:2485 Chap5 <> g_plus3 constr
+R2496:2502 Chap5 <> g_plus5 constr
+R2496:2502 Chap5 <> g_plus5 constr
+R2513:2519 Chap5 <> g_plus5 constr
+R2513:2519 Chap5 <> g_plus5 constr
+def 2552:2569 <> gorgeous_plus13_po
+R2596:2603 Chap5 <> gorgeous ind
+R2608:2608 Chap1 <> :nat_scope:x_'+'_x not
+R2609:2609 Chap5 <> n var
+R2582:2589 Chap5 <> gorgeous ind
+R2591:2591 Chap5 <> n var
+R2633:2640 Chap5 <> gorgeous ind
+R2642:2642 Chap5 <> n var
+R2647:2653 Chap5 <> g_plus3 constr
+R2665:2671 Chap5 <> g_plus5 constr
+R2682:2688 Chap5 <> g_plus5 constr
+R2692:2692 Chap5 <> H var
+R2690:2690 Chap5 <> n var
+R2675:2677 Chap1 <> :nat_scope:x_'+'_x not
+R2678:2678 Chap5 <> n var
+R2658:2660 Chap1 <> :nat_scope:x_'+'_x not
+R2661:2661 Chap5 <> n var
+prf 2706:2717 <> gorgeous_sum
+R2763:2770 Chap5 <> gorgeous ind
+R2774:2776 Chap1 <> :nat_scope:x_'+'_x not
+R2773:2773 Chap5 <> n var
+R2777:2777 Chap5 <> m var
+R2749:2756 Chap5 <> gorgeous ind
+R2758:2758 Chap5 <> m var
+R2735:2742 Chap5 <> gorgeous ind
+R2744:2744 Chap5 <> n var
+R2851:2851 Chap1 <> :nat_scope:x_'+'_x not
+R2833:2839 Chap5 <> g_plus3 constr
+R2851:2851 Chap1 <> :nat_scope:x_'+'_x not
+R2833:2839 Chap5 <> g_plus3 constr
+R2902:2902 Chap1 <> :nat_scope:x_'+'_x not
+R2884:2890 Chap5 <> g_plus5 constr
+R2902:2902 Chap1 <> :nat_scope:x_'+'_x not
+R2884:2890 Chap5 <> g_plus5 constr
+prf 2943:2961 <> beautiful__gorgeous
+R2990:2997 Chap5 <> gorgeous ind
+R2999:2999 Chap5 <> n var
+R2975:2983 Chap5 <> beautiful ind
+R2985:2985 Chap5 <> n var
+R3042:3044 Chap5 <> g_0 constr
+R3042:3044 Chap5 <> g_0 constr
+R3055:3061 Chap5 <> g_plus3 constr
+R3055:3061 Chap5 <> g_plus3 constr
+R3072:3074 Chap5 <> g_0 constr
+R3072:3074 Chap5 <> g_0 constr
+R3085:3091 Chap5 <> g_plus5 constr
+R3085:3091 Chap5 <> g_plus5 constr
+R3102:3104 Chap5 <> g_0 constr
+R3102:3104 Chap5 <> g_0 constr
+R3115:3126 Chap5 <> gorgeous_sum thm
+R3115:3126 Chap5 <> gorgeous_sum thm
+prf 3187:3201 <> helper_g_times2
+R3230:3231 Coq.Init.Logic <> :type_scope:x_'='_x not
+R3220:3223 Chap1 <> :nat_scope:x_'+'_x not
+R3229:3229 Chap1 <> :nat_scope:x_'+'_x not
+R3219:3219 Chap5 <> x var
+R3225:3227 Chap1 <> :nat_scope:x_'+'_x not
+R3224:3224 Chap5 <> z var
+R3228:3228 Chap5 <> y var
+R3237:3239 Chap1 <> :nat_scope:x_'+'_x not
+R3233:3235 Chap1 <> :nat_scope:x_'+'_x not
+R3232:3232 Chap5 <> z var
+R3236:3236 Chap5 <> x var
+R3240:3240 Chap5 <> y var
+R3273:3281 Chap1 <> plus_swap thm
+R3273:3281 Chap1 <> plus_swap thm
+R3297:3306 Chap1 <> plus_assoc thm
+R3297:3306 Chap1 <> plus_assoc thm
+prf 3340:3347 <> g_times2
+R3374:3381 Chap5 <> gorgeous ind
+R3385:3385 Chap1 <> :nat_scope:x_'*'_x not
+R3386:3386 Chap5 <> n var
+R3360:3367 Chap5 <> gorgeous ind
+R3369:3369 Chap5 <> n var
+R3454:3456 Chap5 <> g_0 constr
+R3454:3456 Chap5 <> g_0 constr
+R3473:3480 Chap1 <> plus_O_r thm
+R3473:3480 Chap1 <> plus_O_r thm
+R3497:3504 Chap1 <> plus_O_r thm
+R3497:3504 Chap1 <> plus_O_r thm
+R3535:3544 Chap1 <> plus_assoc thm
+R3535:3544 Chap1 <> plus_assoc thm
+R3569:3571 Coq.Init.Logic <> :type_scope:x_'='_x not
+R3559:3562 Chap1 <> :nat_scope:x_'+'_x not
+R3568:3568 Chap1 <> :nat_scope:x_'+'_x not
+R3564:3566 Chap1 <> :nat_scope:x_'+'_x not
+R3577:3579 Chap1 <> :nat_scope:x_'+'_x not
+R3573:3575 Chap1 <> :nat_scope:x_'+'_x not
+R3569:3571 Coq.Init.Logic <> :type_scope:x_'='_x not
+R3559:3562 Chap1 <> :nat_scope:x_'+'_x not
+R3568:3568 Chap1 <> :nat_scope:x_'+'_x not
+R3564:3566 Chap1 <> :nat_scope:x_'+'_x not
+R3577:3579 Chap1 <> :nat_scope:x_'+'_x not
+R3573:3575 Chap1 <> :nat_scope:x_'+'_x not
+R3595:3609 Chap5 <> helper_g_times2 thm
+R3595:3609 Chap5 <> helper_g_times2 thm
+R3639:3645 Chap5 <> g_plus3 constr
+R3639:3645 Chap5 <> g_plus3 constr
+R3662:3671 Chap1 <> plus_assoc thm
+R3662:3671 Chap1 <> plus_assoc thm
+R3683:3689 Chap5 <> g_plus3 constr
+R3683:3689 Chap5 <> g_plus3 constr
+R3727:3734 Chap1 <> plus_O_r thm
+R3727:3734 Chap1 <> plus_O_r thm
+R3751:3758 Chap1 <> plus_O_r thm
+R3751:3758 Chap1 <> plus_O_r thm
+R3789:3798 Chap1 <> plus_assoc thm
+R3789:3798 Chap1 <> plus_assoc thm
+R3823:3825 Coq.Init.Logic <> :type_scope:x_'='_x not
+R3813:3816 Chap1 <> :nat_scope:x_'+'_x not
+R3822:3822 Chap1 <> :nat_scope:x_'+'_x not
+R3818:3820 Chap1 <> :nat_scope:x_'+'_x not
+R3831:3833 Chap1 <> :nat_scope:x_'+'_x not
+R3827:3829 Chap1 <> :nat_scope:x_'+'_x not
+R3823:3825 Coq.Init.Logic <> :type_scope:x_'='_x not
+R3813:3816 Chap1 <> :nat_scope:x_'+'_x not
+R3822:3822 Chap1 <> :nat_scope:x_'+'_x not
+R3818:3820 Chap1 <> :nat_scope:x_'+'_x not
+R3831:3833 Chap1 <> :nat_scope:x_'+'_x not
+R3827:3829 Chap1 <> :nat_scope:x_'+'_x not
+R3849:3863 Chap5 <> helper_g_times2 thm
+R3849:3863 Chap5 <> helper_g_times2 thm
+R3893:3899 Chap5 <> g_plus5 constr
+R3893:3899 Chap5 <> g_plus5 constr
+R3916:3925 Chap1 <> plus_assoc thm
+R3916:3925 Chap1 <> plus_assoc thm
+R3937:3943 Chap5 <> g_plus5 constr
+R3937:3943 Chap5 <> g_plus5 constr
+def 3987:3990 <> even
+R3995:3997 Coq.Init.Datatypes <> nat ind
+R4019:4021 Coq.Init.Logic <> :type_scope:x_'='_x not
+R4012:4016 Chap1 <> evenb def
+R4018:4018 Chap5 <> n var
+R4022:4025 Chap1 <> true constr
+ind 4039:4040 <> ev
+constr 4063:4066 <> ev_0
+constr 4079:4083 <> ev_SS
+R4044:4046 Coq.Init.Datatypes <> nat ind
+R4070:4071 Chap5 <> ev ind
+R4073:4073 Coq.Init.Datatypes <> O constr
+R4096:4098 Coq.Init.Datatypes <> nat ind
+R4109:4110 Chap5 <> ev ind
+R4113:4113 Coq.Init.Datatypes <> S constr
+R4116:4116 Coq.Init.Datatypes <> S constr
+R4118:4118 Chap5 <> n var
+R4101:4102 Chap5 <> ev ind
+R4104:4104 Chap5 <> n var
+prf 4132:4142 <> double_even
+R4158:4159 Chap5 <> ev ind
+R4162:4167 Chap1 <> double def
+R4169:4169 Chap5 <> n var
+R4213:4216 Chap5 <> ev_0 constr
+R4213:4216 Chap5 <> ev_0 constr
+R4236:4240 Chap5 <> ev_SS constr
+R4236:4240 Chap5 <> ev_SS constr
+R4270:4280 Chap5 <> double_even thm
+prf 4292:4300 <> ev_minus2
+R4323:4324 Chap5 <> ev ind
+R4327:4330 Coq.Init.Peano <> pred def
+R4333:4336 Coq.Init.Peano <> pred def
+R4338:4338 Chap5 <> n var
+R4315:4316 Chap5 <> ev ind
+R4318:4318 Chap5 <> n var
+R4423:4426 Chap5 <> ev_0 constr
+R4423:4426 Chap5 <> ev_0 constr
+prf 4486:4493 <> ev__even
+R4517:4520 Chap5 <> even def
+R4522:4522 Chap5 <> n var
+R4509:4510 Chap5 <> ev ind
+R4512:4512 Chap5 <> n var
+R4602:4605 Chap5 <> even def
+R4658:4661 Chap5 <> even def
+prf 4690:4695 <> ev_sum
+R4730:4731 Chap5 <> ev ind
+R4735:4735 Chap1 <> :nat_scope:x_'+'_x not
+R4734:4734 Chap5 <> n var
+R4736:4736 Chap5 <> m var
+R4722:4723 Chap5 <> ev ind
+R4725:4725 Chap5 <> m var
+R4714:4715 Chap5 <> ev ind
+R4717:4717 Chap5 <> n var
+R4852:4856 Chap5 <> ev_SS constr
+R4852:4856 Chap5 <> ev_SS constr
+prf 4901:4917 <> SSev_ev_secondtry
+R4949:4950 Chap5 <> ev ind
+R4952:4952 Chap5 <> n var
+R4933:4934 Chap5 <> ev ind
+R4937:4937 Coq.Init.Datatypes <> S constr
+R4940:4940 Coq.Init.Datatypes <> S constr
+R4942:4942 Chap5 <> n var
+R4986:4986 Coq.Init.Datatypes <> S constr
+R4989:4989 Coq.Init.Datatypes <> S constr
+R4986:4986 Coq.Init.Datatypes <> S constr
+R4989:4989 Coq.Init.Datatypes <> S constr
+prf 5137:5146 <> SSev__even
+R5178:5179 Chap5 <> ev ind
+R5181:5181 Chap5 <> n var
+R5162:5163 Chap5 <> ev ind
+R5166:5166 Coq.Init.Datatypes <> S constr
+R5169:5169 Coq.Init.Datatypes <> S constr
+R5171:5171 Chap5 <> n var
+prf 5255:5266 <> SSSSev__even
+R5306:5307 Chap5 <> ev ind
+R5309:5309 Chap5 <> n var
+R5282:5283 Chap5 <> ev ind
+R5286:5286 Coq.Init.Datatypes <> S constr
+R5289:5289 Coq.Init.Datatypes <> S constr
+R5292:5292 Coq.Init.Datatypes <> S constr
+R5295:5295 Coq.Init.Datatypes <> S constr
+R5297:5297 Chap5 <> n var
+prf 5415:5428 <> even5_nonsense
+R5447:5449 Coq.Init.Logic <> :type_scope:x_'='_x not
+R5443:5445 Chap1 <> :nat_scope:x_'+'_x not
+R5434:5435 Chap5 <> ev ind
+prf 5527:5536 <> ev_minus2'
+R5559:5560 Chap5 <> ev ind
+R5563:5566 Coq.Init.Peano <> pred def
+R5569:5572 Coq.Init.Peano <> pred def
+R5574:5574 Chap5 <> n var
+R5551:5552 Chap5 <> ev ind
+R5554:5554 Chap5 <> n var
+R5658:5661 Chap5 <> ev_0 constr
+R5658:5661 Chap5 <> ev_0 constr
+prf 5721:5729 <> ev_ev__ev
+R5767:5768 Chap5 <> ev ind
+R5770:5770 Chap5 <> m var
+R5759:5760 Chap5 <> ev ind
+R5762:5762 Chap5 <> n var
+R5747:5748 Chap5 <> ev ind
+R5752:5752 Chap1 <> :nat_scope:x_'+'_x not
+R5751:5751 Chap5 <> n var
+R5753:5753 Chap5 <> m var
+prf 5929:5940 <> ev_plus_plus
+R5984:5985 Chap5 <> ev ind
+R5989:5989 Chap1 <> :nat_scope:x_'+'_x not
+R5988:5988 Chap5 <> m var
+R5990:5990 Chap5 <> p var
+R5972:5973 Chap5 <> ev ind
+R5977:5977 Chap1 <> :nat_scope:x_'+'_x not
+R5976:5976 Chap5 <> n var
+R5978:5978 Chap5 <> p var
+R5960:5961 Chap5 <> ev ind
+R5965:5965 Chap1 <> :nat_scope:x_'+'_x not
+R5964:5964 Chap5 <> n var
+R5966:5966 Chap5 <> m var
+R6036:6038 Coq.Init.Logic <> :type_scope:x_'='_x not
+R6032:6034 Chap1 <> :nat_scope:x_'+'_x not
+R6028:6030 Chap1 <> :nat_scope:x_'+'_x not
+R6024:6026 Chap1 <> :nat_scope:x_'+'_x not
+R6023:6023 Chap5 <> n var
+R6027:6027 Chap5 <> m var
+R6031:6031 Chap5 <> n var
+R6035:6035 Chap5 <> p var
+R6051:6053 Chap1 <> :nat_scope:x_'+'_x not
+R6047:6049 Chap1 <> :nat_scope:x_'+'_x not
+R6039:6044 Chap1 <> double def
+R6046:6046 Chap5 <> n var
+R6050:6050 Chap5 <> m var
+R6054:6054 Chap5 <> p var
+R6036:6038 Coq.Init.Logic <> :type_scope:x_'='_x not
+R6032:6034 Chap1 <> :nat_scope:x_'+'_x not
+R6028:6030 Chap1 <> :nat_scope:x_'+'_x not
+R6024:6026 Chap1 <> :nat_scope:x_'+'_x not
+R6023:6023 Chap5 <> n var
+R6027:6027 Chap5 <> m var
+R6031:6031 Chap5 <> n var
+R6035:6035 Chap5 <> p var
+R6051:6053 Chap1 <> :nat_scope:x_'+'_x not
+R6047:6049 Chap1 <> :nat_scope:x_'+'_x not
+R6039:6044 Chap1 <> double def
+R6046:6046 Chap5 <> n var
+R6050:6050 Chap5 <> m var
+R6054:6054 Chap5 <> p var
+R6109:6116 Chap1 <> plus_O_r thm
+R6109:6116 Chap1 <> plus_O_r thm
+R6154:6162 Chap1 <> plus_n_Sm thm
+R6154:6162 Chap1 <> plus_n_Sm thm
+R6247:6248 Chap5 <> ev ind
+R6250:6250 Chap5 <> m var
+R6227:6228 Chap5 <> ev ind
+R6238:6240 Chap1 <> :nat_scope:x_'+'_x not
+R6230:6235 Chap1 <> double def
+R6237:6237 Chap5 <> n var
+R6241:6241 Chap5 <> m var
+R6247:6248 Chap5 <> ev ind
+R6250:6250 Chap5 <> m var
+R6227:6228 Chap5 <> ev ind
+R6238:6240 Chap1 <> :nat_scope:x_'+'_x not
+R6230:6235 Chap1 <> double def
+R6237:6237 Chap5 <> n var
+R6241:6241 Chap5 <> m var
+R6407:6408 Chap5 <> ev ind
+R6420:6422 Chap1 <> :nat_scope:x_'+'_x not
+R6416:6418 Chap1 <> :nat_scope:x_'+'_x not
+R6412:6414 Chap1 <> :nat_scope:x_'+'_x not
+R6407:6408 Chap5 <> ev ind
+R6420:6422 Chap1 <> :nat_scope:x_'+'_x not
+R6416:6418 Chap1 <> :nat_scope:x_'+'_x not
+R6412:6414 Chap1 <> :nat_scope:x_'+'_x not
+R6450:6452 Chap1 <> :nat_scope:x_'+'_x not
+R6446:6448 Chap1 <> :nat_scope:x_'+'_x not
+R6442:6444 Chap1 <> :nat_scope:x_'+'_x not
+R6467:6470 Chap1 <> :nat_scope:x_'+'_x not
+R6476:6476 Chap1 <> :nat_scope:x_'+'_x not
+R6463:6465 Chap1 <> :nat_scope:x_'+'_x not
+R6472:6474 Chap1 <> :nat_scope:x_'+'_x not
+R6467:6470 Chap1 <> :nat_scope:x_'+'_x not
+R6476:6476 Chap1 <> :nat_scope:x_'+'_x not
+R6463:6465 Chap1 <> :nat_scope:x_'+'_x not
+R6472:6474 Chap1 <> :nat_scope:x_'+'_x not
+R6450:6452 Chap1 <> :nat_scope:x_'+'_x not
+R6446:6448 Chap1 <> :nat_scope:x_'+'_x not
+R6442:6444 Chap1 <> :nat_scope:x_'+'_x not
+R6490:6495 Chap5 <> ev_sum thm
+R6490:6495 Chap5 <> ev_sum thm
+R6528:6537 Chap1 <> plus_assoc thm
+R6528:6537 Chap1 <> plus_assoc thm
+R6570:6579 Chap1 <> plus_assoc thm
+R6570:6579 Chap1 <> plus_assoc thm
+prf 6632:6644 <> plus_2_2_is_4
+R6655:6657 Coq.Init.Logic <> :type_scope:x_'='_x not
+R6651:6653 Chap1 <> :nat_scope:x_'+'_x not
+def 6698:6706 <> plus_fact
+R6723:6725 Coq.Init.Logic <> :type_scope:x_'='_x not
+R6719:6721 Chap1 <> :nat_scope:x_'+'_x not
+R6735:6743 Chap5 <> plus_fact def
+prf 6755:6771 <> plus_fact_is_true
+R6777:6785 Chap5 <> plus_fact def
+def 6825:6837 <> strange_prop1
+R6874:6876 Coq.Init.Logic <> :type_scope:x_'='_x not
+R6869:6871 Chap1 <> :nat_scope:x_'+'_x not
+R6857:6859 Coq.Init.Logic <> :type_scope:x_'='_x not
+R6853:6855 Chap1 <> :nat_scope:x_'+'_x not
+def 6894:6906 <> strange_prop2
+R6961:6963 Coq.Init.Logic <> :type_scope:x_'='_x not
+R6949:6955 Chap1 <> ble_nat def
+R6957:6957 Chap5 <> n var
+R6964:6967 Chap1 <> true constr
+R6936:6938 Coq.Init.Logic <> :type_scope:x_'='_x not
+R6924:6930 Chap1 <> ble_nat def
+R6932:6932 Chap5 <> n var
+R6939:6942 Chap1 <> true constr
+def 6983:6989 <> between
+R6999:7001 Coq.Init.Datatypes <> nat ind
+R7048:7050 Coq.Init.Logic <> :type_scope:x_'='_x not
+R7016:7019 Chap1 <> andb def
+R7036:7042 Chap1 <> ble_nat def
+R7046:7046 Chap5 <> m var
+R7044:7044 Chap5 <> o var
+R7022:7028 Chap1 <> ble_nat def
+R7032:7032 Chap5 <> o var
+R7030:7030 Chap5 <> n var
+R7051:7054 Chap1 <> true constr
+def 7069:7072 <> teen
+R7076:7078 Coq.Init.Datatypes <> nat ind
+R7089:7095 Chap5 <> between def
+def 7116:7128 <> true_for_zero
+R7133:7135 Coq.Init.Datatypes <> nat ind
+R7156:7156 Chap5 <> P var
+def 7173:7192 <> true_for_all_numbers
+R7197:7199 Coq.Init.Datatypes <> nat ind
+R7230:7230 Chap5 <> P var
+R7232:7232 Chap5 <> n var
+def 7248:7261 <> preserved_by_S
+R7266:7268 Coq.Init.Datatypes <> nat ind
+R7308:7308 Chap5 <> P var
+R7311:7311 Coq.Init.Datatypes <> S constr
+R7313:7314 Chap5 <> n' var
+R7300:7300 Chap5 <> P var
+R7302:7303 Chap5 <> n' var
+R7325:7331 Coq.Init.Datatypes <> nat_ind scheme
+prf 7343:7351 <> mult_0_r'
+R7364:7366 Coq.Init.Datatypes <> nat ind
+R7376:7378 Coq.Init.Logic <> :type_scope:x_'='_x not
+R7372:7374 Chap1 <> :nat_scope:x_'*'_x not
+R7371:7371 Chap5 <> n var
+R7397:7403 Coq.Init.Datatypes <> nat_ind scheme
+R7397:7403 Coq.Init.Datatypes <> nat_ind scheme
+prf 7511:7521 <> plus_one_r'
+R7534:7536 Coq.Init.Datatypes <> nat ind
+R7546:7548 Coq.Init.Logic <> :type_scope:x_'='_x not
+R7542:7544 Chap1 <> :nat_scope:x_'+'_x not
+R7541:7541 Chap5 <> n var
+R7549:7549 Coq.Init.Datatypes <> S constr
+R7551:7551 Chap5 <> n var
+R7569:7575 Coq.Init.Datatypes <> nat_ind scheme
+R7569:7575 Coq.Init.Datatypes <> nat_ind scheme
+ind 7655:7657 <> rgb
+constr 7673:7675 <> red
+constr 7687:7691 <> green
+constr 7703:7706 <> blue
+R7679:7681 Chap5 <> rgb ind
+R7695:7697 Chap5 <> rgb ind
+R7710:7712 Chap5 <> rgb ind
+R7721:7727 Chap5 <> rgb_ind scheme
+ind 7741:7747 <> natlist
+constr 7763:7766 <> nnil
+constr 7782:7786 <> ncons
+R7770:7776 Chap5 <> natlist ind
+R7808:7814 Chap5 <> natlist ind
+R7797:7803 Chap5 <> natlist ind
+R7790:7792 Coq.Init.Datatypes <> nat ind
+R7824:7834 Chap5 <> natlist_ind scheme
+ind 7848:7852 <> ExSet
+constr 7868:7871 <> con1
+constr 7893:7896 <> con2
+R7883:7887 Chap5 <> ExSet ind
+R7875:7878 Chap1 <> bool ind
+R7916:7920 Chap5 <> ExSet ind
+R7907:7911 Chap5 <> ExSet ind
+R7900:7902 Coq.Init.Datatypes <> nat ind
+R7930:7938 Chap5 <> ExSet_ind scheme
+ind 7952:7955 <> tree
+constr 7980:7983 <> leaf
+constr 8003:8006 <> node
+R7992:7995 Chap5 <> tree ind
+R8030:8033 Chap5 <> tree ind
+R8020:8023 Chap5 <> tree ind
+R8010:8013 Chap5 <> tree ind
+R8044:8051 Chap5 <> tree_ind scheme
+ind 8065:8070 <> mytype
+constr 8095:8101 <> constr1
+constr 8123:8129 <> constr2
+constr 8153:8159 <> constr3
+R8110:8115 Chap5 <> mytype ind
+R8140:8145 Chap5 <> mytype ind
+R8133:8135 Coq.Init.Datatypes <> nat ind
+R8182:8187 Chap5 <> mytype ind
+R8175:8177 Coq.Init.Datatypes <> nat ind
+R8163:8168 Chap5 <> mytype ind
+R8199:8208 Chap5 <> mytype_ind scheme
+ind 8222:8224 <> foo
+constr 8251:8253 <> bar
+constr 8274:8276 <> baz
+constr 8297:8300 <> quux
+R8262:8264 Chap5 <> foo ind
+R8285:8287 Chap5 <> foo ind
+R8324:8326 Chap5 <> foo ind
+R8312:8314 Chap5 <> foo ind
+R8305:8307 Coq.Init.Datatypes <> nat ind
+R8340:8346 Chap5 <> foo_ind scheme
+ind 8360:8363 <> foo'
+constr 8388:8389 <> C1
+constr 8424:8425 <> C2
+R8413:8416 Chap5 <> foo' ind
+R8403:8406 Chap5 <> foo' ind
+R8393:8396 Chap3 <> list ind
+R8429:8432 Chap5 <> foo' ind
+R8444:8451 Chap5 <> foo'_ind scheme
+def 8466:8470 <> P_m0r
+R8475:8477 Coq.Init.Datatypes <> nat ind
+R8497:8499 Coq.Init.Logic <> :type_scope:x_'='_x not
+R8493:8495 Chap1 <> :nat_scope:x_'*'_x not
+R8492:8492 Chap5 <> n var
+def 8515:8520 <> P_m0r'
+R8524:8526 Coq.Init.Datatypes <> nat ind
+R8553:8555 Coq.Init.Logic <> :type_scope:x_'='_x not
+R8549:8551 Chap1 <> :nat_scope:x_'*'_x not
+R8548:8548 Chap5 <> n var
+prf 8568:8577 <> mult_0_r''
+R8590:8592 Coq.Init.Datatypes <> nat ind
+R8597:8601 Chap5 <> P_m0r def
+R8603:8603 Chap5 <> n var
+R8621:8627 Coq.Init.Datatypes <> nat_ind scheme
+R8621:8627 Coq.Init.Datatypes <> nat_ind scheme
+R8735:8739 Chap5 <> P_m0r def
+mod 8794:8794 <> P
+ind 8808:8808 P p
+constr 8846:8847 P c1
+constr 8881:8882 P c2
+constr 8972:8973 P c3
+R8826:8828 Coq.Init.Datatypes <> nat ind
+R8813:8816 Chap5 P tree ind
+R8818:8820 Coq.Init.Datatypes <> nat ind
+R8861:8861 Chap5 <> p ind
+R8864:8867 Chap5 P leaf constr
+R8871:8871 Chap5 <> n var
+R8940:8940 Chap5 <> p ind
+R8960:8962 Chap1 <> :nat_scope:x_'+'_x not
+R8958:8959 Chap5 <> n1 var
+R8963:8964 Chap5 <> n2 var
+R8943:8946 Chap5 P node constr
+R8953:8954 Chap5 <> t2 var
+R8950:8951 Chap5 <> t1 var
+R8929:8929 Chap5 <> p ind
+R8934:8935 Chap5 <> n2 var
+R8931:8932 Chap5 <> t2 var
+R8918:8918 Chap5 <> p ind
+R8923:8924 Chap5 <> n1 var
+R8920:8921 Chap5 <> t1 var
+R8998:8998 Chap5 <> p ind
+R9003:9003 Coq.Init.Datatypes <> S constr
+R9005:9005 Chap5 <> n var
+R9000:9000 Chap5 <> t var
+R8989:8989 Chap5 <> p ind
+R8993:8993 Chap5 <> n var
+R8991:8991 Chap5 <> t var
+R9099:9099 Chap5 <> <> mod
+prf 9111:9121 <> plus_assoc'
+R9140:9142 Coq.Init.Datatypes <> nat ind
+R9158:9160 Coq.Init.Logic <> :type_scope:x_'='_x not
+R9148:9151 Chap1 <> :nat_scope:x_'+'_x not
+R9157:9157 Chap1 <> :nat_scope:x_'+'_x not
+R9147:9147 Chap5 <> n var
+R9153:9155 Chap1 <> :nat_scope:x_'+'_x not
+R9152:9152 Chap5 <> m var
+R9156:9156 Chap5 <> p var
+R9161:9161 Chap1 <> :nat_scope:x_'+'_x not
+R9167:9170 Chap1 <> :nat_scope:x_'+'_x not
+R9163:9165 Chap1 <> :nat_scope:x_'+'_x not
+R9162:9162 Chap5 <> n var
+R9166:9166 Chap5 <> m var
+R9171:9171 Chap5 <> p var
+prf 9292:9301 <> plus_comm'
+R9318:9320 Coq.Init.Datatypes <> nat ind
+R9330:9332 Coq.Init.Logic <> :type_scope:x_'='_x not
+R9326:9328 Chap1 <> :nat_scope:x_'+'_x not
+R9325:9325 Chap5 <> n var
+R9329:9329 Chap5 <> m var
+R9334:9336 Chap1 <> :nat_scope:x_'+'_x not
+R9333:9333 Chap5 <> m var
+R9337:9337 Chap5 <> n var
+R9409:9416 Chap1 <> plus_O_r thm
+R9409:9416 Chap1 <> plus_O_r thm
+R9500:9508 Chap1 <> plus_n_Sm thm
+R9500:9508 Chap1 <> plus_n_Sm thm
+prf 9538:9548 <> plus_comm''
+R9565:9567 Coq.Init.Datatypes <> nat ind
+R9577:9579 Coq.Init.Logic <> :type_scope:x_'='_x not
+R9573:9575 Chap1 <> :nat_scope:x_'+'_x not
+R9572:9572 Chap5 <> n var
+R9576:9576 Chap5 <> m var
+R9581:9583 Chap1 <> :nat_scope:x_'+'_x not
+R9580:9580 Chap5 <> m var
+R9584:9584 Chap5 <> n var
+R9653:9660 Chap1 <> plus_0_r thm
+R9653:9660 Chap1 <> plus_0_r thm
+R9734:9742 Chap1 <> plus_n_Sm thm
+R9734:9742 Chap1 <> plus_n_Sm thm
+def 9775:9786 <> p_plus_assoc
+R9793:9795 Coq.Init.Datatypes <> nat ind
+R9824:9826 Coq.Init.Datatypes <> nat ind
+R9843:9845 Coq.Init.Logic <> :type_scope:x_'='_x not
+R9831:9835 Chap1 <> :nat_scope:x_'+'_x not
+R9841:9842 Chap1 <> :nat_scope:x_'+'_x not
+R9830:9830 Chap5 <> n var
+R9837:9839 Chap1 <> :nat_scope:x_'+'_x not
+R9836:9836 Chap5 <> m var
+R9840:9840 Chap5 <> p var
+R9846:9847 Chap1 <> :nat_scope:x_'+'_x not
+R9853:9857 Chap1 <> :nat_scope:x_'+'_x not
+R9849:9851 Chap1 <> :nat_scope:x_'+'_x not
+R9848:9848 Chap5 <> n var
+R9852:9852 Chap5 <> m var
+R9858:9858 Chap5 <> p var
+prf 9870:9881 <> plus_assoc''
+R9897:9899 Coq.Init.Datatypes <> nat ind
+R9905:9916 Chap5 <> p_plus_assoc def
+R9918:9918 Chap5 <> n var
+R9936:9942 Coq.Init.Datatypes <> nat_ind scheme
+R9936:9942 Coq.Init.Datatypes <> nat_ind scheme
+R9954:9965 Chap5 <> p_plus_assoc def
+R9990:10001 Chap5 <> p_plus_assoc def
+def 10067:10077 <> p_plus_comm
+R10084:10086 Coq.Init.Datatypes <> nat ind
+R10113:10115 Coq.Init.Datatypes <> nat ind
+R10124:10126 Coq.Init.Logic <> :type_scope:x_'='_x not
+R10120:10122 Chap1 <> :nat_scope:x_'+'_x not
+R10119:10119 Chap5 <> n var
+R10123:10123 Chap5 <> m var
+R10128:10130 Chap1 <> :nat_scope:x_'+'_x not
+R10127:10127 Chap5 <> m var
+R10131:10131 Chap5 <> n var
+prf 10143:10154 <> plus_comm'''
+R10170:10172 Coq.Init.Datatypes <> nat ind
+R10178:10188 Chap5 <> p_plus_comm def
+R10190:10190 Chap5 <> n var
+R10208:10214 Coq.Init.Datatypes <> nat_ind scheme
+R10208:10214 Coq.Init.Datatypes <> nat_ind scheme
+R10226:10236 Chap5 <> p_plus_comm def
+R10265:10272 Chap1 <> plus_0_r thm
+R10265:10272 Chap1 <> plus_0_r thm
+R10297:10307 Chap5 <> p_plus_comm def
+R10329:10337 Chap1 <> plus_n_Sm thm
+R10329:10337 Chap1 <> plus_n_Sm thm
+def 10384:10411 <> true_upto_n__true_everywhere
+R10418:10420 Coq.Init.Datatypes <> nat ind
+R10428:10430 Coq.Init.Datatypes <> nat ind
+R10459:10459 Chap5 <> n var
+R10470:10470 Coq.Init.Datatypes <> O constr
+R10488:10490 Coq.Init.Datatypes <> nat ind
+R10494:10494 Chap5 <> p var
+R10496:10496 Chap5 <> m var
+R10503:10503 Coq.Init.Datatypes <> S constr
+R10523:10550 Chap5 <> true_upto_n__true_everywhere def
+R10554:10554 Chap5 <> p var
+R10552:10552 Chap5 <> n var
+R10511:10511 Chap5 <> p var
+R10514:10514 Coq.Init.Datatypes <> S constr
+R10516:10516 Chap5 <> n var
+def 10572:10590 <> true_upto_n_example
+R10598:10598 Coq.Init.Logic <> :type_scope:x_'='_x not
+R10647:10653 Coq.Init.Logic <> :type_scope:x_'='_x not
+R10706:10706 Coq.Init.Logic <> :type_scope:x_'='_x not
+R10599:10626 Chap5 <> true_upto_n__true_everywhere def
+R10640:10643 Chap5 <> even def
+R10645:10645 Chap5 <> n var
+R10695:10697 Coq.Init.Datatypes <> nat ind
+R10700:10703 Chap5 <> even def
+R10705:10705 Chap5 <> m var
+R10674:10677 Chap5 <> even def
+R10664:10667 Chap5 <> even def
+R10654:10657 Chap5 <> even def
+ind 10745:10747 <> pal
+constr 10784:10787 <> pal1
+constr 10803:10804 <> c2
+constr 10832:10833 <> c3
+R10761:10764 Chap3 <> list ind
+R10791:10793 Chap5 <> pal ind
+R10795:10797 Chap3 <> nil constr
+R10820:10822 Chap5 <> pal ind
+R10824:10824 Chap3 <> ::'['_x_','_'..'_','_x_']' not
+R10826:10826 Chap3 <> ::'['_x_','_'..'_','_x_']' not
+R10825:10825 Chap5 <> x var
+R10853:10856 Chap3 <> list ind
+R10873:10875 Chap5 <> pal ind
+R10879:10883 Chap3 <> ::x_'::'_x not
+R10892:10892 Chap3 <> ::x_'::'_x not
+R10878:10878 Chap5 <> x var
+R10884:10887 Chap3 <> snoc def
+R10891:10891 Chap5 <> x var
+R10889:10889 Chap5 <> l var
+R10863:10865 Chap5 <> pal ind
+R10867:10867 Chap5 <> l var
+ind 10907:10910 <> pal2
+constr 10947:10947 <> c
+R10924:10927 Chap3 <> list ind
+R10964:10967 Chap3 <> list ind
+R10991:10994 Chap5 <> pal2 ind
+R10996:10996 Chap5 <> l var
+R10977:10979 Coq.Init.Logic <> :type_scope:x_'='_x not
+R10976:10976 Chap5 <> l var
+R10980:10982 Chap3 <> rev def
+R10984:10984 Chap5 <> l var
+prf 11008:11016 <> pal_evens
+R11046:11049 Chap3 <> list ind
+R11051:11051 Chap5 <> X var
+R11058:11060 Chap5 <> pal ind
+R11065:11068 Chap3 <> ::x_'++'_x not
+R11064:11064 Chap5 <> l var
+R11069:11071 Chap3 <> rev def
+R11073:11073 Chap5 <> l var
+R11117:11120 Chap5 <> pal1 constr
+R11117:11120 Chap5 <> pal1 constr
+R11143:11158 Chap3 <> snoc_with_append thm
+R11143:11158 Chap3 <> snoc_with_append thm
+R11169:11170 Chap5 <> c3 constr
+R11169:11170 Chap5 <> c3 constr
+prf 11204:11211 <> pal_conv
+R11241:11244 Chap3 <> list ind
+R11246:11246 Chap5 <> X var
+R11263:11265 Coq.Init.Logic <> :type_scope:x_'='_x not
+R11262:11262 Chap5 <> l var
+R11266:11268 Chap3 <> rev def
+R11270:11270 Chap5 <> l var
+R11253:11255 Chap5 <> pal ind
+R11257:11257 Chap5 <> l var
+R11357:11364 Chap3 <> rev_snoc thm
+R11357:11364 Chap3 <> rev_snoc thm
+def 11430:11436 <> pal_len
+R11441:11443 Coq.Init.Datatypes <> nat ind
+R11470:11473 Chap3 <> list ind
+R11475:11475 Chap5 <> X var
+R11511:11513 Chap5 <> pal ind
+R11515:11515 Chap5 <> l var
+R11499:11501 Coq.Init.Logic <> :type_scope:x_'='_x not
+R11498:11498 Chap5 <> l var
+R11502:11504 Chap3 <> rev def
+R11506:11506 Chap5 <> l var
+R11482:11484 Coq.Init.Logic <> :type_scope:x_'='_x not
+R11481:11481 Chap5 <> n var
+R11485:11490 Chap3 <> length def
+R11492:11492 Chap5 <> l var
+prf 11527:11534 <> pal_0len
+R11538:11544 Chap5 <> pal_len def
+R11565:11571 Chap5 <> pal_len def
+R11606:11609 Chap5 <> pal1 constr
+R11606:11609 Chap5 <> pal1 constr
+prf 11643:11650 <> pal_1len
+R11654:11660 Chap5 <> pal_len def
+R11681:11687 Chap5 <> pal_len def
+R11722:11725 Chap5 <> pal1 constr
+R11722:11725 Chap5 <> pal1 constr
+R11750:11751 Chap5 <> c2 constr
+R11750:11751 Chap5 <> c2 constr
+prf 11785:11792 <> snoc_inv
+R11822:11825 Chap3 <> list ind
+R11827:11827 Chap5 <> X var
+R11833:11833 Chap5 <> X var
+R11866:11868 Coq.Init.Logic <> :type_scope:x_'='_x not
+R11864:11865 Chap5 <> l1 var
+R11869:11870 Chap5 <> l2 var
+R11848:11850 Coq.Init.Logic <> :type_scope:x_'='_x not
+R11839:11842 Chap3 <> snoc def
+R11847:11847 Chap5 <> x var
+R11844:11845 Chap5 <> l1 var
+R11851:11854 Chap3 <> snoc def
+R11859:11859 Chap5 <> x var
+R11856:11857 Chap5 <> l2 var
+R12171:12173 Coq.Init.Logic <> :type_scope:x_'='_x not
+R12171:12173 Coq.Init.Logic <> :type_scope:x_'='_x not
+prf 12253:12263 <> length_snoc
+R12289:12292 Chap3 <> list ind
+R12294:12294 Chap5 <> X var
+R12300:12300 Chap5 <> X var
+R12323:12325 Coq.Init.Logic <> :type_scope:x_'='_x not
+R12306:12311 Chap3 <> length def
+R12314:12317 Chap3 <> snoc def
+R12321:12321 Chap5 <> x var
+R12319:12319 Chap5 <> l var
+R12326:12326 Coq.Init.Datatypes <> S constr
+R12329:12334 Chap3 <> length def
+R12336:12336 Chap5 <> l var
+def 12444:12449 <> palimp
+R12454:12456 Coq.Init.Datatypes <> nat ind
+R12492:12498 Chap5 <> pal_len def
+R12502:12502 Chap1 <> :nat_scope:x_'+'_x not
+R12501:12501 Chap5 <> n var
+R12475:12481 Chap5 <> pal_len def
+R12485:12485 Chap1 <> :nat_scope:x_'+'_x not
+R12484:12484 Chap5 <> n var
+R12462:12468 Chap5 <> pal_len def
+R12470:12470 Chap5 <> n var
+prf 12516:12526 <> palimptauto
+R12540:12542 Coq.Init.Datatypes <> nat ind
+R12546:12551 Chap5 <> palimp def
+R12553:12553 Chap5 <> n var
+R12582:12587 Chap5 <> palimp def
+R12599:12605 Chap5 <> pal_len def
+R12638:12641 Chap5 <> pal1 constr
+R12638:12641 Chap5 <> pal1 constr
+R12664:12665 Chap5 <> c2 constr
+R12664:12665 Chap5 <> c2 constr
+R12682:12685 Chap3 <> ::x_'::'_x not
+R12682:12685 Chap3 <> ::x_'::'_x not
+R12708:12710 Coq.Init.Logic <> :type_scope:x_'='_x not
+R12711:12713 Chap3 <> rev def
+R12716:12718 Chap3 <> rev def
+R12708:12710 Coq.Init.Logic <> :type_scope:x_'='_x not
+R12711:12713 Chap3 <> rev def
+R12716:12718 Chap3 <> rev def
+R12738:12751 Chap3 <> rev_involutive thm
+R12738:12751 Chap3 <> rev_involutive thm
+R12800:12802 Coq.Init.Logic <> :type_scope:x_'='_x not
+R12794:12797 Chap3 <> ::x_'::'_x not
+R12804:12807 Chap3 <> ::x_'::'_x not
+R12808:12810 Chap3 <> rev def
+R12813:12815 Chap3 <> rev def
+R12800:12802 Coq.Init.Logic <> :type_scope:x_'='_x not
+R12794:12797 Chap3 <> ::x_'::'_x not
+R12804:12807 Chap3 <> ::x_'::'_x not
+R12808:12810 Chap3 <> rev def
+R12813:12815 Chap3 <> rev def
+R12887:12889 Chap3 <> rev def
+R12887:12889 Chap3 <> rev def
+R12921:12922 Chap5 <> c2 constr
+R12921:12922 Chap5 <> c2 constr
+R13024:13025 Chap5 <> c3 constr
+R13024:13025 Chap5 <> c3 constr
+R13081:13083 Coq.Init.Logic <> :type_scope:x_'='_x not
+R13077:13079 Chap1 <> :nat_scope:x_'+'_x not
+R13085:13087 Chap1 <> :nat_scope:x_'+'_x not
+R13081:13083 Coq.Init.Logic <> :type_scope:x_'='_x not
+R13077:13079 Chap1 <> :nat_scope:x_'+'_x not
+R13085:13087 Chap1 <> :nat_scope:x_'+'_x not
+R13102:13110 Chap1 <> plus_comm thm
+R13102:13110 Chap1 <> plus_comm thm
+R13162:13172 Chap5 <> length_snoc thm
+R13162:13172 Chap5 <> length_snoc thm
+R13207:13214 Chap5 <> snoc_inv thm
+R13207:13214 Chap5 <> snoc_inv thm
+R13260:13273 Chap3 <> rev_involutive thm
+R13260:13273 Chap3 <> rev_involutive thm
+prf 13304:13311 <> imp2conj
+R13325:13327 Coq.Init.Datatypes <> nat ind
+R13400:13402 Coq.Init.Datatypes <> nat ind
+R13427:13427 Coq.Init.Logic <> :type_scope:x_'/\'_x not
+R13435:13438 Coq.Init.Logic <> :type_scope:x_'/\'_x not
+R13446:13446 Coq.Init.Logic <> :type_scope:x_'/\'_x not
+R13428:13428 Chap5 <> p var
+R13432:13432 Chap1 <> :nat_scope:x_'+'_x not
+R13431:13431 Chap5 <> n var
+R13439:13439 Chap5 <> p var
+R13443:13443 Chap1 <> :nat_scope:x_'+'_x not
+R13442:13442 Chap5 <> n var
+R13407:13407 Coq.Init.Logic <> :type_scope:x_'/\'_x not
+R13411:13414 Coq.Init.Logic <> :type_scope:x_'/\'_x not
+R13422:13422 Coq.Init.Logic <> :type_scope:x_'/\'_x not
+R13408:13408 Chap5 <> p var
+R13410:13410 Chap5 <> n var
+R13415:13415 Chap5 <> p var
+R13419:13419 Chap1 <> :nat_scope:x_'+'_x not
+R13418:13418 Chap5 <> n var
+R13349:13351 Coq.Init.Datatypes <> nat ind
+R13375:13375 Chap5 <> p var
+R13379:13379 Chap1 <> :nat_scope:x_'+'_x not
+R13378:13378 Chap5 <> n var
+R13364:13364 Chap5 <> p var
+R13368:13368 Chap1 <> :nat_scope:x_'+'_x not
+R13367:13367 Chap5 <> n var
+R13357:13357 Chap5 <> p var
+R13359:13359 Chap5 <> n var
+def 13559:13562 <> tupn
+R13567:13569 Coq.Init.Datatypes <> nat ind
+R13581:13583 Coq.Init.Datatypes <> nat ind
+R13589:13589 Coq.Init.Logic <> :type_scope:x_'/\'_x not
+R13593:13596 Coq.Init.Logic <> :type_scope:x_'/\'_x not
+R13604:13604 Coq.Init.Logic <> :type_scope:x_'/\'_x not
+R13590:13590 Chap5 <> p var
+R13592:13592 Chap5 <> n var
+R13597:13597 Chap5 <> p var
+R13601:13601 Chap1 <> :nat_scope:x_'+'_x not
+R13600:13600 Chap5 <> n var
+prf 13616:13621 <> indtup
+R13635:13637 Coq.Init.Datatypes <> nat ind
+R13707:13734 Chap5 <> true_upto_n__true_everywhere def
+R13738:13738 Chap5 <> p var
+R13700:13700 Chap5 <> p var
+R13659:13661 Coq.Init.Datatypes <> nat ind
+R13685:13685 Chap5 <> p var
+R13689:13689 Chap1 <> :nat_scope:x_'+'_x not
+R13688:13688 Chap5 <> n var
+R13674:13674 Chap5 <> p var
+R13678:13678 Chap1 <> :nat_scope:x_'+'_x not
+R13677:13677 Chap5 <> n var
+R13667:13667 Chap5 <> p var
+R13669:13669 Chap5 <> n var
+R13758:13785 Chap5 <> true_upto_n__true_everywhere def
+R13817:13819 Coq.Init.Datatypes <> nat ind
+R13843:13843 Coq.Init.Logic <> :type_scope:x_'/\'_x not
+R13851:13854 Coq.Init.Logic <> :type_scope:x_'/\'_x not
+R13862:13862 Coq.Init.Logic <> :type_scope:x_'/\'_x not
+R13848:13848 Chap1 <> :nat_scope:x_'+'_x not
+R13847:13847 Chap5 <> n var
+R13859:13859 Chap1 <> :nat_scope:x_'+'_x not
+R13858:13858 Chap5 <> n var
+R13823:13823 Coq.Init.Logic <> :type_scope:x_'/\'_x not
+R13827:13830 Coq.Init.Logic <> :type_scope:x_'/\'_x not
+R13838:13838 Coq.Init.Logic <> :type_scope:x_'/\'_x not
+R13826:13826 Chap5 <> n var
+R13835:13835 Chap1 <> :nat_scope:x_'+'_x not
+R13834:13834 Chap5 <> n var
+R13817:13819 Coq.Init.Datatypes <> nat ind
+R13843:13843 Coq.Init.Logic <> :type_scope:x_'/\'_x not
+R13851:13854 Coq.Init.Logic <> :type_scope:x_'/\'_x not
+R13862:13862 Coq.Init.Logic <> :type_scope:x_'/\'_x not
+R13848:13848 Chap1 <> :nat_scope:x_'+'_x not
+R13847:13847 Chap5 <> n var
+R13859:13859 Chap1 <> :nat_scope:x_'+'_x not
+R13858:13858 Chap5 <> n var
+R13823:13823 Coq.Init.Logic <> :type_scope:x_'/\'_x not
+R13827:13830 Coq.Init.Logic <> :type_scope:x_'/\'_x not
+R13838:13838 Coq.Init.Logic <> :type_scope:x_'/\'_x not
+R13826:13826 Chap5 <> n var
+R13835:13835 Chap1 <> :nat_scope:x_'+'_x not
+R13834:13834 Chap5 <> n var
+R13877:13884 Chap5 <> imp2conj thm
+R13877:13884 Chap5 <> imp2conj thm
+R13919:13921 Coq.Init.Datatypes <> nat ind
+R13926:13929 Chap5 <> tupn def
+R13933:13933 Chap5 <> n var
+R13919:13921 Coq.Init.Datatypes <> nat ind
+R13926:13929 Chap5 <> tupn def
+R13933:13933 Chap5 <> n var
+R13947:13950 Chap5 <> tupn def
+R14016:14016 Coq.Init.Datatypes <> S constr
+R14028:14030 Chap1 <> :nat_scope:x_'+'_x not
+R14028:14030 Chap1 <> :nat_scope:x_'+'_x not
+R14016:14016 Coq.Init.Datatypes <> S constr
+R14051:14053 Chap1 <> :nat_scope:x_'+'_x not
+R14047:14049 Chap1 <> :nat_scope:x_'+'_x not
+R14064:14066 Chap1 <> :nat_scope:x_'+'_x not
+R14064:14066 Chap1 <> :nat_scope:x_'+'_x not
+R14051:14053 Chap1 <> :nat_scope:x_'+'_x not
+R14047:14049 Chap1 <> :nat_scope:x_'+'_x not
+R14109:14117 Chap1 <> plus_comm thm
+R14109:14117 Chap1 <> plus_comm thm
+R14140:14148 Chap1 <> plus_comm thm
+R14140:14148 Chap1 <> plus_comm thm
+R14169:14177 Chap1 <> plus_comm thm
+R14169:14177 Chap1 <> plus_comm thm
+R14213:14221 Chap1 <> plus_comm thm
+R14213:14221 Chap1 <> plus_comm thm
+R14255:14258 Chap5 <> tupn def
+R14276:14276 Coq.Init.Logic <> :type_scope:x_'/\'_x not
+R14280:14283 Coq.Init.Logic <> :type_scope:x_'/\'_x not
+R14291:14291 Coq.Init.Logic <> :type_scope:x_'/\'_x not
+R14288:14288 Chap1 <> :nat_scope:x_'+'_x not
+R14276:14276 Coq.Init.Logic <> :type_scope:x_'/\'_x not
+R14280:14283 Coq.Init.Logic <> :type_scope:x_'/\'_x not
+R14291:14291 Coq.Init.Logic <> :type_scope:x_'/\'_x not
+R14288:14288 Chap1 <> :nat_scope:x_'+'_x not
+prf 14359:14365 <> pal_def
+R14379:14381 Coq.Init.Datatypes <> nat ind
+R14403:14406 Chap3 <> list ind
+R14408:14408 Chap5 <> X var
+R14446:14448 Chap5 <> pal ind
+R14450:14450 Chap5 <> l var
+R14434:14436 Coq.Init.Logic <> :type_scope:x_'='_x not
+R14433:14433 Chap5 <> l var
+R14437:14439 Chap3 <> rev def
+R14441:14441 Chap5 <> l var
+R14416:14419 Coq.Init.Logic <> :type_scope:x_'='_x not
+R14428:14428 Coq.Init.Logic <> :type_scope:x_'='_x not
+R14415:14415 Chap5 <> n var
+R14420:14425 Chap3 <> length def
+R14427:14427 Chap5 <> l var
+R14479:14481 Coq.Init.Datatypes <> nat ind
+R14485:14491 Chap5 <> pal_len def
+R14493:14493 Chap5 <> n var
+R14479:14481 Coq.Init.Datatypes <> nat ind
+R14485:14491 Chap5 <> pal_len def
+R14493:14493 Chap5 <> n var
+R14521:14548 Chap5 <> true_upto_n__true_everywhere def
+R14552:14558 Chap5 <> pal_len def
+R14509:14515 Chap5 <> pal_len def
+R14521:14548 Chap5 <> true_upto_n__true_everywhere def
+R14552:14558 Chap5 <> pal_len def
+R14509:14515 Chap5 <> pal_len def
+R14575:14602 Chap5 <> true_upto_n__true_everywhere def
+R14631:14636 Chap5 <> indtup thm
+R14631:14636 Chap5 <> indtup thm
+R14651:14661 Chap5 <> palimptauto thm
+R14651:14661 Chap5 <> palimptauto thm
+R14676:14683 Chap5 <> pal_0len thm
+R14676:14683 Chap5 <> pal_0len thm
+R14698:14705 Chap5 <> pal_1len thm
+R14698:14705 Chap5 <> pal_1len thm
+R14719:14746 Chap5 <> true_upto_n__true_everywhere def
+R14777:14784 Chap5 <> pal_0len thm
+R14777:14784 Chap5 <> pal_0len thm
+R14797:14804 Chap5 <> pal_1len thm
+R14797:14804 Chap5 <> pal_1len thm
+R14816:14822 Chap5 <> pal_len def
+ind 14859:14864 <> subseq
+constr 14904:14907 <> sub1
+constr 14953:14956 <> sub3
+constr 15039:15042 <> sub2
+R14881:14884 Chap3 <> list ind
+R14886:14888 Coq.Init.Datatypes <> nat ind
+R14869:14872 Chap3 <> list ind
+R14874:14876 Coq.Init.Datatypes <> nat ind
+R14923:14926 Chap3 <> list ind
+R14928:14930 Coq.Init.Datatypes <> nat ind
+R14935:14940 Chap5 <> subseq ind
+R14946:14946 Chap5 <> l var
+R14942:14944 Chap3 <> nil constr
+R14972:14974 Coq.Init.Datatypes <> nat ind
+R14986:14989 Chap3 <> list ind
+R14991:14993 Coq.Init.Datatypes <> nat ind
+R15016:15021 Chap5 <> subseq ind
+R15028:15029 Chap3 <> ::x_'::'_x not
+R15027:15027 Chap5 <> x var
+R15030:15031 Chap5 <> l2 var
+R15023:15024 Chap5 <> l1 var
+R14998:15003 Chap5 <> subseq ind
+R15008:15009 Chap5 <> l2 var
+R15005:15006 Chap5 <> l1 var
+R15058:15060 Coq.Init.Datatypes <> nat ind
+R15071:15074 Chap3 <> list ind
+R15076:15078 Coq.Init.Datatypes <> nat ind
+R15099:15104 Chap5 <> subseq ind
+R15116:15117 Chap3 <> ::x_'::'_x not
+R15115:15115 Chap5 <> x var
+R15118:15119 Chap5 <> l2 var
+R15108:15109 Chap3 <> ::x_'::'_x not
+R15107:15107 Chap5 <> x var
+R15110:15111 Chap5 <> l1 var
+R15083:15088 Chap5 <> subseq ind
+R15093:15094 Chap5 <> l2 var
+R15090:15091 Chap5 <> l1 var
+prf 15133:15140 <> nil_app2
+R15163:15166 Chap3 <> list ind
+R15168:15168 Chap5 <> X var
+R15181:15183 Coq.Init.Logic <> :type_scope:x_'='_x not
+R15175:15178 Chap3 <> ::x_'++'_x not
+R15174:15174 Chap5 <> l var
+R15179:15180 Chap3 <> ::'['_']' not
+R15184:15184 Chap5 <> l var
+prf 15294:15303 <> subseqrefl
+R15320:15323 Chap3 <> list ind
+R15325:15327 Coq.Init.Datatypes <> nat ind
+R15334:15339 Chap5 <> subseq ind
+R15343:15343 Chap5 <> l var
+R15341:15341 Chap5 <> l var
+R15387:15390 Chap5 <> sub1 constr
+R15387:15390 Chap5 <> sub1 constr
+R15401:15404 Chap5 <> sub2 constr
+R15401:15404 Chap5 <> sub2 constr
+prf 15436:15442 <> app_con
+R15464:15464 Chap5 <> X var
+R15475:15478 Chap3 <> list ind
+R15480:15480 Chap5 <> X var
+R15499:15501 Coq.Init.Logic <> :type_scope:x_'='_x not
+R15488:15491 Chap3 <> ::x_'++'_x not
+R15486:15487 Chap5 <> l1 var
+R15493:15496 Chap3 <> ::x_'::'_x not
+R15492:15492 Chap5 <> x var
+R15497:15498 Chap5 <> l2 var
+R15502:15502 Chap3 <> ::x_'++'_x not
+R15512:15516 Chap3 <> ::x_'++'_x not
+R15505:15508 Chap3 <> ::x_'++'_x not
+R15503:15504 Chap5 <> l1 var
+R15509:15509 Chap3 <> ::'['_x_','_'..'_','_x_']' not
+R15511:15511 Chap3 <> ::'['_x_','_'..'_','_x_']' not
+R15510:15510 Chap5 <> x var
+R15517:15518 Chap5 <> l2 var
+R15609:15611 Coq.Init.Logic <> :type_scope:x_'='_x not
+R15598:15601 Chap3 <> ::x_'++'_x not
+R15603:15606 Chap3 <> ::x_'::'_x not
+R15612:15612 Chap3 <> ::x_'++'_x not
+R15622:15626 Chap3 <> ::x_'++'_x not
+R15615:15618 Chap3 <> ::x_'++'_x not
+R15619:15619 Chap3 <> ::'['_x_','_'..'_','_x_']' not
+R15621:15621 Chap3 <> ::'['_x_','_'..'_','_x_']' not
+R15609:15611 Coq.Init.Logic <> :type_scope:x_'='_x not
+R15598:15601 Chap3 <> ::x_'++'_x not
+R15603:15606 Chap3 <> ::x_'::'_x not
+R15612:15612 Chap3 <> ::x_'++'_x not
+R15622:15626 Chap3 <> ::x_'++'_x not
+R15615:15618 Chap3 <> ::x_'++'_x not
+R15619:15619 Chap3 <> ::'['_x_','_'..'_','_x_']' not
+R15621:15621 Chap3 <> ::'['_x_','_'..'_','_x_']' not
+prf 15713:15717 <> subin
+R15741:15744 Chap3 <> list ind
+R15746:15748 Coq.Init.Datatypes <> nat ind
+R15773:15778 Chap5 <> subseq ind
+R15786:15787 Chap3 <> ::x_'++'_x not
+R15784:15785 Chap5 <> l2 var
+R15788:15789 Chap5 <> l3 var
+R15780:15781 Chap5 <> l1 var
+R15755:15760 Chap5 <> subseq ind
+R15765:15766 Chap5 <> l2 var
+R15762:15763 Chap5 <> l1 var
+R15887:15890 Chap5 <> sub1 constr
+R15887:15890 Chap5 <> sub1 constr
+R15927:15930 Chap5 <> sub1 constr
+R15927:15930 Chap5 <> sub1 constr
+R15957:15962 Chap5 <> subseq ind
+R15970:15973 Chap3 <> ::x_'++'_x not
+R15957:15962 Chap5 <> subseq ind
+R15970:15973 Chap3 <> ::x_'++'_x not
+R16040:16043 Chap5 <> sub3 constr
+R16040:16043 Chap5 <> sub3 constr
+R16092:16095 Chap5 <> sub2 constr
+R16092:16095 Chap5 <> sub2 constr
+prf 16140:16147 <> app_left
+R16175:16178 Chap3 <> list ind
+R16180:16180 Chap5 <> X var
+R16208:16210 Coq.Init.Logic <> :type_scope:x_'='_x not
+R16206:16207 Chap5 <> l1 var
+R16211:16212 Chap3 <> ::'['_']' not
+R16195:16197 Coq.Init.Logic <> :type_scope:x_'='_x not
+R16189:16192 Chap3 <> ::x_'++'_x not
+R16187:16188 Chap5 <> l1 var
+R16193:16194 Chap5 <> l2 var
+R16198:16199 Chap3 <> ::'['_']' not
+prf 16308:16316 <> sub_trans
+R16340:16343 Chap3 <> list ind
+R16345:16347 Coq.Init.Datatypes <> nat ind
+R16390:16395 Chap5 <> subseq ind
+R16400:16401 Chap5 <> l3 var
+R16397:16398 Chap5 <> l1 var
+R16372:16377 Chap5 <> subseq ind
+R16382:16383 Chap5 <> l3 var
+R16379:16380 Chap5 <> l2 var
+R16354:16359 Chap5 <> subseq ind
+R16364:16365 Chap5 <> l2 var
+R16361:16362 Chap5 <> l1 var
+R16563:16566 Chap5 <> sub1 constr
+R16563:16566 Chap5 <> sub1 constr
+R16640:16643 Chap5 <> sub1 constr
+R16640:16643 Chap5 <> sub1 constr
+R16654:16657 Chap5 <> sub3 constr
+R16654:16657 Chap5 <> sub3 constr
+R16785:16788 Chap5 <> sub1 constr
+R16785:16788 Chap5 <> sub1 constr
+R16799:16802 Chap5 <> sub3 constr
+R16799:16802 Chap5 <> sub3 constr
+R16867:16870 Chap5 <> sub2 constr
+R16867:16870 Chap5 <> sub2 constr

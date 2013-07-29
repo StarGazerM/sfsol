@@ -1,4 +1,4 @@
-Add LoadPath "D:\sfsol".
+Add LoadPath "F:\sfsol".
 Require Export Chap4.
 
 Inductive beautiful : nat -> Prop :=
@@ -422,3 +422,378 @@ Proof.
     unfold P_m0r. simpl. intros n' IHn'.
     apply IHn'. Qed.
 
+Module P.
+
+Inductive p : (tree nat) -> nat -> Prop :=
+   | c1 : forall n, p (leaf _ n) 1
+   | c2 : forall t1 t2 n1 n2,
+            p t1 n1 -> p t2 n2 -> p (node _ t1 t2) (n1 + n2)
+   | c3 : forall t n, p t n -> p t (S n).
+
+(* p t n is provale for all n>=size(t) where 
+size(t) is number of elements in t *)
+
+End P.
+
+Theorem plus_assoc' : forall n m p : nat,
+  n + (m + p) = (n + m) + p.
+Proof.
+  intros n m p.
+  induction n as [| n'].
+  reflexivity.
+  simpl. rewrite -> IHn'. reflexivity.
+  Qed.
+
+Theorem plus_comm' : forall n m : nat,
+  n + m = m + n.
+Proof.
+  induction n as [| n'].
+  Case "n = O". intros m. rewrite -> plus_O_r. reflexivity.
+  Case "n = S n'". intros m. simpl. rewrite -> IHn'.
+    rewrite <- plus_n_Sm. reflexivity. Qed.
+
+Theorem plus_comm'' : forall n m : nat,
+  n + m = m + n.
+Proof.
+  induction m as [| m'].
+  Case "m = O". simpl. rewrite -> plus_0_r. reflexivity.
+  Case "m = S m'". simpl. rewrite <- IHm'.
+    rewrite <- plus_n_Sm. reflexivity. Qed.
+
+Definition p_plus_assoc (n : nat) : Prop :=
+  forall (m p : nat), n + ( m + p ) = ( n + m ) + p.
+
+Theorem plus_assoc'' : forall (n : nat),
+  p_plus_assoc n.
+Proof.
+  apply nat_ind.
+  unfold p_plus_assoc. reflexivity.
+  unfold p_plus_assoc. intros. simpl. rewrite -> H.
+  reflexivity.
+  Qed.
+
+Definition p_plus_comm (n : nat) : Prop :=
+  forall (m : nat), n + m = m + n.
+
+Theorem plus_comm''' : forall (n : nat),
+  p_plus_comm n.
+Proof.
+  apply nat_ind.
+  unfold p_plus_comm. intros. simpl. rewrite -> plus_0_r. reflexivity.
+  unfold p_plus_comm. intros. rewrite <- plus_n_Sm. rewrite <- H.
+  reflexivity. Qed.
+
+Fixpoint true_upto_n__true_everywhere (n : nat) (p : nat -> Prop) : Prop :=
+  match n with
+  | O => (forall (m : nat), p m)
+  | S n => (p (S n)) -> true_upto_n__true_everywhere n p
+  end.
+
+Example true_upto_n_example :
+    (true_upto_n__true_everywhere 3 (fun n => even n))
+  = (even 3 -> even 2 -> even 1 -> forall m : nat, even m).
+Proof. reflexivity. Qed.
+
+Inductive pal {X:Type} : (list X) -> Prop :=
+  | pal1 : pal nil
+  | c2 : forall x:X, pal [x]
+  | c3 : forall (x:X) (l:list X), (pal l) -> pal (x :: (snoc l x)).
+
+Inductive pal2 {X:Type} : (list X) -> Prop :=
+  | c : forall ( l : list X ), ( l = rev l ) -> pal2 l.
+
+Theorem pal_evens : forall ( X : Type ) ( l : list X ),
+  pal ( l ++ rev l).
+Proof.
+  intros.
+  induction l.
+  apply pal1.
+  simpl. rewrite <- snoc_with_append.
+  apply c3.
+  apply IHl.
+  Qed.
+  
+Theorem pal_conv : forall ( X : Type ) ( l : list X ),
+  pal l -> l = rev l.
+Proof.
+  intros.
+  induction H.
+  reflexivity.
+  reflexivity.
+  simpl.
+  rewrite -> rev_snoc.
+  simpl.
+  rewrite <- IHpal.
+  reflexivity.
+  Qed.
+
+Definition pal_len (n:nat) := forall (X:Type) (l : list X),
+  n = length(l) -> l = rev l -> pal l.
+
+Theorem pal_0len : pal_len 0.
+Proof.
+  unfold pal_len.
+  intros.
+  destruct l.
+  apply pal1.
+  inversion H.
+  Qed.
+
+Theorem pal_1len : pal_len 1.
+Proof.
+  unfold pal_len.
+  intros.
+  destruct l.
+  apply pal1.
+  destruct l.
+  apply c2.
+  inversion H.
+  Qed.
+
+Theorem snoc_inv : forall (X :Type) (l1 l2 : list X) (x:X),
+  snoc l1 x = snoc l2 x -> l1 = l2.
+Proof.
+  intros.
+  generalize dependent l2.
+  induction l1.
+  intros.
+  destruct l2.
+  reflexivity.
+  inversion H. destruct l2. inversion H2. inversion H2.
+  destruct l2.
+  intros. simpl in H. inversion H. destruct l1. inversion H2. inversion H2.
+  intros.
+  simpl in H.
+  inversion H.
+  assert (l1 = l2).
+  apply IHl1.
+  apply H2.
+  rewrite -> H0.
+  reflexivity.
+  Qed.
+
+Theorem length_snoc : forall (X :Type) (l : list X) (x:X),
+  length (snoc l x) = S (length l).
+Proof.
+  intros.
+  induction l.
+  reflexivity.
+  simpl. rewrite -> IHl. reflexivity.
+  Qed.
+
+Definition palimp (n:nat) := pal_len n -> pal_len (n+1) -> pal_len (n+2).
+
+Theorem palimptauto : forall (n:nat), palimp n.
+Proof.
+  intros.
+  unfold palimp.
+  unfold pal_len.
+  intros.
+  destruct l. apply pal1.
+  destruct l. apply c2.
+  remember (x0 :: l) as l'.
+  assert (l' = rev (rev l')).
+    rewrite rev_involutive. reflexivity.
+  inversion H2.
+  assert (x :: l' = x :: rev (rev l')).
+    rewrite <- H3. reflexivity.
+  rewrite H4 in H5.
+  destruct (rev l').
+  rewrite -> H4.
+  apply c2.
+  simpl in H5.
+  inversion H5.
+  rewrite <- H7.
+  rewrite -> H4.
+  simpl.
+  rewrite <- H7.
+  apply c3.
+  rewrite -> H4 in H1.
+  simpl in H1.
+  assert (n + 2 = 2 + n).
+    apply plus_comm.
+  rewrite H6 in H1.
+  inversion H1.
+  rewrite -> length_snoc in H10.
+  inversion H10.
+  apply snoc_inv in H8.
+  apply H.
+  apply H11.
+  rewrite -> rev_involutive.
+  apply H8.
+  Qed.
+
+Theorem imp2conj : forall (p:nat->Prop) , (forall (n:nat) , (p n)->(p (n+1))->(p (n+2)))->
+  (forall (n:nat), ((p n)/\(p (n+1)))->((p (n+1))/\(p (n+2)))).
+Proof.
+  intros.
+  inversion H0.
+  split.
+  apply H2.
+  apply H.
+  apply H1.
+  apply H2.
+  Qed.
+
+Definition tupn (p:nat->Prop) (n:nat) := (p n)/\(p (n+1)).
+
+Theorem indtup : forall (p:nat->Prop) , (forall (n:nat) , (p n)->(p (n+1))->(p (n+2)))->
+  (p 0)->(true_upto_n__true_everywhere 1 p).
+Proof.
+  unfold true_upto_n__true_everywhere.
+  intros.
+  assert(forall (n:nat),((p n)/\(p (n+1)))->((p (n+1))/\(p (n+2)))).
+    apply imp2conj.
+    apply H.
+  assert(forall (n:nat), (tupn p n)).
+  unfold tupn.
+  induction n.
+  split.
+    apply H0.
+    apply H1.
+  replace (S n) with (n + 1).
+  replace (n + 1 + 1) with (n + 2).
+  apply H2.
+  apply IHn.
+  rewrite -> plus_comm.
+  simpl. rewrite -> plus_comm. simpl. rewrite -> plus_comm. simpl. reflexivity.
+  rewrite -> plus_comm.
+  simpl. reflexivity.
+  unfold tupn in H3.
+  assert((p m)/\(p (m+1))).
+    apply H3.
+  decompose [and] H4.
+  apply H5.
+  Qed.
+
+Theorem pal_def : forall (n:nat) ( X : Type ) ( l : list X ),
+  n = (length l) -> l = rev l -> pal l.
+Proof.
+  assert(forall (n:nat), pal_len n).
+    assert((pal_len 0)->true_upto_n__true_everywhere 1 pal_len).
+      unfold true_upto_n__true_everywhere.
+      intros.
+      apply indtup.
+      apply palimptauto.
+      apply pal_0len.
+      apply pal_1len.
+    unfold true_upto_n__true_everywhere in H.
+    apply H.
+    apply pal_0len.
+    apply pal_1len.
+  unfold pal_len in H.
+  apply H.
+  Qed.
+
+Inductive subseq : (list nat)->(list nat)->Prop :=
+  | sub1 : forall (l : list nat), (subseq nil l)
+  | sub3 : forall (x : nat) (l1 l2 : list nat), (subseq l1 l2) -> (subseq l1 (x::l2))
+  | sub2 : forall (x : nat) (l1 l2: list nat), (subseq l1 l2)->(subseq (x::l1) (x::l2)).
+
+Theorem nil_app2 {X:Type} : forall (l:list X),
+  l ++ [] = l.
+Proof.
+  intros.
+  induction l.
+  reflexivity.
+  simpl.
+  rewrite -> IHl.
+  reflexivity.
+  Qed.  
+
+Theorem subseqrefl : forall ( l : list nat),
+  (subseq l l).
+Proof.
+  intros.
+  induction l.
+  apply sub1.
+  apply sub2.
+  apply IHl.
+  Qed.
+
+Theorem app_con {X:Type}: forall (x:X) (l1 l2: list X),
+  l1 ++ x :: l2 = (l1 ++ [x]) ++ l2.
+Proof.
+  induction l1.
+  simpl.
+  reflexivity.
+  simpl.
+  intros.
+  assert(l1 ++ x :: l2 = (l1 ++ [x]) ++ l2).
+  rewrite <- IHl1.
+  reflexivity.
+  rewrite -> H.
+  reflexivity.
+  Qed.
+
+Theorem subin : forall ( l1 l2 l3 : list nat),
+  (subseq l1 l2) -> (subseq l1 (l2++l3)).
+Proof.
+  intros.
+  generalize dependent l1.
+  induction l2.
+  intros.
+  inversion H.
+  apply sub1.
+  intros.
+  induction l1.
+  apply sub1.
+  inversion H.
+  assert(subseq l0 (l2 ++ l3)).
+  apply IHl2.
+  rewrite -> H1.
+  apply H2.
+  simpl.
+  apply sub3.
+  rewrite <- H1.
+  apply H4.
+  simpl.
+  apply sub2.
+  apply IHl2.
+  apply H1.
+  Qed.
+
+Theorem app_left {X:Type}: forall (l1 l2 : list X),
+  (l1 ++ l2 = []) -> (l1 = []).
+Proof.
+  intros.
+  destruct l1.
+  reflexivity.
+  simpl in H.
+  inversion H.
+  Qed.
+
+Theorem sub_trans : forall ( l1 l2 l3 : list nat),
+  (subseq l1 l2) -> (subseq l2 l3) -> (subseq l1 l3).
+Proof.
+  intros.
+  generalize dependent l1.
+  generalize dependent l2.
+  induction l3.
+  intros.
+  inversion H0.
+  rewrite <- H1 in H.
+  inversion H.
+  apply sub1.
+  intros.
+  inversion H0.
+  rewrite <- H1 in H.
+  inversion H.
+  apply sub1.
+  apply sub3.
+  apply IHl3 with (l2 := l2).
+  assumption.
+  assumption.
+  rewrite <- H2 in H.
+  rewrite -> H1 in H.
+  inversion H.
+  apply sub1.
+  apply sub3.
+  apply IHl3 with (l2 := l0).
+  apply H3.
+  apply H7.
+  apply sub2.
+  apply IHl3 with (l2 := l0).
+  apply H3.
+  apply H7.
+  Qed.
