@@ -857,7 +857,23 @@ Proof.
 || update st'0 i2 (aeval st'0 a2_1)). apply IHa2_1. constructor. auto.
   assert((i2 ::= subst_aexp i1 a1 a2_2) / st'0
 || update st'0 i2 (aeval st'0 a2_2)). apply IHa2_2. constructor. auto.
-  simpl. apply E_Ass. simpl.
+  inversion H6; subst. simpl. apply E_Ass. simpl.
+  assert(aeval st'0 (subst_aexp i1 a1 a2_1) = aeval st'0 a2_1).
+  inversion H0. rewrite H7.
+  assert (update st'0 i2 n i2 = update st'0 i2 (aeval st'0 a2_1) i2).
+    rewrite H8; auto.
+  rewrite update_eq in H9. rewrite update_eq in H9. auto.
+  assert(aeval st'0 (subst_aexp i1 a1 a2_2) = aeval st'0 a2_2).
+  inversion H1. rewrite H8.
+  assert (update st'0 i2 n i2 = update st'0 i2 (aeval st'0 a2_2) i2).
+    rewrite H9; auto.
+  rewrite update_eq in H10. rewrite update_eq in H10. auto.
+  rewrite H2. rewrite H4. auto. intros.
+  assert((i2 ::= subst_aexp i1 a1 a2_1) / st'0
+|| update st'0 i2 (aeval st'0 a2_1)). apply IHa2_1. constructor. auto.
+  assert((i2 ::= subst_aexp i1 a1 a2_2) / st'0
+|| update st'0 i2 (aeval st'0 a2_2)). apply IHa2_2. constructor. auto.
+  inversion H6; subst. simpl. apply E_Ass. simpl.
   assert(aeval st'0 (subst_aexp i1 a1 a2_1) = aeval st'0 a2_1).
   inversion H0. rewrite H7.
   assert (update st'0 i2 n i2 = update st'0 i2 (aeval st'0 a2_1) i2).
@@ -869,3 +885,160 @@ Proof.
     rewrite H9; auto.
   rewrite update_eq in H10. rewrite update_eq in H10. auto.
   rewrite H2. rewrite H4. auto.
+  apply E_Seq with st'0. auto.
+  generalize dependent st'.
+  induction a2; intros; inversion H6; subst; auto. destruct (eq_id_dec i1 i).
+  apply E_Ass. rewrite <- e. inversion H3; subst. 
+  assert(aeval (update st i (aeval st a1)) a1 = aeval st a1).
+  rewrite aeval_weakening; auto.
+  rewrite H1. simpl. apply update_eq.
+  apply E_Ass. auto.
+  assert((i2 ::= a2_1) / st'0 || update st'0 i2
+     (aeval st'0 (subst_aexp i1 a1 a2_1))).
+  apply IHa2_1. apply E_Seq with st'0. auto. apply E_Ass. auto. apply E_Ass. auto.
+  assert((i2 ::= a2_2) / st'0 || update st'0 i2
+     (aeval st'0 (subst_aexp i1 a1 a2_2))).
+  apply IHa2_2. apply E_Seq with st'0. auto. apply E_Ass. auto. apply E_Ass. auto.
+  inversion H1; subst. inversion H2; subst. apply E_Ass. simpl.
+  assert(aeval st'0 a2_1 = aeval st'0 (subst_aexp i1 a1 a2_1)).
+    symmetry. rewrite <- update_eq with (X:=i2) (st:=st'0). symmetry.
+    rewrite <- update_eq with (X:=i2) (st:=st'0). rewrite H9. auto.
+  assert(aeval st'0 a2_2 = aeval st'0 (subst_aexp i1 a1 a2_2)).
+    symmetry. rewrite <- update_eq with (X:=i2) (st:=st'0). symmetry.
+    rewrite <- update_eq with (X:=i2) (st:=st'0). rewrite H10. auto.
+  rewrite <- H4. rewrite <- H5. auto.
+  assert((i2 ::= a2_1) / st'0 || update st'0 i2
+     (aeval st'0 (subst_aexp i1 a1 a2_1))).
+  apply IHa2_1. apply E_Seq with st'0. auto. apply E_Ass. auto. apply E_Ass. auto.
+  assert((i2 ::= a2_2) / st'0 || update st'0 i2
+     (aeval st'0 (subst_aexp i1 a1 a2_2))).
+  apply IHa2_2. apply E_Seq with st'0. auto. apply E_Ass. auto. apply E_Ass. auto.
+  inversion H1; subst. inversion H2; subst. apply E_Ass. simpl.
+  assert(aeval st'0 a2_1 = aeval st'0 (subst_aexp i1 a1 a2_1)).
+    symmetry. rewrite <- update_eq with (X:=i2) (st:=st'0). symmetry.
+    rewrite <- update_eq with (X:=i2) (st:=st'0). rewrite H9. auto.
+  assert(aeval st'0 a2_2 = aeval st'0 (subst_aexp i1 a1 a2_2)).
+    symmetry. rewrite <- update_eq with (X:=i2) (st:=st'0). symmetry.
+    rewrite <- update_eq with (X:=i2) (st:=st'0). rewrite H10. auto.
+  rewrite <- H4. rewrite <- H5. auto.
+  assert((i2 ::= a2_1) / st'0 || update st'0 i2
+     (aeval st'0 (subst_aexp i1 a1 a2_1))).
+  apply IHa2_1. apply E_Seq with st'0. auto. apply E_Ass. auto. apply E_Ass. auto.
+  assert((i2 ::= a2_2) / st'0 || update st'0 i2
+     (aeval st'0 (subst_aexp i1 a1 a2_2))).
+  apply IHa2_2. apply E_Seq with st'0. auto. apply E_Ass. auto. apply E_Ass. auto.
+  inversion H1; subst. inversion H2; subst. apply E_Ass. simpl.
+  assert(aeval st'0 a2_1 = aeval st'0 (subst_aexp i1 a1 a2_1)).
+    symmetry. rewrite <- update_eq with (X:=i2) (st:=st'0). symmetry.
+    rewrite <- update_eq with (X:=i2) (st:=st'0). rewrite H9. auto.
+  assert(aeval st'0 a2_2 = aeval st'0 (subst_aexp i1 a1 a2_2)).
+    symmetry. rewrite <- update_eq with (X:=i2) (st:=st'0). symmetry.
+    rewrite <- update_eq with (X:=i2) (st:=st'0). rewrite H10. auto.
+  rewrite <- H4. rewrite <- H5. auto.
+  Qed.
+
+Theorem inequiv_exercise:
+  ~ cequiv (WHILE BTrue DO SKIP END) SKIP.
+Proof.
+  intros contra.
+  unfold cequiv in contra.
+  assert(forall st: state, SKIP / st || st).
+    intros. apply E_Skip.
+  assert(forall st: state, (WHILE BTrue DO SKIP END) / st || st).
+    intros; apply contra; apply H.
+  assert(forall st: state, ~((WHILE BTrue DO SKIP END) / st || st)).
+    intros. apply loop_never_stops.
+  assert((WHILE BTrue DO SKIP END) / empty_state || empty_state -> False).
+  apply H1. apply H2. apply H0.
+  Qed.
+
+Module Himp.
+
+Inductive com : Type :=
+  | CSkip : com
+  | CAss : id -> aexp -> com
+  | CSeq : com -> com -> com
+  | CIf : bexp -> com -> com -> com
+  | CWhile : bexp -> com -> com
+  | CHavoc : id -> com.
+
+Tactic Notation "com_cases" tactic(first) ident(c) :=
+  first;
+  [ Case_aux c "SKIP" | Case_aux c "::=" | Case_aux c ";;"
+  | Case_aux c "IFB" | Case_aux c "WHILE" | Case_aux c "HAVOC" ].
+
+Notation "'SKIP'" :=
+  CSkip.
+Notation "X '::=' a" :=
+  (CAss X a) (at level 60).
+Notation "c1 ;; c2" :=
+  (CSeq c1 c2) (at level 80, right associativity).
+Notation "'WHILE' b 'DO' c 'END'" :=
+  (CWhile b c) (at level 80, right associativity).
+Notation "'IFB' e1 'THEN' e2 'ELSE' e3 'FI'" :=
+  (CIf e1 e2 e3) (at level 80, right associativity).
+Notation "'HAVOC' l" := (CHavoc l) (at level 60).
+
+Reserved Notation "c1 '/' st '||' st'" (at level 40, st at level 39).
+
+Inductive ceval : com -> state -> state -> Prop :=
+  | E_Skip : forall st : state, SKIP / st || st
+  | E_Ass : forall (st : state) (a1 : aexp) (n : nat) (X : id),
+            aeval st a1 = n -> (X ::= a1) / st || update st X n
+  | E_Seq : forall (c1 c2 : com) (st st' st'' : state),
+            c1 / st || st' -> c2 / st' || st'' -> (c1 ;; c2) / st || st''
+  | E_IfTrue : forall (st st' : state) (b1 : bexp) (c1 c2 : com),
+               beval st b1 = true ->
+               c1 / st || st' -> (IFB b1 THEN c1 ELSE c2 FI) / st || st'
+  | E_IfFalse : forall (st st' : state) (b1 : bexp) (c1 c2 : com),
+                beval st b1 = false ->
+                c2 / st || st' -> (IFB b1 THEN c1 ELSE c2 FI) / st || st'
+  | E_WhileEnd : forall (b1 : bexp) (st : state) (c1 : com),
+                 beval st b1 = false -> (WHILE b1 DO c1 END) / st || st
+  | E_WhileLoop : forall (st st' st'' : state) (b1 : bexp) (c1 : com),
+                  beval st b1 = true ->
+                  c1 / st || st' ->
+                  (WHILE b1 DO c1 END) / st' || st'' ->
+                  (WHILE b1 DO c1 END) / st || st''
+  | E_Havoc : forall (st : state) (n : nat) (X : id),
+            (HAVOC X) / st || update st X n
+  where "c1 '/' st '||' st'" := (ceval c1 st st').
+
+Tactic Notation "ceval_cases" tactic(first) ident(c) :=
+  first;
+  [ Case_aux c "E_Skip" | Case_aux c "E_Ass" | Case_aux c "E_Seq"
+  | Case_aux c "E_IfTrue" | Case_aux c "E_IfFalse"
+  | Case_aux c "E_WhileEnd" | Case_aux c "E_WhileLoop"
+  | Case_aux c "E_Havoc" ].
+
+Example havoc_example1 : (HAVOC X) / empty_state || update empty_state X 0.
+Proof.
+  apply E_Havoc. Qed.
+
+Example havoc_example2 :
+  (SKIP;; HAVOC Z) / empty_state || update empty_state Z 42.
+Proof.
+  apply E_Seq with empty_state.
+    apply E_Skip.
+    apply E_Havoc.
+  Qed.
+
+Definition cequiv (c1 c2 : com) : Prop := forall st st' : state,
+  c1 / st || st' <-> c2 / st || st'.
+
+Definition pXY :=
+  HAVOC X;; HAVOC Y.
+
+Definition pYX :=
+  HAVOC Y;; HAVOC X.
+
+Theorem pXY_cequiv_pYX :
+  cequiv pXY pYX \/ ~cequiv pXY pYX.
+Proof.
+  apply or_introl.
+  intros st st'; split; intros H;
+  inversion H; subst; inversion H2; subst;
+  inversion H5; subst.
+    assert()
+    apply E_Seq with (update st X n).
+      apply E_Havoc.
