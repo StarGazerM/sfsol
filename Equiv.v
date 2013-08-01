@@ -884,6 +884,22 @@ Proof.
   assert (update st'0 i2 n i2 = update st'0 i2 (aeval st'0 a2_2) i2).
     rewrite H9; auto.
   rewrite update_eq in H10. rewrite update_eq in H10. auto.
+  rewrite H2. rewrite H4. auto. intros.
+  assert((i2 ::= subst_aexp i1 a1 a2_1) / st'0
+|| update st'0 i2 (aeval st'0 a2_1)). apply IHa2_1. constructor. auto.
+  assert((i2 ::= subst_aexp i1 a1 a2_2) / st'0
+|| update st'0 i2 (aeval st'0 a2_2)). apply IHa2_2. constructor. auto.
+  inversion H6; subst. simpl. apply E_Ass. simpl.
+  assert(aeval st'0 (subst_aexp i1 a1 a2_1) = aeval st'0 a2_1).
+  inversion H0. rewrite H7.
+  assert (update st'0 i2 n i2 = update st'0 i2 (aeval st'0 a2_1) i2).
+    rewrite H8; auto.
+  rewrite update_eq in H9. rewrite update_eq in H9. auto.
+  assert(aeval st'0 (subst_aexp i1 a1 a2_2) = aeval st'0 a2_2).
+  inversion H1. rewrite H8.
+  assert (update st'0 i2 n i2 = update st'0 i2 (aeval st'0 a2_2) i2).
+    rewrite H9; auto.
+  rewrite update_eq in H10. rewrite update_eq in H10. auto.
   rewrite H2. rewrite H4. auto.
   apply E_Seq with st'0. auto.
   generalize dependent st'.
