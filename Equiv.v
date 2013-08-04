@@ -885,22 +885,6 @@ Proof.
     rewrite H9; auto.
   rewrite update_eq in H10. rewrite update_eq in H10. auto.
   rewrite H2. rewrite H4. auto. intros.
-  assert((i2 ::= subst_aexp i1 a1 a2_1) / st'0
-|| update st'0 i2 (aeval st'0 a2_1)). apply IHa2_1. constructor. auto.
-  assert((i2 ::= subst_aexp i1 a1 a2_2) / st'0
-|| update st'0 i2 (aeval st'0 a2_2)). apply IHa2_2. constructor. auto.
-  inversion H6; subst. simpl. apply E_Ass. simpl.
-  assert(aeval st'0 (subst_aexp i1 a1 a2_1) = aeval st'0 a2_1).
-  inversion H0. rewrite H7.
-  assert (update st'0 i2 n i2 = update st'0 i2 (aeval st'0 a2_1) i2).
-    rewrite H8; auto.
-  rewrite update_eq in H9. rewrite update_eq in H9. auto.
-  assert(aeval st'0 (subst_aexp i1 a1 a2_2) = aeval st'0 a2_2).
-  inversion H1. rewrite H8.
-  assert (update st'0 i2 n i2 = update st'0 i2 (aeval st'0 a2_2) i2).
-    rewrite H9; auto.
-  rewrite update_eq in H10. rewrite update_eq in H10. auto.
-  rewrite H2. rewrite H4. auto.
   apply E_Seq with st'0. auto.
   generalize dependent st'.
   induction a2; intros; inversion H6; subst; auto. destruct (eq_id_dec i1 i).
@@ -1066,7 +1050,336 @@ Proof.
   apply or_introl.
   intros st st'; split; intros H;
   inversion H; subst; inversion H2; subst;
-  inversion H5; subst.
-    assert()
-    apply E_Seq with (update st X n).
+  inversion H5; subst;
+  destruct (eq_id_dec X Y) eqn:eqid;
+  inversion eqid; rewrite update_swap; auto.
+  apply E_Seq with (update st Y n0);
+    apply E_Havoc.
+  apply E_Seq with (update st X n0);
+    apply E_Havoc.
+  Qed.
+
+Definition ptwice :=
+  HAVOC X;; HAVOC Y.
+
+Definition pcopy :=
+  HAVOC X;; Y ::= AId X.
+
+Theorem ptwice_cequiv_pcopy :
+  cequiv ptwice pcopy \/ ~cequiv ptwice pcopy.
+Proof.
+  apply or_intror.
+  unfold not.
+  intro. unfold cequiv in H.
+  assert(ptwice / empty_state || update (update empty_state X 0) Y (S 0)
+    <-> pcopy / empty_state || update (update empty_state X 0) Y (S 0)).
+  apply H. clear H.
+  destruct (eq_id_dec X Y) eqn:eqid.
+    inversion eqid.
+  inversion H0 as [H1 H2].
+  clear H0.
+  assert(pcopy / empty_state || update (update empty_state X 0) Y 1).
+  apply H1. apply E_Seq with (update empty_state X 0);
+    apply E_Havoc.
+  clear H1. clear H2.
+  assert((HAVOC X) / empty_state || update empty_state X 0).
+    apply E_Havoc.  
+  inversion H; subst. inversion H3; subst.
+  inversion H6; subst. simpl in H7.
+  destruct n0.
+    assert(update (update empty_state X 0) Y (update empty_state X 0 X) Y = update (update empty_state X 0) Y 1 Y).
+    rewrite H7. auto. rewrite update_eq in H1. rewrite update_eq in H1.
+    rewrite update_eq in H1. inversion H1.
+    assert(update (update empty_state X (S n0)) Y (update empty_state X (S n0) X) X = update (update empty_state X 0) Y 1 X).
+    rewrite H7. auto. rewrite update_neq in H1; auto. rewrite update_eq in H1.
+    rewrite update_neq in H1; auto. rewrite update_eq in H1.
+    inversion H1.
+  Qed.
+
+Definition p1 : com :=
+  WHILE (BNot (BEq (AId X) (ANum 0))) DO
+    HAVOC Y;;
+    X ::= APlus (AId X) (ANum 1)
+  END.
+
+Definition p2 : com :=
+  WHILE (BNot (BEq (AId X) (ANum 0))) DO
+    SKIP
+  END.
+
+Theorem p1_p2_equiv : cequiv p1 p2.
+Proof.
+  intros st st'; split; intros; unfold p2.
+  unfold p1 in H.
+  destruct (eq_id_dec X Y) eqn:eq; inversion eq; subst.
+  inversion H; subst.
+  apply E_WhileEnd. auto.
+  remember (WHILE BNot (BEq (AId X) (ANum 0))
+      DO HAVOC Y;; X ::= APlus (AId X) (ANum 1) END) as loopdef eqn:loop.
+  assert (False).
+  clear H3 H6 st'0.
+  induction H; try inversion loop; subst.
+  rewrite H in H2. inversion H2.
+  apply IHceval2; try auto.
+  clear loop IHceval1 IHceval2.
+  inversion H0; subst. inversion H5; subst.
+  inversion H8; subst. simpl.
+  rewrite update_eq. rewrite update_neq; auto.
+  simpl in H2.
+  destruct (st X).
+    inversion H2.
+    simpl. auto.
+  inversion H0.
+  unfold p1; unfold p2 in H.
+  remember (st X) as stx.
+    destruct stx.
+    inversion H; subst.
+    apply E_WhileEnd. auto.
+    simpl in H2. rewrite <- Heqstx in H2.
+    simpl in H2. inversion H2.
+    assert(False).
+      remember (WHILE BNot (BEq (AId X) (ANum 0)) DO SKIP END)
+        as loopdef eqn:loop.
+      induction H; subst; try inversion loop.
+      rewrite H1 in H. simpl in H. rewrite <- Heqstx in H.
+      simpl in H. inversion H.
+      apply IHceval2; try auto.
+      rewrite H4 in H0.
+      inversion H0. subst. auto.
+      inversion H0.
+  Qed.
+
+Definition p3 : com :=
+  Z ::= ANum 1;;
+  WHILE (BNot (BEq (AId X) (ANum 0))) DO
+    HAVOC X;;
+    HAVOC Z
+  END.
+
+Definition p4 : com :=
+  X ::= (ANum 0);;
+  Z ::= (ANum 1).
+
+Theorem p3_p4_inequiv : ~ cequiv p3 p4.
+Proof.
+  intro. unfold cequiv in H.
+  assert(p3/update empty_state X 1||update (update (update (update empty_state X 1) Z 1) X 0) Z 0 <->
+    p4/update empty_state X 1||update (update (update (update empty_state X 1) Z 1) X 0) Z 0).
+  apply H. inversion H0 as [H1 H2].
+  clear H H0 H2.
+  assert(p3 / update empty_state X 1 || update (update (update (update empty_state X 1) Z 1) X 0) Z 0).
+  apply E_Seq with (update (update empty_state X 1) Z 1).
+    apply E_Ass. auto.
+    apply E_WhileLoop with (update (update (update (update empty_state X 1) Z 1) X 0) Z 0).
+    simpl. auto.
+    apply E_Seq with (update (update (update empty_state X 1) Z 1) X 0);
       apply E_Havoc.
+    apply E_WhileEnd. simpl. auto.
+  apply H1 in H.
+  inversion H; subst. inversion H3; subst; simpl in H3.
+  simpl in H6. inversion H6; subst; simpl in H7.
+  assert (update (update (update empty_state X 1) X 0) Z 1 Z=
+     update (update (update (update empty_state X 1) Z 1) X 0) Z 0 Z).
+  rewrite H7. auto.
+  rewrite update_eq in H0. rewrite update_eq in H0.
+  inversion H0.
+  Qed.
+
+Definition p5 : com :=
+  WHILE (BNot (BEq (AId X) (ANum 1))) DO
+    HAVOC X
+  END.
+
+Definition p6 : com :=
+  X ::= ANum 1.
+
+Theorem p5_p6_equiv : cequiv p5 p6.
+Proof.
+  intros st st'. unfold p5. unfold p6.
+  split. intros.
+  remember (WHILE BNot (BEq (AId X) (ANum 1))
+      DO HAVOC X END) as loopdef eqn:loop.
+  induction H; inversion loop; subst.
+  inversion H.
+  unfold negb in H1. destruct (beq_nat (st X) 1) eqn:stx.
+  assert(st = update st X 1).
+    apply functional_extensionality. intros.
+    replace 1 with (st X). symmetry.
+    apply update_same. auto.
+    destruct (st X). inversion stx. destruct n.
+    auto. inversion stx.
+  assert((X ::= ANum 1) / st || update st X 1 -> (X ::= ANum 1) / st || st).
+  rewrite <- H0. auto. apply H2. apply E_Ass. auto.
+  inversion H1.
+  assert((X ::= ANum 1) / st' || st'').
+  apply IHceval2. auto. clear IHceval1 IHceval2.
+  inversion H0; subst. inversion H2; subst. simpl.
+  assert(update (update st X n) X 1 = update st X 1).
+    apply functional_extensionality. intros.
+    destruct (eq_id_dec X x) eqn:eqid; subst.
+      apply update_eq.
+      rewrite update_neq; auto.
+      rewrite update_neq; auto.
+      rewrite update_neq; auto.
+    rewrite H3.
+    apply E_Ass.
+    auto.
+  intro. inversion H; subst. simpl in H.
+  remember (st X) as stx.
+  destruct stx. apply E_WhileLoop with (update st X 1).
+    simpl. rewrite <- Heqstx. auto.
+    apply E_Havoc.
+    apply E_WhileEnd. simpl. auto.
+  destruct stx. simpl. replace (update st X 1) with st.
+  apply E_WhileEnd. simpl. rewrite <- Heqstx. auto.
+  apply functional_extensionality. intros.
+  destruct (eq_id_dec X x) eqn:eqid; subst.
+    rewrite update_eq. auto.
+    rewrite update_neq; auto.
+  apply E_WhileLoop with (update st X 1).
+    simpl; rewrite <- Heqstx; auto.
+    apply E_Havoc.
+    apply E_WhileEnd. simpl. auto.
+  Qed.
+
+End Himp.
+
+Definition stequiv (st1 st2 : state) : Prop :=
+  forall (X:id), st1 X = st2 X.
+
+Notation "st1 '~' st2" := (stequiv st1 st2) (at level 30).
+
+Lemma stequiv_refl : forall (st : state),
+  st ~ st.
+Proof.
+  intros. intro X. auto. Qed.
+
+Lemma stequiv_sym : forall (st1 st2 : state),
+  st1 ~ st2 ->
+  st2 ~ st1.
+Proof.
+  intros. intro X. symmetry. apply H. Qed.
+
+Lemma stequiv_trans : forall (st1 st2 st3 : state),
+  st1 ~ st2 ->
+  st2 ~ st3 ->
+  st1 ~ st3.
+Proof.
+  intros. intro X. rewrite H. apply H0. Qed.
+
+Lemma stequiv_update : forall (st1 st2 : state),
+  st1 ~ st2 ->
+  forall (X:id) (n:nat),
+  update st1 X n ~ update st2 X n.
+Proof.
+  intros. intros x.
+  destruct (eq_id_dec X x) eqn:eq.
+    subst. rewrite update_eq. rewrite update_eq. auto.
+    rewrite update_neq; auto. rewrite update_neq; auto.
+  Qed.
+
+Lemma stequiv_aeval : forall (st1 st2 : state),
+  st1 ~ st2 ->
+  forall (a:aexp), aeval st1 a = aeval st2 a.
+Proof.
+  intros.
+  induction a; simpl; auto.
+  Qed.
+
+Lemma stequiv_beval : forall (st1 st2 : state),
+  st1 ~ st2 ->
+  forall (b:bexp), beval st1 b = beval st2 b.
+Proof.
+  intros.
+  induction b; simpl; auto; try rewrite stequiv_aeval with (st2:=st2); auto;
+  try rewrite stequiv_aeval with (st1:=st1) (st2:=st2); auto.
+  rewrite IHb; auto.
+  rewrite IHb1. rewrite IHb2. auto.
+  Qed.
+
+Lemma stequiv_ceval: forall (st1 st2 : state),
+  st1 ~ st2 ->
+  forall (c: com) (st1': state),
+    (c / st1 || st1') ->
+    exists st2' : state,
+    ((c / st2 || st2') /\ st1' ~ st2').
+Proof.
+  intros st1 st2 STEQV c st1' CEV1. generalize dependent st2.
+  induction CEV1; intros st2 STEQV.
+  Case "SKIP".
+    exists st2. split.
+      constructor.
+      assumption.
+  Case ":=".
+    exists (update st2 x n). split.
+       constructor. rewrite <- H. symmetry. apply stequiv_aeval.
+       assumption. apply stequiv_update. assumption.
+  Case ";".
+    destruct (IHCEV1_1 st2 STEQV) as [st2' [P1 EQV1]].
+    destruct (IHCEV1_2 st2' EQV1) as [st2'' [P2 EQV2]].
+    exists st2''. split.
+      apply E_Seq with st2'; assumption.
+      assumption.
+  Case "IfTrue".
+    destruct (IHCEV1 st2 STEQV) as [st2' [P EQV]].
+    exists st2'. split.
+      apply E_IfTrue. rewrite <- H. symmetry. apply stequiv_beval.
+      assumption. assumption. assumption.
+  Case "IfFalse".
+    destruct (IHCEV1 st2 STEQV) as [st2' [P EQV]].
+    exists st2'. split.
+     apply E_IfFalse. rewrite <- H. symmetry. apply stequiv_beval.
+     assumption. assumption. assumption.
+  Case "WhileEnd".
+    exists st2. split.
+      apply E_WhileEnd. rewrite <- H. symmetry. apply stequiv_beval.
+      assumption. assumption.
+  Case "WhileLoop".
+    destruct (IHCEV1_1 st2 STEQV) as [st2' [P1 EQV1]].
+    destruct (IHCEV1_2 st2' EQV1) as [st2'' [P2 EQV2]].
+    exists st2''. split.
+      apply E_WhileLoop with st2'. rewrite <- H. symmetry.
+      apply stequiv_beval. assumption. assumption. assumption.
+      assumption.
+Qed.
+
+Reserved Notation "c1 '/' st '||'' st'" (at level 40, st at level 39).
+
+Inductive ceval' : com -> state -> state -> Prop :=
+  | E_equiv : forall c st st' st'',
+    c / st || st' ->
+    st' ~ st'' ->
+    c / st ||' st''
+  where "c1 '/' st '||'' st'" := (ceval' c1 st st').
+
+Definition cequiv' (c1 c2 : com) : Prop :=
+  forall (st st' : state),
+    (c1 / st ||' st') <-> (c2 / st ||' st').
+
+Lemma cequiv__cequiv' : forall (c1 c2: com),
+  cequiv c1 c2 -> cequiv' c1 c2.
+Proof.
+  unfold cequiv, cequiv'; split; intros.
+    inversion H0 ; subst. apply E_equiv with st'0.
+    apply (H st st'0); assumption. assumption.
+    inversion H0 ; subst. apply E_equiv with st'0.
+    apply (H st st'0). assumption. assumption.
+Qed.
+
+Example identity_assignment' :
+  cequiv' SKIP (X ::= AId X).
+Proof.
+    unfold cequiv'. intros. split; intros.
+    Case "->".
+      inversion H; subst; clear H. inversion H0; subst.
+      apply E_equiv with (update st'0 X (st'0 X)).
+      constructor. reflexivity. apply stequiv_trans with st'0.
+      unfold stequiv. intros. apply update_same.
+      reflexivity. assumption.
+    Case "<-".
+      inversion H; subst; clear H.
+      apply E_equiv with st'0; auto.
+      generalize H0.
+      apply identity_assignment.
+    Qed.
+
