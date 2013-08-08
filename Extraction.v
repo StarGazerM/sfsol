@@ -1,10 +1,10 @@
-Add LoadPath "F:\sfsol".
+Add LoadPath "D:\sfsol".
 Extraction Language Ocaml.
 
 Require Import SfLib.
 Require Import ImpCEvalFun.
 
-Extraction "F:\sfsol\imp1.ml" ceval_step.
+Extraction "D:\sfsol\imp1.ml" ceval_step.
 
 Extract Inductive bool => "bool" [ "true" "false" ].
 
@@ -19,7 +19,7 @@ Extract Constant beq_nat => "( = )".
 
 Extract Constant minus => "( - )".
 
-Extraction "F:\sfsol\imp2.ml" ceval_step.
+Extraction "D:\sfsol\imp2.ml" ceval_step.
 
 Require Import Ascii String.
 Extract Inductive ascii => char
@@ -37,5 +37,5 @@ Extract Inductive sumbool => "bool" ["true" "false"].
 
 Require Import Imp.
 Require Import ImpParser.
-Extraction "F:\sfsol\imp.ml" empty_state ceval_step parse.
+Extraction "D:\sfsol\imp.ml" empty_state ceval_step parse.
 

@@ -1,4 +1,4 @@
-Add LoadPath "F:\sfsol".
+Add LoadPath "D:\sfsol".
 Require Import SfLib.
 Require Import Imp.
 

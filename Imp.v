@@ -1,4 +1,4 @@
-Add LoadPath "F:\sfsol".
+Add LoadPath "D:\sfsol".
 Require Export SfLib.
 
 Module AExp.
@@ -1051,3 +1051,66 @@ Proof.
   induction b; try reflexivity.
   Qed.
 
+Inductive comf : Type :=
+  | CFSkip : comf
+  | CFAss : id -> aexp -> comf
+  | CFSeq : comf -> comf -> comf
+  | CFIf : bexp -> comf -> comf -> comf
+  | CFWhile : bexp -> comf -> comf
+  | CFFor : comf -> bexp -> comf -> comf -> comf.
+
+Notation "'FSKIP'" :=
+  CFSkip.
+Notation "x 'F=' a" :=
+  (CFAss x a) (at level 60).
+Notation "c1 'F;' c2" :=
+  (CFSeq c1 c2) (at level 80, right associativity).
+Notation "'WHILEF' b 'DO' c 'END'" :=
+  (CFWhile b c) (at level 80, right associativity).
+Notation "'IFBF' c1 'THEN' c2 'ELSE' c3 'FI'" :=
+  (CFIf c1 c2 c3) (at level 80, right associativity).
+Notation "'FOR' '(' c1 ',' b ',' c2 ')' 'DO' c3 'END'" :=
+  (CFFor c1 b c2 c3) (at level 80, right associativity).
+
+Reserved Notation "c1 '/f' st '||' st'"
+                  (at level 40, st at level 39).
+
+Inductive cevalf : comf -> state -> state -> Prop :=
+  | F_Skip : forall st,
+      FSKIP /f st || st
+  | F_Ass : forall st a1 n x,
+      aeval st a1 = n ->
+      (x F= a1) /f st || (update st x n)
+  | F_Seq : forall c1 c2 st st' st'',
+      c1 /f st || st' ->
+      c2 /f st' || st'' ->
+      (c1 F; c2) /f st || st''
+  | F_IfTrue : forall st st' b c1 c2,
+      beval st b = true ->
+      c1 /f st || st' ->
+      (IFBF b THEN c1 ELSE c2 FI) /f st || st'
+  | F_IfFalse : forall st st' b c1 c2,
+      beval st b = false ->
+      c2 /f st || st' ->
+      (IFBF b THEN c1 ELSE c2 FI) /f st || st'
+  | F_WhileEnd : forall b st c,
+      beval st b = false ->
+      (WHILEF b DO c END) /f st || st
+  | F_WhileLoop : forall st st' st'' b c,
+      beval st b = true ->
+      c /f st || st' ->
+      (WHILEF b DO c END) /f st' || st'' ->
+      (WHILEF b DO c END) /f st || st''
+  | F_ForEnd :  forall st st' c1 b c2 c3,
+      c1 /f st || st' ->
+      beval st' b = false ->
+      (FOR (c1, b, c2) DO c3 END) /f st || st'
+  | F_ForLoop : 
+      forall st st' st'' st''' c1 b c2 c3,
+      c1 /f st || st' ->
+      beval st' b = true ->
+      (c3 F; c2) /f st' || st'' ->
+      (FOR (FSKIP, b, c2) DO c3 END) /f st'' || st''' ->
+      (FOR (c1, b, c2) DO c3 END) /f st || st'''
+
+  where "c1 '/f' st '||' st'" := (cevalf c1 st st').

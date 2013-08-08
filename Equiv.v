@@ -1,4 +1,4 @@
-Add LoadPath "F:\sfsol".
+Add LoadPath "D:\sfsol".
 Require Export Imp.
 
 Definition aequiv (a1 a2 : aexp) : Prop :=
@@ -1383,3 +1383,72 @@ Proof.
       apply identity_assignment.
     Qed.
 
+Theorem for_while_skip_equiv : forall b c2 c3 st st',
+  ((FOR(FSKIP,b,c2) DO c3 END) /f st || st') <->
+  ((WHILEF b DO c3 F; c2 END) /f st || st').
+Proof.
+  split; intros.
+  remember (FOR  (FSKIP, b, c2)DO c3 END) as floop.
+  induction H; try inversion Heqfloop; subst.
+  inversion H; subst.
+  apply F_WhileEnd; auto.
+  inversion H; subst.
+  apply F_WhileLoop with st''; auto.
+  remember (WHILEF b DO c3 F; c2 END) as loopdef eqn:loop.
+  induction H; try inversion loop; subst.
+  apply F_ForEnd; try constructor; auto.
+  apply F_ForLoop with st st'; try apply F_Skip; subst; auto.
+  Qed.
+
+Theorem for_while_equiv : forall b c1 c2 c3 st st',
+  ((FOR(c1,b,c2) DO c3 END) /f st || st') <->
+  ((c1 F; WHILEF b DO c3 F; c2 END) /f st || st').
+Proof.
+  split.
+  generalize dependent st'.
+  remember (FOR  (c1, b, c2)DO c3 END) as floop.
+  intros.
+  induction H; try inversion Heqfloop.
+  apply F_Seq with st'; subst; auto.
+    apply F_WhileEnd; auto.
+  apply F_Seq with st'; subst; auto.
+    apply F_WhileLoop with st''; auto.
+    apply for_while_skip_equiv. auto.
+  intros. inversion H; subst.
+  remember (WHILEF b DO c3 F; c2 END) as floopdef eqn:loop.
+  induction H5; try inversion loop; subst.
+    apply F_ForEnd; auto.
+    apply F_ForLoop with st0 st'; try auto.
+    apply for_while_skip_equiv. auto.
+  Qed.
+
+Theorem swap_noninterfering_assignments: forall l1 l2 a1 a2,
+  l1 <> l2 ->
+  var_not_used_in_aexp l1 a2 ->
+  var_not_used_in_aexp l2 a1 ->
+  cequiv
+    (l1 ::= a1;; l2 ::= a2)
+    (l2 ::= a2;; l1 ::= a1).
+Proof.
+  intros.
+  assert(Hevaleq : forall st, update (update st l1 (aeval st a1)) l2
+     (aeval (update st l1 (aeval st a1)) a2) = 
+       update (update st l2 (aeval st a2)) l1
+     (aeval (update st l2 (aeval st a2)) a1)).
+  intros. apply functional_extensionality.
+  intro.
+    destruct (eq_id_dec l1 x) eqn:id1.
+    rewrite update_neq; subst; auto.
+    rewrite update_eq. rewrite update_eq.
+    rewrite aeval_weakening; auto.
+    destruct (eq_id_dec l2 x) eqn:id2; subst.
+    rewrite update_eq. rewrite aeval_weakening; auto.
+    rewrite update_neq; auto. rewrite update_eq. auto.
+    repeat rewrite update_neq; auto.
+  split; intro;
+  inversion H2; subst; inversion H5; subst; inversion H8; subst.
+  rewrite Hevaleq. apply E_Seq with (update st l2 (aeval st a2));
+  apply E_Ass; auto.
+  rewrite <- Hevaleq. apply E_Seq with (update st l1 (aeval st a1));
+  apply E_Ass; auto.
+  Qed.
