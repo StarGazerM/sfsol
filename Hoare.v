@@ -391,3 +391,326 @@ Tactic Notation "ceval_cases" tactic(first) ident(c) :=
   | Case_aux c "E_If1True" | Case_aux c "E_If1False"
   ].
 
+Definition hoare_triple (P:Assertion) (c:com) (Q:Assertion) : Prop :=
+  forall st st',
+       c / st || st' ->
+       P st ->
+       Q st'.
+
+Notation "{{ P }} c {{ Q }}" := (hoare_triple P c Q)
+                                  (at level 90, c at next level)
+                                  : hoare_spec_scope.
+
+Theorem hoare_if1 : forall P Q b c,
+  {{fun st => P st /\ beval st b = true}} c {{Q}} ->
+  {{fun st => P st /\ (beval st b = false)}} SKIP {{Q}} ->
+  {{P}} (IF1 b THEN c FI) {{Q}}.
+Proof.
+  unfold hoare_triple. intros.
+  inversion H1.
+    eapply H. apply H8. apply conj; assumption.
+    eapply H0. apply E_Skip. subst. apply conj; assumption.
+  Qed.
+
+Lemma hoare_if1_good :
+  {{ fun st => st X + st Y = st Z }}
+  IF1 BNot (BEq (AId Y) (ANum 0)) THEN
+    X ::= APlus (AId X) (AId Y)
+  FI
+  {{ fun st => st X = st Z }}.
+Proof.
+  eapply hoare_if1;
+  unfold hoare_triple;
+    intros; inversion H; subst; inversion H0 as [H1 H2].
+    rewrite update_eq. simpl.
+    rewrite update_neq.
+    apply H1. destruct (eq_id_dec X Z) eqn:eqxz; inversion eqxz; auto.
+    simpl in H2. destruct (st' Y). rewrite plus_0_r in H1. auto.
+    simpl in H2. inversion H2.
+  Qed.
+
+End If1.
+
+Lemma hoare_while : forall P b c,
+  {{fun st => P st /\ bassn b st}} c {{P}} ->
+  {{P}} WHILE b DO c END {{fun st => P st /\ ~ (bassn b st)}}.
+Proof.
+  unfold hoare_triple; intros;
+  remember (WHILE b DO c END) as loopdef eqn:loop;
+  induction H0; try inversion loop; subst.
+  apply conj; auto. apply bexp_eval_false; auto.
+  apply IHceval2; auto. eapply H. apply H0_.
+  apply conj; auto.
+  Qed.
+
+Example while_example :
+    {{fun st => st X <= 3}}
+  WHILE (BLe (AId X) (ANum 2))
+  DO X ::= APlus (AId X) (ANum 1) END
+    {{fun st => st X = 3}}.
+Proof.
+  eapply hoare_consequence_post.
+  eapply hoare_while.
+    eapply hoare_consequence_pre.
+      eapply hoare_asgn.
+      intros st H; inversion H as [H1 H2].
+      assert (st X + 1 <= 3).
+      rewrite plus_comm. simpl. apply le_n_S.
+      inversion H2. apply ble_nat_true; auto.
+      apply H0.
+    intros st H; inversion H as [H1 H2]. inversion H1; auto.
+    assert(False).
+      apply H2.
+      apply bexp_eval_true.
+      simpl. destruct (ble_nat (st X) 2) eqn:stx2.
+      auto. assert(~ st X <= 2). apply ble_nat_false; auto.
+      assert (False). apply H4; auto. inversion H5.
+      inversion H4.
+  Qed.
+
+Theorem always_loop_hoare : forall P Q,
+  {{P}} WHILE BTrue DO SKIP END {{Q}}.
+Proof.
+  intros.
+  apply hoare_consequence_pre with (fun st : state => True).
+    eapply hoare_consequence_post.
+    apply hoare_while.
+    apply hoare_post_true. intros. apply I.
+    simpl. intros st [Hinv Hguard].
+    apply ex_falso_quodlibet. apply Hguard. reflexivity.
+    intros st H. constructor.
+  Qed.
+
+Module RepeatExercise.
+
+Inductive com : Type :=
+  | CSkip : com
+  | CAsgn : id -> aexp -> com
+  | CSeq : com -> com -> com
+  | CIf : bexp -> com -> com -> com
+  | CWhile : bexp -> com -> com
+  | CRepeat : com -> bexp -> com.
+
+Tactic Notation "com_cases" tactic(first) ident(c) :=
+  first;
+  [ Case_aux c "SKIP" | Case_aux c "::=" | Case_aux c ";"
+  | Case_aux c "IFB" | Case_aux c "WHILE"
+  | Case_aux c "CRepeat" ].
+
+Notation "'SKIP'" := 
+  CSkip.
+Notation "c1 ;; c2" := 
+  (CSeq c1 c2) (at level 80, right associativity).
+Notation "X '::=' a" := 
+  (CAsgn X a) (at level 60).
+Notation "'WHILE' b 'DO' c 'END'" := 
+  (CWhile b c) (at level 80, right associativity).
+Notation "'IFB' e1 'THEN' e2 'ELSE' e3 'FI'" := 
+  (CIf e1 e2 e3) (at level 80, right associativity).
+Notation "'REPEAT' e1 'UNTIL' b2 'END'" := 
+  (CRepeat e1 b2) (at level 80, right associativity).
+
+Inductive ceval : state -> com -> state -> Prop :=
+  | E_Skip : forall st,
+      ceval st SKIP st
+  | E_Ass  : forall st a1 n X,
+      aeval st a1 = n ->
+      ceval st (X ::= a1) (update st X n)
+  | E_Seq : forall c1 c2 st st' st'',
+      ceval st c1 st' ->
+      ceval st' c2 st'' ->
+      ceval st (c1 ;; c2) st''
+  | E_IfTrue : forall st st' b1 c1 c2,
+      beval st b1 = true ->
+      ceval st c1 st' ->
+      ceval st (IFB b1 THEN c1 ELSE c2 FI) st'
+  | E_IfFalse : forall st st' b1 c1 c2,
+      beval st b1 = false ->
+      ceval st c2 st' ->
+      ceval st (IFB b1 THEN c1 ELSE c2 FI) st'
+  | E_WhileEnd : forall b1 st c1,
+      beval st b1 = false ->
+      ceval st (WHILE b1 DO c1 END) st
+  | E_WhileLoop : forall st st' st'' b1 c1,
+      beval st b1 = true ->
+      ceval st c1 st' ->
+      ceval st' (WHILE b1 DO c1 END) st'' ->
+      ceval st (WHILE b1 DO c1 END) st''
+  | E_RepeatEnd : forall st st' e1 b2,
+      ceval st e1 st' ->
+      beval st' b2 = true ->
+      ceval st (REPEAT e1 UNTIL b2 END) st'
+  | E_RepeatLoop : forall st st' st'' e1 b2,
+      ceval st e1 st' ->
+      beval st' b2 = false ->
+      ceval st' (REPEAT e1 UNTIL b2 END) st'' ->
+      ceval st (REPEAT e1 UNTIL b2 END) st''
+.
+
+Tactic Notation "ceval_cases" tactic(first) ident(c) :=
+  first;
+  [ Case_aux c "E_Skip" | Case_aux c "E_Ass"
+  | Case_aux c "E_Seq"
+  | Case_aux c "E_IfTrue" | Case_aux c "E_IfFalse"
+  | Case_aux c "E_WhileEnd" | Case_aux c "E_WhileLoop" 
+  | Case_aux c "E_RepeatEnd" | Case_aux c "E_RepeatLoop"
+].
+
+Notation "c1 '/' st '||' st'" := (ceval st c1 st') 
+                                 (at level 40, st at level 39).
+
+Definition hoare_triple (P:Assertion) (c:com) (Q:Assertion) 
+                        : Prop :=
+  forall st st', (c / st || st') -> P st -> Q st'.
+
+Notation "{{ P }}  c  {{ Q }}" :=
+  (hoare_triple P c Q) (at level 90, c at next level).
+
+Definition ex1_repeat :=
+  REPEAT
+    X ::= ANum 1;;
+    Y ::= APlus (AId Y) (ANum 1)
+  UNTIL (BEq (AId X) (ANum 1)) END.
+
+Theorem ex1_repeat_works :
+  ex1_repeat / empty_state ||
+               update (update empty_state X 1) Y 1.
+Proof.
+  apply E_RepeatEnd; simpl; auto.
+  eapply E_Seq; apply E_Ass; auto.
+  Qed.
+
+Lemma hoare_repeat : forall P Q b c,
+  {{fun st => Q st /\ ~ bassn b st}} c {{Q}} ->
+  {{P}} c {{Q}} ->
+  {{P}} REPEAT c UNTIL b END {{fun st => Q st /\ bassn b st}}.
+Proof.
+  unfold hoare_triple; intros. generalize dependent P.
+  remember (REPEAT c UNTIL b END) as loopdef eqn:loop.
+  induction H1; inversion loop; subst. intros. apply conj.
+  eapply H2. apply H1. assumption. apply bexp_eval_true; auto.
+  intros. eapply IHceval2; auto. eapply H. apply conj. eapply H1. apply H1_.
+  assumption. apply bexp_eval_false. auto. Qed.
+
+Example hoare_repeat_exam1 :  
+  {{ fun st => st X > 0 }}
+  REPEAT
+    Y ::= AId X;;
+    X ::= AMinus (AId X) (ANum 1)
+  UNTIL BEq (AId X) (ANum 0) END
+  {{ fun st => st X = 0 /\ st Y > 0 }}.
+Proof.
+  destruct (eq_id_dec X Y) eqn:eqxy; inversion eqxy.
+  intros st st' H1 H2.
+  assert (((fun st' => st' Y > 0 /\ st' Y = st' X + 1) st'  /\ bassn (BEq (AId X) (ANum 0)) st') -> st' X = 0 /\ st' Y > 0).
+    intros [[Ha1 Ha2] Ha3].
+    inversion Ha3. destruct (st' X). apply conj; auto.
+      inversion H0.
+  apply H.
+  assert({{ fun st => st X > 0 }}
+  REPEAT
+    Y ::= AId X;;
+    X ::= AMinus (AId X) (ANum 1)
+  UNTIL BEq (AId X) (ANum 0) END
+  {{fun st => (fun st' : id -> nat => st' Y > 0 /\ st' Y = st' X + 1) st /\
+    bassn (BEq (AId X) (ANum 0)) st}}).
+  apply hoare_repeat.
+  unfold hoare_triple; intros.
+  inversion H0; subst. inversion H7; subst.
+  inversion H9; subst.
+  rewrite update_neq; auto. rewrite update_eq.
+  destruct (st0 X) eqn:stx. inversion H3 as [H31 H32].
+  assert (False). apply H32. apply bexp_eval_true. simpl. rewrite stx. auto.
+  inversion H4. simpl; apply conj. unfold gt. rewrite stx. apply lt_0_Sn.
+  rewrite update_eq. rewrite update_neq; auto.
+  rewrite stx. simpl. rewrite <- minus_n_O. rewrite plus_comm.
+  reflexivity. unfold hoare_triple. intros.
+  inversion H0; subst. inversion H7; subst. inversion H9; subst.
+  rewrite update_neq; auto. rewrite update_eq; auto. apply conj.
+  simpl. assumption. simpl. rewrite update_eq. rewrite update_neq; auto.
+  destruct (st0 X). inversion H3. simpl. rewrite <- minus_n_O. rewrite plus_comm.
+  reflexivity. unfold hoare_triple in H0.
+  eapply H0. apply H1. assumption.
+  Qed.
+
+End RepeatExercise.
+
+Module Himp.
+
+Inductive com : Type :=
+  | CSkip : com
+  | CAsgn : id -> aexp -> com
+  | CSeq : com -> com -> com
+  | CIf : bexp -> com -> com -> com
+  | CWhile : bexp -> com -> com
+  | CHavoc : id -> com.
+
+Tactic Notation "com_cases" tactic(first) ident(c) :=
+  first;
+  [ Case_aux c "SKIP" | Case_aux c "::=" | Case_aux c ";"
+  | Case_aux c "IFB" | Case_aux c "WHILE" | Case_aux c "HAVOC" ].
+
+Notation "'SKIP'" :=
+  CSkip.
+Notation "X '::=' a" :=
+  (CAsgn X a) (at level 60).
+Notation "c1 ;; c2" :=
+  (CSeq c1 c2) (at level 80, right associativity).
+Notation "'WHILE' b 'DO' c 'END'" :=
+  (CWhile b c) (at level 80, right associativity).
+Notation "'IFB' e1 'THEN' e2 'ELSE' e3 'FI'" :=
+  (CIf e1 e2 e3) (at level 80, right associativity).
+Notation "'HAVOC' X" := (CHavoc X) (at level 60).
+
+Reserved Notation "c1 '/' st '||' st'" (at level 40, st at level 39).
+
+Inductive ceval : com -> state -> state -> Prop :=
+  | E_Skip : forall st : state, SKIP / st || st
+  | E_Ass : forall (st : state) (a1 : aexp) (n : nat) (X : id),
+            aeval st a1 = n -> (X ::= a1) / st || update st X n
+  | E_Seq : forall (c1 c2 : com) (st st' st'' : state),
+            c1 / st || st' -> c2 / st' || st'' -> (c1 ;; c2) / st || st''
+  | E_IfTrue : forall (st st' : state) (b1 : bexp) (c1 c2 : com),
+               beval st b1 = true ->
+               c1 / st || st' -> (IFB b1 THEN c1 ELSE c2 FI) / st || st'
+  | E_IfFalse : forall (st st' : state) (b1 : bexp) (c1 c2 : com),
+                beval st b1 = false ->
+                c2 / st || st' -> (IFB b1 THEN c1 ELSE c2 FI) / st || st'
+  | E_WhileEnd : forall (b1 : bexp) (st : state) (c1 : com),
+                 beval st b1 = false -> (WHILE b1 DO c1 END) / st || st
+  | E_WhileLoop : forall (st st' st'' : state) (b1 : bexp) (c1 : com),
+                  beval st b1 = true ->
+                  c1 / st || st' ->
+                  (WHILE b1 DO c1 END) / st' || st'' ->
+                  (WHILE b1 DO c1 END) / st || st''
+  | E_Havoc : forall (st : state) (X : id) (n : nat),
+              (HAVOC X) / st || update st X n
+
+  where "c1 '/' st '||' st'" := (ceval c1 st st').
+
+Tactic Notation "ceval_cases" tactic(first) ident(c) :=
+  first;
+  [ Case_aux c "E_Skip" | Case_aux c "E_Ass" | Case_aux c "E_Seq"
+  | Case_aux c "E_IfTrue" | Case_aux c "E_IfFalse"
+  | Case_aux c "E_WhileEnd" | Case_aux c "E_WhileLoop"
+  | Case_aux c "E_Havoc" ].
+
+Definition hoare_triple (P:Assertion) (c:com) (Q:Assertion) : Prop :=
+  forall st st', c / st || st' -> P st -> Q st'.
+
+Notation "{{ P }}  c  {{ Q }}" := (hoare_triple P c Q) 
+                                  (at level 90, c at next level) 
+                                  : hoare_spec_scope.
+
+Definition havoc_pre (X : id) (Q : Assertion) : Assertion :=
+  fun st => forall n, Q[X|->ANum n] st.
+
+Theorem hoare_havoc : forall (Q : Assertion) (X : id),
+  {{ havoc_pre X Q }} HAVOC X {{ Q }}.
+Proof.
+  intros Q X st st' Heval Hpre.
+  inversion Heval; subst.
+  apply Hpre.
+  Qed.
+
+End Himp.
