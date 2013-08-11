@@ -337,4 +337,147 @@ Proof.
       apply H2. apply IHd1. apply H1.
     eapply hoare_consequence_pre.
       apply hoare_asgn. assumption.
-    
+    eapply hoare_if; inversion H as [H0 [H1 [H2 [H3 [H4 H5]]]]];
+      eapply hoare_consequence.
+        apply IHd1. apply H4. auto. apply H2.
+        apply IHd2. apply H5. auto. apply H3.
+    inversion H as [H1 [H2 [H3 H4]]].
+    eapply hoare_consequence.
+      apply hoare_while.
+      eapply hoare_consequence_pre.
+      apply IHd. apply H4. apply H2.
+      assumption.
+      apply H3.
+    inversion H. eapply hoare_consequence_pre. apply IHd. apply H1.
+    assumption.
+    inversion H. eapply hoare_consequence_post. apply IHd. assumption.
+    assumption.
+    Qed.
+
+Lemma ble_nat_true_iff : forall n m : nat,
+  ble_nat n m = true <-> n <= m.
+Proof.
+  split. apply ble_nat_true.
+  destruct (ble_nat n m) eqn:lenm.
+    reflexivity.
+    intros.
+    apply ble_nat_false in H. inversion H. assumption.
+  Qed.
+
+Lemma ble_nat_false_iff : forall n m : nat,
+  ble_nat n m = false <-> ~(n <= m).
+Proof.
+  split. apply ble_nat_false.
+  destruct (ble_nat n m) eqn:lenm; intros.
+  unfold not in H.
+  assert (n <= m).
+    apply ble_nat_true; assumption.
+  apply H in H0. inversion H0.
+  reflexivity.
+  Qed.
+
+Tactic Notation "verify" :=
+  apply verification_correct;
+  repeat split;
+  simpl; unfold assert_implies;
+  unfold bassn in *; unfold beval in *; unfold aeval in *;
+  unfold assn_sub; intros;
+  repeat rewrite update_eq;
+  repeat (rewrite update_neq; [| (intro X; inversion X)]);
+  simpl in *;
+  repeat match goal with [H : _ /\ _ |- _] => destruct H end;
+  repeat rewrite not_true_iff_false in *;
+  repeat rewrite not_false_iff_true in *;
+  repeat rewrite negb_true_iff in *;
+  repeat rewrite negb_false_iff in *;
+  repeat rewrite beq_nat_true_iff in *;
+  repeat rewrite beq_nat_false_iff in *;
+  repeat rewrite ble_nat_true_iff in *;
+  repeat rewrite ble_nat_false_iff in *;
+  try subst;
+  repeat
+    match goal with
+      [st : state |- _] =>
+        match goal with
+          [H : st _ = _ |- _] => rewrite -> H in *; clear H
+        | [H : _ = st _ |- _] => rewrite -> H in *; clear H
+        end
+    end;
+  try eauto; try omega.
+
+Theorem dec_while_correct :
+  dec_correct dec_while.
+Proof. verify. Qed.
+
+Example subtract_slowly_dec (m:nat) (p:nat) : dcom := (
+    {{ fun st => st X = m /\ st Z = p }} ->>
+    {{ fun st => st Z - st X = p - m }}
+  WHILE BNot (BEq (AId X) (ANum 0))
+  DO {{ fun st => st Z - st X = p - m /\ st X <> 0 }} ->>
+       {{ fun st => (st Z - 1) - (st X - 1) = p - m }}
+     Z ::= AMinus (AId Z) (ANum 1)
+       {{ fun st => st Z - (st X - 1) = p - m }} ;;
+     X ::= AMinus (AId X) (ANum 1)
+       {{ fun st => st Z - st X = p - m }}
+  END
+    {{ fun st => st Z - st X = p - m /\ st X = 0 }} ->>
+    {{ fun st => st Z = p - m }}
+) % dcom.
+
+Theorem subtract_slowly_dec_correct : forall m p,
+  dec_correct (subtract_slowly_dec m p).
+Proof. intros m p. verify. Qed.
+
+Example slow_assignment_dec (m:nat) : dcom :=
+  ({{ fun st => st X = m }} ->>
+  {{ fun st => st X = m /\ 0 = 0 }}
+    Y ::= ANum 0
+  {{ fun st => st X = m /\ st Y = 0}} ->>
+  {{ fun st => st X + st Y = m}};;
+    WHILE BNot (BEq (AId X) (ANum 0)) DO
+      {{ fun st => st X + st Y = m /\ st X <> 0 }} ->>
+      {{ fun st => (st X - 1) + (st Y + 1) = m}}
+      X ::= AMinus (AId X) (ANum 1)
+      {{ fun st => st X + (st Y + 1) = m}};;
+      Y ::= APlus (AId Y) (ANum 1)
+      {{ fun st => st X + st Y = m }}
+    END
+   {{ fun st => st X + st Y = m /\ st X = 0 }} ->>
+      {{ fun st => st Y = m }}) %dcom.
+Theorem slow_asignment_dec_correct : forall m,
+  dec_correct (slow_assignment_dec m).
+Proof. intros m. verify. Qed.
+
+Fixpoint real_fact (n:nat) : nat :=
+  match n with
+  | O => 1
+  | S n' => n * (real_fact n')
+  end.
+
+Example slow_factorial_dec (m:nat) : dcom :=
+  ({{ fun st => st X = m }} ->>
+  {{ fun st => st X = m /\ 1 = 1 }}
+    Y ::= ANum 1
+  {{ fun st => st X = m /\ st Y = 1}} ->>
+  {{ fun st => (st Y) * (real_fact (st X)) = (real_fact m)}};;
+    WHILE BNot (BEq (AId X) (ANum 0)) DO
+      {{ fun st => (st Y) * (real_fact (st X)) = (real_fact m) /\ st X <> 0 }} ->>
+      {{ fun st => ((st Y) * (st X)) * (real_fact (st X - 1)) = (real_fact m)}}
+      Y ::= AMult (AId Y) (AId X)
+      {{ fun st => (st Y) * (real_fact (st X - 1)) = (real_fact m)}};;
+      X ::= AMinus (AId X) (ANum 1)
+      {{ fun st => (st Y) * (real_fact (st X)) = (real_fact m) }}
+    END
+   {{ fun st => (st Y) * (real_fact (st X)) = (real_fact m) /\ st X = 0 }} ->>
+      {{ fun st => st Y = real_fact m }}) %dcom.
+Theorem slow_factorial_dec_correct : forall m,
+  dec_correct (slow_factorial_dec m).
+Proof. intros m. verify.
+  destruct (st X) eqn:stx.
+    assert(False); try apply H0; auto.
+  inversion H1. simpl in *.
+  rewrite <- H. rewrite mult_assoc_reverse.
+  rewrite <- minus_n_O. simpl. reflexivity.
+  simpl in H. rewrite mult_comm in H. simpl in H.
+  rewrite plus_0_r in H. assumption.
+  Qed.
