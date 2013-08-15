@@ -99,21 +99,21 @@ End SimpleArith1.
 Inductive value : tm -> Prop :=
   v_const : forall n, value (C n).
 
-Reserved Notation " t '=>' t' " (at level 40).
+Reserved Notation " t '==>' t' " (at level 40).
 
 Inductive step : tm -> tm -> Prop :=
   | ST_PlusConstConst : forall n1 n2,
           P (C n1) (C n2)
-      => C (n1 + n2)
+      ==> C (n1 + n2)
   | ST_Plus1 : forall t1 t1' t2,
-        t1 => t1' ->
-        P t1 t2 => P t1' t2
+        t1 ==> t1' ->
+        P t1 t2 ==> P t1' t2
   | ST_Plus2 : forall v1 t2 t2',
         value v1 ->
-        t2 => t2' ->
-        P v1 t2 => P v1 t2'
+        t2 ==> t2' ->
+        P v1 t2 ==> P v1 t2'
 
-  where " t '=>' t' " := (step t t').
+  where " t '==>' t' " := (step t t').
 
 Tactic Notation "step_cases" tactic(first) ident(c) :=
   first;
@@ -132,7 +132,7 @@ Proof.
   Qed.
 
 Theorem strong_progress : forall t,
-  value t \/ (exists t', t => t').
+  value t \/ (exists t', t ==> t').
 Proof.
   induction t.
   apply or_introl; constructor.
@@ -157,7 +157,7 @@ Lemma nf_is_value : forall t,
   normal_form step t -> value t.
 Proof.
   intros. destruct t. constructor.
-  assert(H0:(value (P t1 t2)) \/ ((exists t', (P t1 t2) => t'))); try inversion H0; try assumption.
+  assert(H0:(value (P t1 t2)) \/ ((exists t', (P t1 t2) ==> t'))); try inversion H0; try assumption.
     apply strong_progress.
   assert(contra:False);try inversion contra. apply H. assumption.
   Qed.
@@ -598,7 +598,7 @@ Proof.
   Qed.
 
 Lemma step__eval : forall t t' n,
-     t => t' ->
+     t ==> t' ->
      t' || n ->
      t || n.
 Proof.
