@@ -236,3 +236,150 @@ Proof with eauto.
   induction H0; intros; inv H; eauto; inv H0; eauto.
   Qed.
 
+ Definition amultistep st := multi (astep st).
+Notation " t '/' st '==>a*' t' " := (amultistep st t t')
+  (at level 40, st at level 39).
+
+Example astep_example1 :
+  (APlus (ANum 3) (AMult (ANum 3) (ANum 4))) / empty_state
+  ==>a* (ANum 15).
+Proof.
+  apply multi_step with (APlus (ANum 3) (ANum 12)).
+    apply AS_Plus2.
+      apply av_num.
+      apply AS_Mult.
+  apply multi_step with (ANum 15).
+    apply AS_Plus.
+  apply multi_refl.
+Qed.
+
+Hint Constructors astep aval.
+Example astep_example1' :
+  (APlus (ANum 3) (AMult (ANum 3) (ANum 4))) / empty_state
+  ==>a* (ANum 15).
+Proof.
+  eapply multi_step. auto. simpl.
+  eapply multi_step. auto. simpl.
+  apply multi_refl.
+Qed.
+
+Tactic Notation "print_goal" := match goal with |- ?x => idtac x end.
+Tactic Notation "normalize" :=
+   repeat (print_goal; eapply multi_step ;
+             [ (eauto 10; fail) | (instantiate; simpl)]);
+   apply multi_refl.
+
+Example astep_example1'' :
+  (APlus (ANum 3) (AMult (ANum 3) (ANum 4))) / empty_state
+  ==>a* (ANum 15).
+Proof.
+  normalize.
+  Qed.
+
+Example astep_example1''' : exists e',
+  (APlus (ANum 3) (AMult (ANum 3) (ANum 4))) / empty_state
+  ==>a* e'.
+Proof.
+  eapply ex_intro. normalize.
+  Qed.
+
+Theorem normalize_ex : exists e',
+  (AMult (ANum 3) (AMult (ANum 2) (ANum 1))) / empty_state
+  ==>a* e'.
+Proof.
+  eapply ex_intro. normalize.
+  Qed.
+
+Theorem normalize_ex' : exists e',
+  (AMult (ANum 3) (AMult (ANum 2) (ANum 1))) / empty_state
+  ==>a* e'.
+Proof.
+  apply ex_intro with (ANum 6).
+  normalize.
+  Qed.
+
+ Definition multistep := (multi step).
+Notation "t1 '==>*' t2" := (multistep t1 t2) (at level 40).
+
+Corollary soundness : forall t t' T,
+  |- t \in T ->
+  t ==>* t' ->
+  ~(stuck t').
+Proof.
+  intros t t' T HT P. induction P; intros [R S].
+  destruct (progress x T HT); auto.
+  apply IHP. apply (preservation x y T HT H).
+  unfold stuck. split; auto. Qed.
+
+Theorem subject_expansion : exists t, exists t', exists T,
+  t ==> t' /\ |- t' \in T /\ ~ |- t \in T.
+Proof with eauto.
+  apply ex_intro with (tif ttrue tzero ttrue).
+  exists tzero. exists TNat. split; auto.
+  split; auto. intros H. inv H. inv H6.
+  Qed.
+
+(*
+  Variation1 -
+    remains true
+    becomes false, tsucc ttrue
+    remains true.
+*)
+
+(*
+  Variation2 -
+    becomes false, tif ttrue ttrue ttfalse
+    remains true
+    remains true
+*)
+
+(*
+  Variation3 -
+    becomes false, tif ttrue tif ttrue ttrue ttfalse ttfalse
+    remains true
+    remains true
+*)
+
+(*
+  Variation4 -
+    becomes false, tif ttrue ttrue tpred ttfalse
+    remains true
+    remains true
+*)
+
+(*
+  Variation5 -
+    remains true
+    remains true
+    remains true
+*)
+
+(*
+  Variation6 -
+    remains true
+    remains true
+    becomes false, tpred tzero
+*)
+
+(*
+  more variations -
+    1.) Adding/Deleting a new type rule -> step deterministic property remains as is
+    2.) Adding a new type for value -> Progression is un altered
+    3.) Removing a type rule for value which can't step -> progression is altered, preservation isn't
+    4.) Adding new step rules to create new windows for step -> step determinism affected, if step is made to same type, preservation remains, progression still remains
+  combination of above 4 in non conflict manner we can achieve
+  different required changes, affecting only target property.
+*)
+
+(*
+  remove_predzero
+     Progression would go off,
+*)
+
+(*
+  prog_pres_bigstep
+    progress ->
+      can be broken into sequence with first command non skip,
+    preservation ->
+      flag like break will do.
+*)
