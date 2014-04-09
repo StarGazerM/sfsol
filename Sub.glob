@@ -1,0 +1,1674 @@
+DIGEST 02bcd5c7a6a166a0cf10cbce8e4b90de
+FSub
+R40:47 MoreStlc <> <> lib
+ind 61:62 <> ty
+constr 78:81 <> TTop
+constr 94:98 <> TBool
+constr 110:114 <> TBase
+constr 132:137 <> TArrow
+constr 160:164 <> TUnit
+R87:88 Sub <> ty ind
+R103:104 Sub <> ty ind
+R125:126 Sub <> ty ind
+R119:120 SfLib <> id ind
+R153:154 Sub <> ty ind
+R147:148 Sub <> ty ind
+R141:142 Sub <> ty ind
+R169:170 Sub <> ty ind
+ind 365:366 <> tm
+constr 382:385 <> tvar
+constr 402:405 <> tapp
+constr 428:431 <> tabs
+constr 460:464 <> ttrue
+constr 475:480 <> tfalse
+constr 491:493 <> tif
+constr 522:526 <> tunit
+R395:396 Sub <> tm ind
+R389:390 SfLib <> id ind
+R421:422 Sub <> tm ind
+R415:416 Sub <> tm ind
+R409:410 Sub <> tm ind
+R453:454 Sub <> tm ind
+R447:448 Sub <> tm ind
+R441:442 Sub <> ty ind
+R435:436 SfLib <> id ind
+R468:469 Sub <> tm ind
+R484:485 Sub <> tm ind
+R515:516 Sub <> tm ind
+R509:510 Sub <> tm ind
+R503:504 Sub <> tm ind
+R497:498 Sub <> tm ind
+R530:531 Sub <> tm ind
+def 767:771 <> subst
+R776:777 SfLib <> id ind
+R783:784 Sub <> tm ind
+R791:792 Sub <> tm ind
+R797:798 Sub <> tm ind
+R811:811 Sub <> t var
+R822:825 Sub <> tvar constr
+R842:850 SfLib <> eq_id_dec thm
+R852:852 Sub <> x var
+R868:868 Sub <> t var
+R861:861 Sub <> s var
+R874:877 Sub <> tabs constr
+R896:899 Sub <> tabs constr
+R909:917 SfLib <> eq_id_dec thm
+R919:919 Sub <> x var
+R937:941 Sub <> subst def
+R945:945 Sub <> s var
+R943:943 Sub <> x var
+R956:959 Sub <> tapp constr
+R977:980 Sub <> tapp constr
+R998:1002 Sub <> subst def
+R1006:1006 Sub <> s var
+R1004:1004 Sub <> x var
+R983:987 Sub <> subst def
+R991:991 Sub <> s var
+R989:989 Sub <> x var
+R1016:1020 Sub <> ttrue constr
+R1032:1036 Sub <> ttrue constr
+R1042:1047 Sub <> tfalse constr
+R1059:1064 Sub <> tfalse constr
+R1070:1072 Sub <> tif constr
+R1093:1095 Sub <> tif constr
+R1128:1132 Sub <> subst def
+R1136:1136 Sub <> s var
+R1134:1134 Sub <> x var
+R1113:1117 Sub <> subst def
+R1121:1121 Sub <> s var
+R1119:1119 Sub <> x var
+R1098:1102 Sub <> subst def
+R1106:1106 Sub <> s var
+R1104:1104 Sub <> x var
+R1146:1150 Sub <> tunit constr
+R1162:1166 Sub <> tunit constr
+R1211:1215 Sub <> subst def
+not 1186 <> ::'['_x_':='_x_']'_x
+ind 1250:1254 <> value
+constr 1276:1280 <> v_abs
+constr 1327:1332 <> v_true
+constr 1359:1365 <> v_false
+constr 1393:1398 <> v_unit
+R1258:1259 Sub <> tm ind
+R1304:1308 Sub <> value ind
+R1311:1314 Sub <> tabs constr
+R1320:1320 Sub <> t var
+R1318:1318 Sub <> T var
+R1316:1316 Sub <> x var
+R1343:1347 Sub <> value ind
+R1349:1353 Sub <> ttrue constr
+R1376:1380 Sub <> value ind
+R1382:1387 Sub <> tfalse constr
+R1409:1413 Sub <> value ind
+R1415:1419 Sub <> tunit constr
+R1442:1446 Sub <> value ind
+ind 1508:1511 <> step
+constr 1539:1547 <> ST_AppAbs
+constr 1644:1650 <> ST_App1
+constr 1739:1745 <> ST_App2
+constr 1856:1864 <> ST_IfTrue
+constr 1917:1926 <> ST_IfFalse
+constr 1980:1984 <> ST_If
+R1521:1522 Sub <> tm ind
+R1515:1516 Sub <> tm ind
+R2094:2097 Sub <> step ind
+R1600:1600 Sub <> ::x_'==>'_x not
+R1623:1628 Sub <> ::x_'==>'_x not
+R1601:1604 Sub <> tapp constr
+R1621:1622 Sub <> v2 var
+R1607:1610 Sub <> tabs constr
+R1616:1618 Sub <> t12 var
+R1614:1614 Sub <> T var
+R1612:1612 Sub <> x var
+R1629:1629 Sub <> ::'['_x_':='_x_']'_x not
+R1631:1632 Sub <> ::'['_x_':='_x_']'_x not
+R1635:1635 Sub <> ::'['_x_':='_x_']'_x not
+R1630:1630 Sub <> x var
+R1633:1634 Sub <> v2 var
+R1636:1638 Sub <> t12 var
+R1579:1583 Sub <> value ind
+R1585:1586 Sub <> v2 var
+R1704:1704 Sub <> ::x_'==>'_x not
+R1715:1721 Sub <> ::x_'==>'_x not
+R1733:1733 Sub <> ::x_'==>'_x not
+R1705:1708 Sub <> tapp constr
+R1713:1714 Sub <> t2 var
+R1710:1711 Sub <> t1 var
+R1722:1725 Sub <> tapp constr
+R1731:1732 Sub <> t2 var
+R1727:1729 Sub <> t1' var
+R1683:1687 Sub <> ::x_'==>'_x not
+R1681:1682 Sub <> t1 var
+R1688:1690 Sub <> t1' var
+R1820:1820 Sub <> ::x_'==>'_x not
+R1831:1837 Sub <> ::x_'==>'_x not
+R1850:1850 Sub <> ::x_'==>'_x not
+R1821:1824 Sub <> tapp constr
+R1829:1830 Sub <> t2 var
+R1826:1827 Sub <> v1 var
+R1838:1841 Sub <> tapp constr
+R1847:1849 Sub <> t2' var
+R1843:1844 Sub <> v1 var
+R1799:1803 Sub <> ::x_'==>'_x not
+R1797:1798 Sub <> t2 var
+R1804:1806 Sub <> t2' var
+R1776:1780 Sub <> value ind
+R1782:1783 Sub <> v1 var
+R1888:1888 Sub <> ::x_'==>'_x not
+R1904:1909 Sub <> ::x_'==>'_x not
+R1889:1891 Sub <> tif constr
+R1902:1903 Sub <> t2 var
+R1899:1900 Sub <> t1 var
+R1893:1897 Sub <> ttrue constr
+R1910:1911 Sub <> t1 var
+R1950:1950 Sub <> ::x_'==>'_x not
+R1967:1972 Sub <> ::x_'==>'_x not
+R1951:1953 Sub <> tif constr
+R1965:1966 Sub <> t2 var
+R1962:1963 Sub <> t1 var
+R1955:1960 Sub <> tfalse constr
+R1973:1974 Sub <> t2 var
+R2035:2035 Sub <> ::x_'==>'_x not
+R2048:2054 Sub <> ::x_'==>'_x not
+R2068:2068 Sub <> ::x_'==>'_x not
+R2036:2038 Sub <> tif constr
+R2046:2047 Sub <> t3 var
+R2043:2044 Sub <> t2 var
+R2040:2041 Sub <> t1 var
+R2055:2057 Sub <> tif constr
+R2066:2067 Sub <> t3 var
+R2063:2064 Sub <> t2 var
+R2059:2061 Sub <> t1' var
+R2017:2021 Sub <> ::x_'==>'_x not
+R2015:2016 Sub <> t1 var
+R2022:2024 Sub <> t1' var
+R2094:2097 Sub <> step ind
+not 2076 <> ::x_'==>'_x
+R2349:2352 Sub <> step ind
+ind 2411:2417 <> subtype
+constr 2445:2450 <> S_Refl
+constr 2479:2485 <> S_Trans
+constr 2546:2550 <> S_Top
+constr 2582:2588 <> S_Arrow
+R2427:2428 Sub <> ty ind
+R2421:2422 Sub <> ty ind
+R2702:2708 Sub <> subtype ind
+R2469:2472 Sub <> ::x_'<:'_x not
+R2468:2468 Sub <> T var
+R2473:2473 Sub <> T var
+R2536:2539 Sub <> ::x_'<:'_x not
+R2535:2535 Sub <> S var
+R2540:2540 Sub <> T var
+R2522:2525 Sub <> ::x_'<:'_x not
+R2521:2521 Sub <> U var
+R2526:2526 Sub <> T var
+R2508:2511 Sub <> ::x_'<:'_x not
+R2507:2507 Sub <> S var
+R2512:2512 Sub <> U var
+R2569:2572 Sub <> ::x_'<:'_x not
+R2568:2568 Sub <> S var
+R2573:2576 Sub <> TTop constr
+R2648:2648 Sub <> ::x_'<:'_x not
+R2661:2666 Sub <> ::x_'<:'_x not
+R2679:2679 Sub <> ::x_'<:'_x not
+R2649:2654 Sub <> TArrow constr
+R2659:2660 Sub <> S2 var
+R2656:2657 Sub <> S1 var
+R2667:2672 Sub <> TArrow constr
+R2677:2678 Sub <> T2 var
+R2674:2675 Sub <> T1 var
+R2634:2637 Sub <> ::x_'<:'_x not
+R2632:2633 Sub <> S2 var
+R2638:2639 Sub <> T2 var
+R2618:2621 Sub <> ::x_'<:'_x not
+R2616:2617 Sub <> T1 var
+R2622:2623 Sub <> S1 var
+R2702:2708 Sub <> subtype ind
+not 2687 <> ::x_'<:'_x
+R2735:2741 Sub <> subtype ind
+mod 2919:2926 <> Examples
+mod 2937:2944 <> Examples.WithPair
+ind 2958:2959 Examples.WithPair ty
+constr 2975:2978 Examples.WithPair TTop
+constr 2991:2995 Examples.WithPair TBool
+constr 3007:3011 Examples.WithPair TBase
+constr 3029:3034 Examples.WithPair TArrow
+constr 3057:3061 Examples.WithPair TProd
+constr 3085:3089 Examples.WithPair TUnit
+R2984:2985 Sub <> ty ind
+R3000:3001 Sub <> ty ind
+R3022:3023 Sub <> ty ind
+R3016:3017 SfLib <> id ind
+R3050:3051 Sub <> ty ind
+R3044:3045 Sub <> ty ind
+R3038:3039 Sub <> ty ind
+R3078:3079 Sub <> ty ind
+R3072:3073 Sub <> ty ind
+R3066:3067 Sub <> ty ind
+R3094:3095 Sub <> ty ind
+ind 3311:3312 Examples.WithPair tm
+constr 3328:3331 Examples.WithPair tvar
+constr 3348:3351 Examples.WithPair tapp
+constr 3374:3377 Examples.WithPair tabs
+constr 3406:3410 Examples.WithPair ttrue
+constr 3421:3426 Examples.WithPair tfalse
+constr 3437:3439 Examples.WithPair tif
+constr 3468:3472 Examples.WithPair tpair
+constr 3495:3498 Examples.WithPair tfst
+constr 3515:3519 Examples.WithPair tscnd
+constr 3536:3540 Examples.WithPair tunit
+R3341:3342 Sub <> tm ind
+R3335:3336 SfLib <> id ind
+R3367:3368 Sub <> tm ind
+R3361:3362 Sub <> tm ind
+R3355:3356 Sub <> tm ind
+R3399:3400 Sub <> tm ind
+R3393:3394 Sub <> tm ind
+R3387:3388 Sub Examples.WithPair ty ind
+R3381:3382 SfLib <> id ind
+R3414:3415 Sub <> tm ind
+R3430:3431 Sub <> tm ind
+R3461:3462 Sub <> tm ind
+R3455:3456 Sub <> tm ind
+R3449:3450 Sub <> tm ind
+R3443:3444 Sub <> tm ind
+R3488:3489 Sub <> tm ind
+R3482:3483 Sub <> tm ind
+R3476:3477 Sub <> tm ind
+R3508:3509 Sub <> tm ind
+R3502:3503 Sub <> tm ind
+R3529:3530 Sub <> tm ind
+R3523:3524 Sub <> tm ind
+R3544:3545 Sub <> tm ind
+def 3844:3848 Examples.WithPair subst
+R3853:3854 SfLib <> id ind
+R3860:3861 Sub Examples.WithPair tm ind
+R3868:3869 Sub Examples.WithPair tm ind
+R3874:3875 Sub Examples.WithPair tm ind
+R3888:3888 Sub <> t var
+R3899:3902 Sub Examples.WithPair tvar constr
+R3919:3927 SfLib <> eq_id_dec thm
+R3929:3929 Sub <> x var
+R3945:3945 Sub <> t var
+R3938:3938 Sub <> s var
+R3951:3954 Sub Examples.WithPair tabs constr
+R3973:3976 Sub Examples.WithPair tabs constr
+R3986:3994 SfLib <> eq_id_dec thm
+R3996:3996 Sub <> x var
+R4014:4018 Sub <> subst def
+R4022:4022 Sub <> s var
+R4020:4020 Sub <> x var
+R4033:4036 Sub Examples.WithPair tapp constr
+R4054:4057 Sub Examples.WithPair tapp constr
+R4075:4079 Sub <> subst def
+R4083:4083 Sub <> s var
+R4081:4081 Sub <> x var
+R4060:4064 Sub <> subst def
+R4068:4068 Sub <> s var
+R4066:4066 Sub <> x var
+R4093:4097 Sub Examples.WithPair ttrue constr
+R4109:4113 Sub Examples.WithPair ttrue constr
+R4119:4124 Sub Examples.WithPair tfalse constr
+R4136:4141 Sub Examples.WithPair tfalse constr
+R4147:4149 Sub Examples.WithPair tif constr
+R4170:4172 Sub Examples.WithPair tif constr
+R4205:4209 Sub <> subst def
+R4213:4213 Sub <> s var
+R4211:4211 Sub <> x var
+R4190:4194 Sub <> subst def
+R4198:4198 Sub <> s var
+R4196:4196 Sub <> x var
+R4175:4179 Sub <> subst def
+R4183:4183 Sub <> s var
+R4181:4181 Sub <> x var
+R4223:4227 Sub Examples.WithPair tpair constr
+R4244:4248 Sub Examples.WithPair tpair constr
+R4266:4270 Sub <> subst def
+R4274:4274 Sub <> s var
+R4272:4272 Sub <> x var
+R4251:4255 Sub <> subst def
+R4259:4259 Sub <> s var
+R4257:4257 Sub <> x var
+R4284:4287 Sub Examples.WithPair tfst constr
+R4300:4303 Sub Examples.WithPair tfst constr
+R4306:4310 Sub <> subst def
+R4316:4316 Sub <> t var
+R4314:4314 Sub <> s var
+R4312:4312 Sub <> x var
+R4323:4327 Sub Examples.WithPair tscnd constr
+R4340:4344 Sub Examples.WithPair tscnd constr
+R4347:4351 Sub <> subst def
+R4357:4357 Sub <> t var
+R4355:4355 Sub <> s var
+R4353:4353 Sub <> x var
+R4364:4368 Sub Examples.WithPair tunit constr
+R4380:4384 Sub Examples.WithPair tunit constr
+R4429:4433 Sub Examples.WithPair subst def
+not 4404 Examples.WithPair ::'['_x_':='_x_']'_x
+ind 4468:4472 Examples.WithPair value
+constr 4494:4498 Examples.WithPair v_abs
+constr 4545:4550 Examples.WithPair v_true
+constr 4577:4583 Examples.WithPair v_false
+constr 4611:4616 Examples.WithPair v_unit
+constr 4643:4648 Examples.WithPair v_pair
+R4476:4477 Sub Examples.WithPair tm ind
+R4522:4526 Sub <> value ind
+R4529:4532 Sub Examples.WithPair tabs constr
+R4538:4538 Sub <> t var
+R4536:4536 Sub <> T var
+R4534:4534 Sub <> x var
+R4561:4565 Sub <> value ind
+R4567:4571 Sub Examples.WithPair ttrue constr
+R4594:4598 Sub <> value ind
+R4600:4605 Sub Examples.WithPair tfalse constr
+R4627:4631 Sub <> value ind
+R4633:4637 Sub Examples.WithPair tunit constr
+R4708:4712 Sub <> value ind
+R4715:4719 Sub Examples.WithPair tpair constr
+R4724:4725 Sub <> v2 var
+R4721:4722 Sub <> v1 var
+R4690:4694 Sub <> value ind
+R4696:4697 Sub <> v2 var
+R4672:4676 Sub <> value ind
+R4678:4679 Sub <> v1 var
+R4749:4753 Sub <> value ind
+ind 4815:4818 Examples.WithPair step
+constr 4846:4854 Examples.WithPair ST_AppAbs
+constr 4951:4957 Examples.WithPair ST_App1
+constr 5046:5052 Examples.WithPair ST_App2
+constr 5163:5171 Examples.WithPair ST_IfTrue
+constr 5224:5233 Examples.WithPair ST_IfFalse
+constr 5287:5291 Examples.WithPair ST_If
+constr 5381:5386 Examples.WithPair ST_Fst
+constr 5454:5460 Examples.WithPair ST_Scnd
+constr 5530:5537 Examples.WithPair ST_Pair1
+constr 5622:5629 Examples.WithPair ST_Pair2
+R4828:4829 Sub Examples.WithPair tm ind
+R4822:4823 Sub Examples.WithPair tm ind
+R5754:5757 Sub <> step ind
+R4907:4907 Sub Examples.WithPair ::x_'==>'_x not
+R4930:4935 Sub Examples.WithPair ::x_'==>'_x not
+R4908:4911 Sub Examples.WithPair tapp constr
+R4928:4929 Sub <> v2 var
+R4914:4917 Sub Examples.WithPair tabs constr
+R4923:4925 Sub <> t12 var
+R4921:4921 Sub <> T var
+R4919:4919 Sub <> x var
+R4936:4936 Sub Examples.WithPair ::'['_x_':='_x_']'_x not
+R4938:4939 Sub Examples.WithPair ::'['_x_':='_x_']'_x not
+R4942:4942 Sub Examples.WithPair ::'['_x_':='_x_']'_x not
+R4937:4937 Sub <> x var
+R4940:4941 Sub <> v2 var
+R4943:4945 Sub <> t12 var
+R4886:4890 Sub Examples.WithPair value ind
+R4892:4893 Sub <> v2 var
+R5011:5011 Sub Examples.WithPair ::x_'==>'_x not
+R5022:5028 Sub Examples.WithPair ::x_'==>'_x not
+R5040:5040 Sub Examples.WithPair ::x_'==>'_x not
+R5012:5015 Sub Examples.WithPair tapp constr
+R5020:5021 Sub <> t2 var
+R5017:5018 Sub <> t1 var
+R5029:5032 Sub Examples.WithPair tapp constr
+R5038:5039 Sub <> t2 var
+R5034:5036 Sub <> t1' var
+R4990:4994 Sub Examples.WithPair ::x_'==>'_x not
+R4988:4989 Sub <> t1 var
+R4995:4997 Sub <> t1' var
+R5127:5127 Sub Examples.WithPair ::x_'==>'_x not
+R5138:5144 Sub Examples.WithPair ::x_'==>'_x not
+R5157:5157 Sub Examples.WithPair ::x_'==>'_x not
+R5128:5131 Sub Examples.WithPair tapp constr
+R5136:5137 Sub <> t2 var
+R5133:5134 Sub <> v1 var
+R5145:5148 Sub Examples.WithPair tapp constr
+R5154:5156 Sub <> t2' var
+R5150:5151 Sub <> v1 var
+R5106:5110 Sub Examples.WithPair ::x_'==>'_x not
+R5104:5105 Sub <> t2 var
+R5111:5113 Sub <> t2' var
+R5083:5087 Sub Examples.WithPair value ind
+R5089:5090 Sub <> v1 var
+R5195:5195 Sub Examples.WithPair ::x_'==>'_x not
+R5211:5216 Sub Examples.WithPair ::x_'==>'_x not
+R5196:5198 Sub Examples.WithPair tif constr
+R5209:5210 Sub <> t2 var
+R5206:5207 Sub <> t1 var
+R5200:5204 Sub Examples.WithPair ttrue constr
+R5217:5218 Sub <> t1 var
+R5257:5257 Sub Examples.WithPair ::x_'==>'_x not
+R5274:5279 Sub Examples.WithPair ::x_'==>'_x not
+R5258:5260 Sub Examples.WithPair tif constr
+R5272:5273 Sub <> t2 var
+R5269:5270 Sub <> t1 var
+R5262:5267 Sub Examples.WithPair tfalse constr
+R5280:5281 Sub <> t2 var
+R5342:5342 Sub Examples.WithPair ::x_'==>'_x not
+R5355:5361 Sub Examples.WithPair ::x_'==>'_x not
+R5375:5375 Sub Examples.WithPair ::x_'==>'_x not
+R5343:5345 Sub Examples.WithPair tif constr
+R5353:5354 Sub <> t3 var
+R5350:5351 Sub <> t2 var
+R5347:5348 Sub <> t1 var
+R5362:5364 Sub Examples.WithPair tif constr
+R5373:5374 Sub <> t3 var
+R5370:5371 Sub <> t2 var
+R5366:5368 Sub <> t1' var
+R5324:5328 Sub Examples.WithPair ::x_'==>'_x not
+R5322:5323 Sub <> t1 var
+R5329:5331 Sub <> t1' var
+R5427:5427 Sub Examples.WithPair ::x_'==>'_x not
+R5434:5440 Sub Examples.WithPair ::x_'==>'_x not
+R5448:5448 Sub Examples.WithPair ::x_'==>'_x not
+R5428:5431 Sub Examples.WithPair tfst constr
+R5433:5433 Sub <> t var
+R5441:5444 Sub Examples.WithPair tfst constr
+R5446:5447 Sub <> t' var
+R5410:5414 Sub Examples.WithPair ::x_'==>'_x not
+R5409:5409 Sub <> t var
+R5415:5416 Sub <> t' var
+R5501:5501 Sub Examples.WithPair ::x_'==>'_x not
+R5509:5515 Sub Examples.WithPair ::x_'==>'_x not
+R5524:5524 Sub Examples.WithPair ::x_'==>'_x not
+R5502:5506 Sub Examples.WithPair tscnd constr
+R5508:5508 Sub <> t var
+R5516:5520 Sub Examples.WithPair tscnd constr
+R5522:5523 Sub <> t' var
+R5484:5488 Sub Examples.WithPair ::x_'==>'_x not
+R5483:5483 Sub <> t var
+R5489:5490 Sub <> t' var
+R5585:5585 Sub Examples.WithPair ::x_'==>'_x not
+R5597:5603 Sub Examples.WithPair ::x_'==>'_x not
+R5616:5616 Sub Examples.WithPair ::x_'==>'_x not
+R5586:5590 Sub Examples.WithPair tpair constr
+R5595:5596 Sub <> t2 var
+R5592:5593 Sub <> t1 var
+R5604:5608 Sub Examples.WithPair tpair constr
+R5614:5615 Sub <> t2 var
+R5610:5612 Sub <> t1' var
+R5567:5571 Sub Examples.WithPair ::x_'==>'_x not
+R5565:5566 Sub <> t1 var
+R5572:5574 Sub <> t1' var
+R5697:5697 Sub Examples.WithPair ::x_'==>'_x not
+R5709:5715 Sub Examples.WithPair ::x_'==>'_x not
+R5728:5728 Sub Examples.WithPair ::x_'==>'_x not
+R5698:5702 Sub Examples.WithPair tpair constr
+R5707:5708 Sub <> t2 var
+R5704:5705 Sub <> v1 var
+R5716:5720 Sub Examples.WithPair tpair constr
+R5725:5727 Sub <> t2' var
+R5722:5723 Sub <> v1 var
+R5679:5683 Sub Examples.WithPair ::x_'==>'_x not
+R5677:5678 Sub <> t2 var
+R5684:5686 Sub <> t2' var
+R5658:5662 Sub Examples.WithPair value ind
+R5664:5665 Sub <> v1 var
+R5754:5757 Sub Examples.WithPair step ind
+not 5736 Examples.WithPair ::x_'==>'_x
+R6106:6109 Sub <> step ind
+ind 6168:6174 Examples.WithPair subtype
+constr 6202:6207 Examples.WithPair S_Refl
+constr 6236:6242 Examples.WithPair S_Trans
+constr 6303:6307 Examples.WithPair S_Top
+constr 6339:6345 Examples.WithPair S_Arrow
+constr 6442:6448 Examples.WithPair S_Prod1
+constr 6543:6549 Examples.WithPair S_Prod2
+constr 6644:6648 Examples.WithPair S_Fst
+constr 6694:6699 Examples.WithPair S_Scnd
+R6184:6185 Sub Examples.WithPair ty ind
+R6178:6179 Sub Examples.WithPair ty ind
+R6762:6768 Sub <> subtype ind
+R6226:6229 Sub Examples.WithPair ::x_'<:'_x not
+R6225:6225 Sub <> T var
+R6230:6230 Sub <> T var
+R6293:6296 Sub Examples.WithPair ::x_'<:'_x not
+R6292:6292 Sub <> S var
+R6297:6297 Sub <> T var
+R6279:6282 Sub Examples.WithPair ::x_'<:'_x not
+R6278:6278 Sub <> U var
+R6283:6283 Sub <> T var
+R6265:6268 Sub Examples.WithPair ::x_'<:'_x not
+R6264:6264 Sub <> S var
+R6269:6269 Sub <> U var
+R6326:6329 Sub Examples.WithPair ::x_'<:'_x not
+R6325:6325 Sub <> S var
+R6330:6333 Sub Examples.WithPair TTop constr
+R6405:6405 Sub Examples.WithPair ::x_'<:'_x not
+R6418:6423 Sub Examples.WithPair ::x_'<:'_x not
+R6436:6436 Sub Examples.WithPair ::x_'<:'_x not
+R6406:6411 Sub Examples.WithPair TArrow constr
+R6416:6417 Sub <> S2 var
+R6413:6414 Sub <> S1 var
+R6424:6429 Sub Examples.WithPair TArrow constr
+R6434:6435 Sub <> T2 var
+R6431:6432 Sub <> T1 var
+R6391:6394 Sub Examples.WithPair ::x_'<:'_x not
+R6389:6390 Sub <> S2 var
+R6395:6396 Sub <> T2 var
+R6375:6378 Sub Examples.WithPair ::x_'<:'_x not
+R6373:6374 Sub <> T1 var
+R6379:6380 Sub <> S1 var
+R6508:6508 Sub Examples.WithPair ::x_'<:'_x not
+R6520:6525 Sub Examples.WithPair ::x_'<:'_x not
+R6537:6537 Sub Examples.WithPair ::x_'<:'_x not
+R6509:6513 Sub Examples.WithPair TProd constr
+R6518:6519 Sub <> S2 var
+R6515:6516 Sub <> S1 var
+R6526:6530 Sub Examples.WithPair TProd constr
+R6535:6536 Sub <> T2 var
+R6532:6533 Sub <> T1 var
+R6494:6497 Sub Examples.WithPair ::x_'<:'_x not
+R6492:6493 Sub <> S2 var
+R6498:6499 Sub <> T2 var
+R6478:6481 Sub Examples.WithPair ::x_'<:'_x not
+R6476:6477 Sub <> S1 var
+R6482:6483 Sub <> T1 var
+R6609:6609 Sub Examples.WithPair ::x_'<:'_x not
+R6621:6626 Sub Examples.WithPair ::x_'<:'_x not
+R6638:6638 Sub Examples.WithPair ::x_'<:'_x not
+R6610:6614 Sub Examples.WithPair TProd constr
+R6619:6620 Sub <> S2 var
+R6616:6617 Sub <> S1 var
+R6627:6631 Sub Examples.WithPair TProd constr
+R6636:6637 Sub <> T2 var
+R6633:6634 Sub <> T1 var
+R6595:6598 Sub Examples.WithPair ::x_'<:'_x not
+R6593:6594 Sub <> S1 var
+R6599:6600 Sub <> T2 var
+R6579:6582 Sub Examples.WithPair ::x_'<:'_x not
+R6577:6578 Sub <> S2 var
+R6583:6584 Sub <> T1 var
+R6670:6670 Sub Examples.WithPair ::x_'<:'_x not
+R6682:6686 Sub Examples.WithPair ::x_'<:'_x not
+R6671:6675 Sub Examples.WithPair TProd constr
+R6680:6681 Sub <> T2 var
+R6677:6678 Sub <> T1 var
+R6687:6688 Sub <> T1 var
+R6721:6721 Sub Examples.WithPair ::x_'<:'_x not
+R6733:6737 Sub Examples.WithPair ::x_'<:'_x not
+R6722:6726 Sub Examples.WithPair TProd constr
+R6731:6732 Sub <> T2 var
+R6728:6729 Sub <> T1 var
+R6738:6739 Sub <> T2 var
+R6762:6768 Sub Examples.WithPair subtype ind
+not 6747 Examples.WithPair ::x_'<:'_x
+R6795:6801 Sub <> subtype ind
+syndef 7074:7074 Examples.WithPair x
+R7080:7081 SfLib <> Id constr
+syndef 7096:7096 Examples.WithPair y
+R7102:7103 SfLib <> Id constr
+syndef 7118:7118 Examples.WithPair z
+R7124:7125 SfLib <> Id constr
+syndef 7141:7141 Examples.WithPair A
+R7147:7151 Sub Examples.WithPair TBase constr
+R7154:7155 SfLib <> Id constr
+syndef 7171:7171 Examples.WithPair B
+R7177:7181 Sub Examples.WithPair TBase constr
+R7184:7185 SfLib <> Id constr
+syndef 7201:7201 Examples.WithPair C
+R7207:7211 Sub Examples.WithPair TBase constr
+R7214:7215 SfLib <> Id constr
+syndef 7232:7237 Examples.WithPair String
+R7243:7247 Sub Examples.WithPair TBase constr
+R7250:7251 SfLib <> Id constr
+syndef 7267:7271 Examples.WithPair Float
+R7277:7281 Sub Examples.WithPair TBase constr
+R7284:7285 SfLib <> Id constr
+syndef 7302:7308 Examples.WithPair Integer
+R7314:7318 Sub Examples.WithPair TBase constr
+R7321:7322 SfLib <> Id constr
+def 7342:7347 Examples.WithPair Person
+R7351:7352 Sub Examples.WithPair ty ind
+R7360:7365 Sub Examples.WithPair String syndef
+def 7380:7386 Examples.WithPair Student
+R7390:7391 Sub Examples.WithPair ty ind
+R7399:7403 Sub Examples.WithPair TProd constr
+R7412:7416 Sub Examples.WithPair Float syndef
+R7405:7410 Sub Examples.WithPair String syndef
+def 7431:7438 Examples.WithPair Employee
+R7442:7443 Sub Examples.WithPair ty ind
+R7451:7455 Sub Examples.WithPair TProd constr
+R7464:7470 Sub Examples.WithPair Integer syndef
+R7457:7462 Sub Examples.WithPair String syndef
+def 7482:7499 Examples.WithPair sub_student_person
+R7512:7515 Sub Examples.WithPair ::x_'<:'_x not
+R7505:7511 Sub Examples.WithPair Student def
+R7516:7521 Sub Examples.WithPair Person def
+R7539:7543 Sub Examples.WithPair S_Fst constr
+R7539:7543 Sub Examples.WithPair S_Fst constr
+def 7560:7578 Examples.WithPair sub_employee_person
+R7592:7595 Sub Examples.WithPair ::x_'<:'_x not
+R7584:7591 Sub Examples.WithPair Employee def
+R7596:7601 Sub Examples.WithPair Person def
+R7619:7623 Sub Examples.WithPair S_Fst constr
+R7619:7623 Sub Examples.WithPair S_Fst constr
+def 7640:7658 Examples.WithPair subtyping_example_0
+R7664:7664 Sub Examples.WithPair ::x_'<:'_x not
+R7680:7685 Sub Examples.WithPair ::x_'<:'_x not
+R7699:7699 Sub Examples.WithPair ::x_'<:'_x not
+R7665:7670 Sub Examples.WithPair TArrow constr
+R7674:7679 Sub Examples.WithPair Person def
+R7672:7672 Sub Examples.WithPair C syndef
+R7686:7691 Sub Examples.WithPair TArrow constr
+R7695:7698 Sub Examples.WithPair TTop constr
+R7693:7693 Sub Examples.WithPair C syndef
+R7717:7723 Sub Examples.WithPair S_Arrow constr
+R7717:7723 Sub Examples.WithPair S_Arrow constr
+R7736:7741 Sub Examples.WithPair S_Refl constr
+R7736:7741 Sub Examples.WithPair S_Refl constr
+def 7764:7782 Examples.WithPair subtyping_example_1
+R7788:7788 Sub Examples.WithPair ::x_'<:'_x not
+R7808:7813 Sub Examples.WithPair ::x_'<:'_x not
+R7840:7840 Sub Examples.WithPair ::x_'<:'_x not
+R7789:7794 Sub Examples.WithPair TArrow constr
+R7801:7807 Sub Examples.WithPair Student def
+R7796:7799 Sub Examples.WithPair TTop constr
+R7814:7819 Sub Examples.WithPair TArrow constr
+R7834:7839 Sub Examples.WithPair Person def
+R7822:7827 Sub Examples.WithPair TArrow constr
+R7831:7831 Sub Examples.WithPair C syndef
+R7829:7829 Sub Examples.WithPair C syndef
+R7870:7876 Sub Examples.WithPair S_Arrow constr
+R7870:7876 Sub Examples.WithPair S_Arrow constr
+R7889:7906 Sub Examples.WithPair sub_student_person def
+R7889:7906 Sub Examples.WithPair sub_student_person def
+def 7925:7943 Examples.WithPair subtyping_example_2
+R7949:7949 Sub Examples.WithPair ::x_'<:'_x not
+R7968:7973 Sub Examples.WithPair ::x_'<:'_x not
+R7992:7992 Sub Examples.WithPair ::x_'<:'_x not
+R7950:7955 Sub Examples.WithPair TArrow constr
+R7962:7967 Sub Examples.WithPair Person def
+R7957:7960 Sub Examples.WithPair TTop constr
+R7974:7979 Sub Examples.WithPair TArrow constr
+R7988:7991 Sub Examples.WithPair TTop constr
+R7981:7986 Sub Examples.WithPair Person def
+R8022:8028 Sub Examples.WithPair S_Arrow constr
+R8022:8028 Sub Examples.WithPair S_Arrow constr
+R8043:8050 Sub WithPair <> mod
+syndef 8063:8063 Examples x
+R8069:8070 SfLib <> Id constr
+syndef 8085:8085 Examples y
+R8091:8092 SfLib <> Id constr
+syndef 8107:8107 Examples z
+R8113:8114 SfLib <> Id constr
+syndef 8130:8130 Examples A
+R8136:8140 Sub Examples TBase constr
+R8143:8144 SfLib <> Id constr
+syndef 8160:8160 Examples B
+R8166:8170 Sub Examples TBase constr
+R8173:8174 SfLib <> Id constr
+syndef 8190:8190 Examples C
+R8196:8200 Sub Examples TBase constr
+R8203:8204 SfLib <> Id constr
+syndef 8221:8226 Examples String
+R8232:8236 Sub Examples TBase constr
+R8239:8240 SfLib <> Id constr
+syndef 8256:8260 Examples Float
+R8266:8270 Sub Examples TBase constr
+R8273:8274 SfLib <> Id constr
+syndef 8291:8297 Examples Integer
+R8303:8307 Sub Examples TBase constr
+R8310:8311 SfLib <> Id constr
+R8324:8331 Sub <> <> mod
+def 8346:8352 <> context
+R8364:8369 Coq.Init.Datatypes <> option ind
+R8371:8372 Sub <> ty ind
+R8357:8358 SfLib <> id ind
+def 8387:8391 <> empty
+R8395:8401 Sub <> context def
+R8416:8419 Coq.Init.Datatypes <> None constr
+def 8435:8440 <> extend
+R8451:8457 Sub <> context def
+R8463:8464 SfLib <> id ind
+R8472:8473 Sub <> ty ind
+R8494:8502 SfLib <> eq_id_dec thm
+R8506:8507 Sub <> x' var
+R8504:8504 Sub <> x var
+R8526:8530 Sub <> Gamma var
+R8532:8533 Sub <> x' var
+R8514:8517 Coq.Init.Datatypes <> Some constr
+R8519:8519 Sub <> T var
+ind 8604:8611 <> has_type
+constr 8650:8654 <> T_Var
+constr 8736:8740 <> T_Abs
+constr 8875:8879 <> T_App
+constr 9018:9023 <> T_True
+constr 9077:9083 <> T_False
+constr 9138:9141 <> T_If
+constr 9299:9304 <> T_Unit
+constr 9357:9361 <> T_Sub
+R8632:8633 Sub <> ty ind
+R8626:8627 Sub <> tm ind
+R8615:8621 Sub <> context def
+R9484:9491 Sub <> has_type ind
+R8713:8717 Sub <> ::x_'|-'_x_'\in'_x not
+R8724:8729 Sub <> ::x_'|-'_x_'\in'_x not
+R8708:8712 Sub <> Gamma var
+R8718:8721 Sub <> tvar constr
+R8723:8723 Sub <> x var
+R8730:8730 Sub <> T var
+R8689:8691 Coq.Init.Logic <> :type_scope:x_'='_x not
+R8682:8686 Sub <> Gamma var
+R8688:8688 Sub <> x var
+R8692:8695 Coq.Init.Datatypes <> Some constr
+R8697:8697 Sub <> T var
+R8829:8833 Sub <> ::x_'|-'_x_'\in'_x not
+R8848:8854 Sub <> ::x_'|-'_x_'\in'_x not
+R8869:8869 Sub <> ::x_'|-'_x_'\in'_x not
+R8824:8828 Sub <> Gamma var
+R8834:8837 Sub <> tabs constr
+R8845:8847 Sub <> t12 var
+R8841:8843 Sub <> T11 var
+R8839:8839 Sub <> x var
+R8855:8860 Sub <> TArrow constr
+R8866:8868 Sub <> T12 var
+R8862:8864 Sub <> T11 var
+R8778:8778 Sub <> ::x_'|-'_x_'\in'_x not
+R8797:8801 Sub <> ::x_'|-'_x_'\in'_x not
+R8805:8809 Sub <> ::x_'|-'_x_'\in'_x not
+R8779:8784 Sub <> extend def
+R8794:8796 Sub <> T11 var
+R8792:8792 Sub <> x var
+R8786:8790 Sub <> Gamma var
+R8802:8804 Sub <> t12 var
+R8810:8812 Sub <> T12 var
+R8990:8994 Sub <> ::x_'|-'_x_'\in'_x not
+R9005:9010 Sub <> ::x_'|-'_x_'\in'_x not
+R8985:8989 Sub <> Gamma var
+R8995:8998 Sub <> tapp constr
+R9003:9004 Sub <> t2 var
+R9000:9001 Sub <> t1 var
+R9011:9012 Sub <> T2 var
+R8961:8964 Sub <> ::x_'|-'_x_'\in'_x not
+R8967:8971 Sub <> ::x_'|-'_x_'\in'_x not
+R8956:8960 Sub <> Gamma var
+R8965:8966 Sub <> t2 var
+R8972:8973 Sub <> T1 var
+R8920:8923 Sub <> ::x_'|-'_x_'\in'_x not
+R8926:8931 Sub <> ::x_'|-'_x_'\in'_x not
+R8944:8944 Sub <> ::x_'|-'_x_'\in'_x not
+R8915:8919 Sub <> Gamma var
+R8924:8925 Sub <> t1 var
+R8932:8937 Sub <> TArrow constr
+R8942:8943 Sub <> T2 var
+R8939:8940 Sub <> T1 var
+R9053:9056 Sub <> ::x_'|-'_x_'\in'_x not
+R9062:9066 Sub <> ::x_'|-'_x_'\in'_x not
+R9048:9052 Sub <> Gamma var
+R9057:9061 Sub <> ttrue constr
+R9067:9071 Sub <> TBool constr
+R9113:9116 Sub <> ::x_'|-'_x_'\in'_x not
+R9123:9127 Sub <> ::x_'|-'_x_'\in'_x not
+R9108:9112 Sub <> Gamma var
+R9117:9122 Sub <> tfalse constr
+R9128:9132 Sub <> TBool constr
+R9270:9274 Sub <> ::x_'|-'_x_'\in'_x not
+R9287:9292 Sub <> ::x_'|-'_x_'\in'_x not
+R9265:9269 Sub <> Gamma var
+R9275:9277 Sub <> tif constr
+R9285:9286 Sub <> t3 var
+R9282:9283 Sub <> t2 var
+R9279:9280 Sub <> t1 var
+R9293:9293 Sub <> T var
+R9242:9245 Sub <> ::x_'|-'_x_'\in'_x not
+R9248:9252 Sub <> ::x_'|-'_x_'\in'_x not
+R9237:9241 Sub <> Gamma var
+R9246:9247 Sub <> t3 var
+R9253:9253 Sub <> T var
+R9214:9217 Sub <> ::x_'|-'_x_'\in'_x not
+R9220:9224 Sub <> ::x_'|-'_x_'\in'_x not
+R9209:9213 Sub <> Gamma var
+R9218:9219 Sub <> t2 var
+R9225:9225 Sub <> T var
+R9182:9185 Sub <> ::x_'|-'_x_'\in'_x not
+R9188:9192 Sub <> ::x_'|-'_x_'\in'_x not
+R9177:9181 Sub <> Gamma var
+R9186:9187 Sub <> t1 var
+R9193:9197 Sub <> TBool constr
+R9333:9336 Sub <> ::x_'|-'_x_'\in'_x not
+R9342:9346 Sub <> ::x_'|-'_x_'\in'_x not
+R9328:9332 Sub <> Gamma var
+R9337:9341 Sub <> tunit constr
+R9347:9351 Sub <> TUnit constr
+R9438:9441 Sub <> ::x_'|-'_x_'\in'_x not
+R9443:9447 Sub <> ::x_'|-'_x_'\in'_x not
+R9433:9437 Sub <> Gamma var
+R9442:9442 Sub <> t var
+R9448:9448 Sub <> T var
+R9418:9421 Sub <> ::x_'<:'_x not
+R9417:9417 Sub <> S var
+R9422:9422 Sub <> T var
+R9396:9399 Sub <> ::x_'|-'_x_'\in'_x not
+R9401:9405 Sub <> ::x_'|-'_x_'\in'_x not
+R9391:9395 Sub <> Gamma var
+R9400:9400 Sub <> t var
+R9406:9406 Sub <> S var
+R9484:9491 Sub <> has_type ind
+not 9457 <> ::x_'|-'_x_'\in'_x
+R9524:9531 Sub <> has_type ind
+mod 9797:9805 <> Examples2
+def 9855:9861 Examples2 context
+R9873:9878 Coq.Init.Datatypes <> option ind
+R9880:9881 Sub Examples.WithPair ty ind
+R9866:9867 SfLib <> id ind
+def 9896:9900 Examples2 empty
+R9904:9910 Sub Examples2 context def
+R9925:9928 Coq.Init.Datatypes <> None constr
+def 9944:9949 Examples2 extend
+R9960:9966 Sub Examples2 context def
+R9972:9973 SfLib <> id ind
+R9981:9982 Sub Examples.WithPair ty ind
+R10003:10011 SfLib <> eq_id_dec thm
+R10015:10016 Sub <> x' var
+R10013:10013 Sub <> x var
+R10035:10039 Sub <> Gamma var
+R10041:10042 Sub <> x' var
+R10023:10026 Coq.Init.Datatypes <> Some constr
+R10028:10028 Sub <> T var
+ind 10113:10120 Examples2 has_type
+constr 10159:10163 Examples2 T_Var
+constr 10245:10249 Examples2 T_Abs
+constr 10384:10388 Examples2 T_App
+constr 10527:10532 Examples2 T_True
+constr 10586:10592 Examples2 T_False
+constr 10647:10650 Examples2 T_If
+constr 10808:10812 Examples2 T_Fst
+constr 10908:10913 Examples2 T_Scnd
+constr 11010:11015 Examples2 T_Pair
+constr 11148:11153 Examples2 T_Unit
+constr 11206:11210 Examples2 T_Sub
+R10141:10142 Sub Examples.WithPair ty ind
+R10135:10136 Sub Examples.WithPair tm ind
+R10124:10130 Sub Examples2 context def
+R11333:11340 Sub <> has_type ind
+R10222:10226 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R10233:10238 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R10217:10221 Sub <> Gamma var
+R10227:10230 Sub Examples.WithPair tvar constr
+R10232:10232 Sub <> x var
+R10239:10239 Sub <> T var
+R10198:10200 Coq.Init.Logic <> :type_scope:x_'='_x not
+R10191:10195 Sub <> Gamma var
+R10197:10197 Sub <> x var
+R10201:10204 Coq.Init.Datatypes <> Some constr
+R10206:10206 Sub <> T var
+R10338:10342 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R10357:10363 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R10378:10378 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R10333:10337 Sub <> Gamma var
+R10343:10346 Sub Examples.WithPair tabs constr
+R10354:10356 Sub <> t12 var
+R10350:10352 Sub <> T11 var
+R10348:10348 Sub <> x var
+R10364:10369 Sub Examples.WithPair TArrow constr
+R10375:10377 Sub <> T12 var
+R10371:10373 Sub <> T11 var
+R10287:10287 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R10306:10310 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R10314:10318 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R10288:10293 Sub Examples2 extend def
+R10303:10305 Sub <> T11 var
+R10301:10301 Sub <> x var
+R10295:10299 Sub <> Gamma var
+R10311:10313 Sub <> t12 var
+R10319:10321 Sub <> T12 var
+R10499:10503 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R10514:10519 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R10494:10498 Sub <> Gamma var
+R10504:10507 Sub Examples.WithPair tapp constr
+R10512:10513 Sub <> t2 var
+R10509:10510 Sub <> t1 var
+R10520:10521 Sub <> T2 var
+R10470:10473 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R10476:10480 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R10465:10469 Sub <> Gamma var
+R10474:10475 Sub <> t2 var
+R10481:10482 Sub <> T1 var
+R10429:10432 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R10435:10440 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R10453:10453 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R10424:10428 Sub <> Gamma var
+R10433:10434 Sub <> t1 var
+R10441:10446 Sub Examples.WithPair TArrow constr
+R10451:10452 Sub <> T2 var
+R10448:10449 Sub <> T1 var
+R10562:10565 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R10571:10575 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R10557:10561 Sub <> Gamma var
+R10566:10570 Sub Examples.WithPair ttrue constr
+R10576:10580 Sub Examples.WithPair TBool constr
+R10622:10625 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R10632:10636 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R10617:10621 Sub <> Gamma var
+R10626:10631 Sub Examples.WithPair tfalse constr
+R10637:10641 Sub Examples.WithPair TBool constr
+R10779:10783 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R10796:10801 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R10774:10778 Sub <> Gamma var
+R10784:10786 Sub Examples.WithPair tif constr
+R10794:10795 Sub <> t3 var
+R10791:10792 Sub <> t2 var
+R10788:10789 Sub <> t1 var
+R10802:10802 Sub <> T var
+R10751:10754 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R10757:10761 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R10746:10750 Sub <> Gamma var
+R10755:10756 Sub <> t3 var
+R10762:10762 Sub <> T var
+R10723:10726 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R10729:10733 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R10718:10722 Sub <> Gamma var
+R10727:10728 Sub <> t2 var
+R10734:10734 Sub <> T var
+R10691:10694 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R10697:10701 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R10686:10690 Sub <> Gamma var
+R10695:10696 Sub <> t1 var
+R10702:10706 Sub Examples.WithPair TBool constr
+R10886:10889 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R10896:10900 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R10881:10885 Sub <> Gamma var
+R10890:10893 Sub Examples.WithPair tfst constr
+R10895:10895 Sub <> t var
+R10901:10902 Sub <> T1 var
+R10849:10852 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R10854:10859 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R10871:10871 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R10844:10848 Sub <> Gamma var
+R10853:10853 Sub <> t var
+R10860:10864 Sub Examples.WithPair TProd constr
+R10869:10870 Sub <> T2 var
+R10866:10867 Sub <> T1 var
+R10987:10990 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R10998:11002 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R10982:10986 Sub <> Gamma var
+R10991:10995 Sub Examples.WithPair tscnd constr
+R10997:10997 Sub <> t var
+R11003:11004 Sub <> T2 var
+R10950:10953 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R10955:10960 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R10972:10972 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R10945:10949 Sub <> Gamma var
+R10954:10954 Sub <> t var
+R10961:10965 Sub Examples.WithPair TProd constr
+R10970:10971 Sub <> T2 var
+R10967:10968 Sub <> T1 var
+R11112:11115 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R11127:11131 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R11107:11111 Sub <> Gamma var
+R11116:11120 Sub Examples.WithPair tpair constr
+R11125:11126 Sub <> t2 var
+R11122:11123 Sub <> t1 var
+R11132:11136 Sub Examples.WithPair TProd constr
+R11141:11142 Sub <> T2 var
+R11138:11139 Sub <> T1 var
+R11084:11087 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R11090:11094 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R11079:11083 Sub <> Gamma var
+R11088:11089 Sub <> t2 var
+R11095:11096 Sub <> T2 var
+R11056:11059 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R11062:11066 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R11051:11055 Sub <> Gamma var
+R11060:11061 Sub <> t1 var
+R11067:11068 Sub <> T1 var
+R11182:11185 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R11191:11195 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R11177:11181 Sub <> Gamma var
+R11186:11190 Sub Examples.WithPair tunit constr
+R11196:11200 Sub Examples.WithPair TUnit constr
+R11287:11290 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R11292:11296 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R11282:11286 Sub <> Gamma var
+R11291:11291 Sub <> t var
+R11297:11297 Sub <> T var
+R11267:11270 Sub Examples.WithPair ::x_'<:'_x not
+R11266:11266 Sub <> S var
+R11271:11271 Sub <> T var
+R11245:11248 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R11250:11254 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R11240:11244 Sub <> Gamma var
+R11249:11249 Sub <> t var
+R11255:11255 Sub <> S var
+R11333:11340 Sub Examples2 has_type ind
+not 11306 Examples2 ::x_'|-'_x_'\in'_x
+R11373:11380 Sub <> has_type ind
+syndef 11715:11726 Examples2 exampleTerm1
+R11732:11736 Sub Examples.WithPair tpair constr
+R11759:11762 Sub Examples.WithPair tabs constr
+R11769:11772 Sub Examples.WithPair tvar constr
+R11774:11774 Sub Examples.WithPair z syndef
+R11766:11766 Sub Examples.WithPair B syndef
+R11764:11764 Sub Examples.WithPair z syndef
+R11739:11742 Sub Examples.WithPair tabs constr
+R11749:11752 Sub Examples.WithPair tvar constr
+R11754:11754 Sub Examples.WithPair z syndef
+R11746:11746 Sub Examples.WithPair A syndef
+R11744:11744 Sub Examples.WithPair z syndef
+def 11789:11804 Examples2 typing_example_0
+R11815:11819 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R11832:11847 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R11879:11879 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R11810:11814 Sub Examples2 empty def
+R11820:11831 Sub Examples2 exampleTerm1 syndef
+R11848:11852 Sub Examples.WithPair TProd constr
+R11868:11873 Sub Examples.WithPair TArrow constr
+R11877:11877 Sub Examples.WithPair B syndef
+R11875:11875 Sub Examples.WithPair B syndef
+R11855:11860 Sub Examples.WithPair TArrow constr
+R11864:11864 Sub Examples.WithPair A syndef
+R11862:11862 Sub Examples.WithPair A syndef
+syndef 11957:11968 Examples2 exampleTerm2
+R11974:11977 Sub Examples.WithPair tapp constr
+R12037:12048 Sub Examples2 exampleTerm1 syndef
+R11980:11983 Sub Examples.WithPair tabs constr
+R12014:12018 Sub Examples.WithPair tscnd constr
+R12021:12024 Sub Examples.WithPair tvar constr
+R12026:12026 Sub Examples.WithPair x syndef
+R11988:11992 Sub Examples.WithPair TProd constr
+R12000:12005 Sub Examples.WithPair TArrow constr
+R12009:12009 Sub Examples.WithPair B syndef
+R12007:12007 Sub Examples.WithPair B syndef
+R11994:11997 Sub Examples.WithPair TTop constr
+R11985:11985 Sub Examples.WithPair x syndef
+def 12061:12076 Examples2 typing_example_1
+R12087:12091 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R12104:12119 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R12130:12130 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R12082:12086 Sub Examples2 empty def
+R12092:12103 Sub Examples2 exampleTerm2 syndef
+R12120:12125 Sub Examples.WithPair TArrow constr
+R12129:12129 Sub Examples.WithPair B syndef
+R12127:12127 Sub Examples.WithPair B syndef
+R12166:12181 Sub Examples2 typing_example_0 def
+R12166:12181 Sub Examples2 typing_example_0 def
+R12166:12181 Sub Examples2 typing_example_0 def
+R12206:12210 Sub Examples2 T_Abs constr
+R12206:12210 Sub Examples2 T_Abs constr
+R12220:12225 Sub Examples2 T_Scnd constr
+R12220:12225 Sub Examples2 T_Scnd constr
+syndef 12259:12270 Examples2 exampleTerm3
+R12276:12279 Sub Examples.WithPair tapp constr
+R12389:12392 Sub Examples.WithPair tabs constr
+R12409:12420 Sub Examples2 exampleTerm1 syndef
+R12397:12402 Sub Examples.WithPair TArrow constr
+R12406:12406 Sub Examples.WithPair C syndef
+R12404:12404 Sub Examples.WithPair C syndef
+R12394:12394 Sub Examples.WithPair z syndef
+R12282:12285 Sub Examples.WithPair tabs constr
+R12338:12342 Sub Examples.WithPair tscnd constr
+R12345:12348 Sub Examples.WithPair tapp constr
+R12360:12363 Sub Examples.WithPair tabs constr
+R12370:12373 Sub Examples.WithPair tvar constr
+R12375:12375 Sub Examples.WithPair x syndef
+R12367:12367 Sub Examples.WithPair C syndef
+R12365:12365 Sub Examples.WithPair x syndef
+R12351:12354 Sub Examples.WithPair tvar constr
+R12356:12356 Sub Examples.WithPair z syndef
+R12290:12295 Sub Examples.WithPair TArrow constr
+R12311:12315 Sub Examples.WithPair TProd constr
+R12323:12328 Sub Examples.WithPair TArrow constr
+R12332:12332 Sub Examples.WithPair B syndef
+R12330:12330 Sub Examples.WithPair B syndef
+R12317:12320 Sub Examples.WithPair TTop constr
+R12298:12303 Sub Examples.WithPair TArrow constr
+R12307:12307 Sub Examples.WithPair C syndef
+R12305:12305 Sub Examples.WithPair C syndef
+R12287:12287 Sub Examples.WithPair z syndef
+def 12434:12449 Examples2 typing_example_2
+R12460:12464 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R12477:12492 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R12503:12503 Sub Examples2 ::x_'|-'_x_'\in'_x not
+R12455:12459 Sub Examples2 empty def
+R12465:12476 Sub Examples2 exampleTerm3 syndef
+R12493:12498 Sub Examples.WithPair TArrow constr
+R12502:12502 Sub Examples.WithPair B syndef
+R12500:12500 Sub Examples.WithPair B syndef
+R12666:12674 Sub <> <> mod
+prf 12684:12701 <> sub_inversion_Bool
+R12742:12744 Coq.Init.Logic <> :type_scope:x_'='_x not
+R12741:12741 Sub <> U var
+R12745:12749 Sub <> TBool constr
+R12721:12724 Sub <> ::x_'<:'_x not
+R12720:12720 Sub <> U var
+R12725:12729 Sub <> TBool constr
+R12795:12799 Sub <> TBool constr
+R12795:12799 Sub <> TBool constr
+R12844:12846 Coq.Init.Logic <> :type_scope:x_'='_x not
+R12847:12851 Sub <> TBool constr
+R12844:12846 Coq.Init.Logic <> :type_scope:x_'='_x not
+R12847:12851 Sub <> TBool constr
+prf 12920:12938 <> sub_inversion_arrow
+R12991:12997 Coq.Init.Logic <> :type_scope:'exists'_x_'..'_x_','_x not
+R13000:13001 Coq.Init.Logic <> :type_scope:'exists'_x_'..'_x_','_x not
+R13002:13008 Coq.Init.Logic <> :type_scope:'exists'_x_'..'_x_','_x not
+R13011:13019 Coq.Init.Logic <> :type_scope:'exists'_x_'..'_x_','_x not
+R13038:13041 Coq.Init.Logic <> :type_scope:x_'/\'_x not
+R13021:13024 Coq.Init.Logic <> :type_scope:x_'='_x not
+R13037:13037 Coq.Init.Logic <> :type_scope:x_'='_x not
+R13020:13020 Sub <> U var
+R13025:13030 Sub <> TArrow constr
+R13035:13036 Sub <> U2 var
+R13032:13033 Sub <> U1 var
+R13042:13042 Coq.Init.Logic <> :type_scope:x_'/\'_x not
+R13051:13056 Coq.Init.Logic <> :type_scope:x_'/\'_x not
+R13065:13065 Coq.Init.Logic <> :type_scope:x_'/\'_x not
+R13045:13048 Sub <> ::x_'<:'_x not
+R13043:13044 Sub <> V1 var
+R13049:13050 Sub <> U1 var
+R13059:13062 Sub <> ::x_'<:'_x not
+R13057:13058 Sub <> U2 var
+R13063:13064 Sub <> V2 var
+R12964:12968 Sub <> ::x_'<:'_x not
+R12981:12981 Sub <> ::x_'<:'_x not
+R12963:12963 Sub <> U var
+R12969:12974 Sub <> TArrow constr
+R12979:12980 Sub <> V2 var
+R12976:12977 Sub <> V1 var
+R13119:13124 Sub <> TArrow constr
+R13119:13124 Sub <> TArrow constr
+prf 13485:13514 <> canonical_forms_of_arrow_types
+R13590:13596 Coq.Init.Logic <> :type_scope:'exists'_x_'..'_x_','_x not
+R13598:13599 Coq.Init.Logic <> :type_scope:'exists'_x_'..'_x_','_x not
+R13600:13606 Coq.Init.Logic <> :type_scope:'exists'_x_'..'_x_','_x not
+R13609:13610 Coq.Init.Logic <> :type_scope:'exists'_x_'..'_x_','_x not
+R13611:13617 Coq.Init.Logic <> :type_scope:'exists'_x_'..'_x_','_x not
+R13620:13626 Coq.Init.Logic <> :type_scope:'exists'_x_'..'_x_','_x not
+R13628:13630 Coq.Init.Logic <> :type_scope:x_'='_x not
+R13627:13627 Sub <> s var
+R13631:13634 Sub <> tabs constr
+R13641:13642 Sub <> s2 var
+R13638:13639 Sub <> S1 var
+R13636:13636 Sub <> x var
+R13577:13581 Sub <> value ind
+R13583:13583 Sub <> s var
+R13547:13550 Sub <> ::x_'|-'_x_'\in'_x not
+R13552:13557 Sub <> ::x_'|-'_x_'\in'_x not
+R13570:13570 Sub <> ::x_'|-'_x_'\in'_x not
+R13542:13546 Sub <> Gamma var
+R13551:13551 Sub <> s var
+R13558:13563 Sub <> TArrow constr
+R13568:13569 Sub <> T2 var
+R13565:13566 Sub <> T1 var
+R13685:13690 Sub <> TArrow constr
+R13685:13690 Sub <> TArrow constr
+R13832:13850 Sub <> sub_inversion_arrow thm
+R13832:13850 Sub <> sub_inversion_arrow thm
+prf 13942:13964 <> canonical_forms_of_Bool
+R14035:14038 Coq.Init.Logic <> :type_scope:x_'\/'_x not
+R14027:14029 Coq.Init.Logic <> :type_scope:x_'='_x not
+R14026:14026 Sub <> s var
+R14030:14034 Sub <> ttrue constr
+R14040:14042 Coq.Init.Logic <> :type_scope:x_'='_x not
+R14039:14039 Sub <> s var
+R14043:14048 Sub <> tfalse constr
+R14012:14016 Sub <> value ind
+R14018:14018 Sub <> s var
+R13991:13994 Sub <> ::x_'|-'_x_'\in'_x not
+R13996:14000 Sub <> ::x_'|-'_x_'\in'_x not
+R13986:13990 Sub <> Gamma var
+R13995:13995 Sub <> s var
+R14001:14005 Sub <> TBool constr
+R14106:14110 Sub <> TBool constr
+R14106:14110 Sub <> TBool constr
+R14216:14233 Sub <> sub_inversion_Bool thm
+R14216:14233 Sub <> sub_inversion_Bool thm
+prf 14264:14271 <> progress
+R14324:14327 Coq.Init.Logic <> :type_scope:x_'\/'_x not
+R14317:14321 Sub <> value ind
+R14323:14323 Sub <> t var
+R14328:14334 Coq.Init.Logic <> :type_scope:'exists'_x_'..'_x_','_x not
+R14337:14338 Coq.Init.Logic <> :type_scope:'exists'_x_'..'_x_','_x not
+R14340:14344 Sub <> ::x_'==>'_x not
+R14339:14339 Sub <> t var
+R14345:14346 Sub <> t' var
+R14297:14300 Sub <> ::x_'|-'_x_'\in'_x not
+R14302:14306 Sub <> ::x_'|-'_x_'\in'_x not
+R14292:14296 Sub <> empty def
+R14301:14301 Sub <> t var
+R14307:14307 Sub <> T var
+R14395:14399 Sub <> empty def
+R14395:14399 Sub <> empty def
+R14693:14722 Sub <> canonical_forms_of_arrow_types thm
+R14724:14728 Sub <> empty def
+R14693:14722 Sub <> canonical_forms_of_arrow_types thm
+R14724:14728 Sub <> empty def
+R14800:14800 Sub <> ::'['_x_':='_x_']'_x not
+R14802:14803 Sub <> ::'['_x_':='_x_']'_x not
+R14806:14806 Sub <> ::'['_x_':='_x_']'_x not
+R14800:14800 Sub <> ::'['_x_':='_x_']'_x not
+R14802:14803 Sub <> ::'['_x_':='_x_']'_x not
+R14806:14806 Sub <> ::'['_x_':='_x_']'_x not
+R14883:14886 Sub <> tapp constr
+R14883:14886 Sub <> tapp constr
+R14961:14964 Sub <> tapp constr
+R14961:14964 Sub <> tapp constr
+R15076:15079 Coq.Init.Logic <> :type_scope:x_'\/'_x not
+R15068:15070 Coq.Init.Logic <> :type_scope:x_'='_x not
+R15071:15075 Sub <> ttrue constr
+R15082:15084 Coq.Init.Logic <> :type_scope:x_'='_x not
+R15085:15090 Sub <> tfalse constr
+R15112:15134 Sub <> canonical_forms_of_Bool thm
+R15076:15079 Coq.Init.Logic <> :type_scope:x_'\/'_x not
+R15068:15070 Coq.Init.Logic <> :type_scope:x_'='_x not
+R15071:15075 Sub <> ttrue constr
+R15082:15084 Coq.Init.Logic <> :type_scope:x_'='_x not
+R15085:15090 Sub <> tfalse constr
+R15112:15134 Sub <> canonical_forms_of_Bool thm
+prf 15231:15250 <> typing_inversion_abs
+R15322:15328 Coq.Init.Logic <> :type_scope:'exists'_x_'..'_x_','_x not
+R15331:15332 Coq.Init.Logic <> :type_scope:'exists'_x_'..'_x_','_x not
+R15352:15369 Coq.Init.Logic <> :type_scope:x_'/\'_x not
+R15333:15333 Sub <> ::x_'<:'_x not
+R15346:15350 Sub <> ::x_'<:'_x not
+R15334:15339 Sub <> TArrow constr
+R15344:15345 Sub <> S2 var
+R15341:15342 Sub <> S1 var
+R15351:15351 Sub <> T var
+R15370:15370 Sub <> ::x_'|-'_x_'\in'_x not
+R15388:15392 Sub <> ::x_'|-'_x_'\in'_x not
+R15395:15399 Sub <> ::x_'|-'_x_'\in'_x not
+R15371:15376 Sub <> extend def
+R15386:15387 Sub <> S1 var
+R15384:15384 Sub <> x var
+R15378:15382 Sub <> Gamma var
+R15393:15394 Sub <> t2 var
+R15400:15401 Sub <> S2 var
+R15288:15292 Sub <> ::x_'|-'_x_'\in'_x not
+R15305:15310 Sub <> ::x_'|-'_x_'\in'_x not
+R15283:15287 Sub <> Gamma var
+R15293:15296 Sub <> tabs constr
+R15303:15304 Sub <> t2 var
+R15300:15301 Sub <> S1 var
+R15298:15298 Sub <> x var
+R15311:15311 Sub <> T var
+R15463:15466 Sub <> tabs constr
+R15463:15466 Sub <> tabs constr
+prf 15690:15709 <> typing_inversion_var
+R15762:15768 Coq.Init.Logic <> :type_scope:'exists'_x_'..'_x_','_x not
+R15770:15775 Coq.Init.Logic <> :type_scope:'exists'_x_'..'_x_','_x not
+R15792:15795 Coq.Init.Logic <> :type_scope:x_'/\'_x not
+R15783:15785 Coq.Init.Logic <> :type_scope:x_'='_x not
+R15776:15780 Sub <> Gamma var
+R15782:15782 Sub <> x var
+R15786:15789 Coq.Init.Datatypes <> Some constr
+R15791:15791 Sub <> S var
+R15797:15800 Sub <> ::x_'<:'_x not
+R15796:15796 Sub <> S var
+R15801:15801 Sub <> T var
+R15738:15742 Sub <> ::x_'|-'_x_'\in'_x not
+R15749:15754 Sub <> ::x_'|-'_x_'\in'_x not
+R15733:15737 Sub <> Gamma var
+R15743:15746 Sub <> tvar constr
+R15748:15748 Sub <> x var
+R15755:15755 Sub <> T var
+R15858:15861 Sub <> tvar constr
+R15858:15861 Sub <> tvar constr
+prf 16073:16092 <> typing_inversion_app
+R16155:16161 Coq.Init.Logic <> :type_scope:'exists'_x_'..'_x_','_x not
+R16164:16169 Coq.Init.Logic <> :type_scope:'exists'_x_'..'_x_','_x not
+R16200:16207 Coq.Init.Logic <> :type_scope:x_'/\'_x not
+R16175:16178 Sub <> ::x_'|-'_x_'\in'_x not
+R16181:16186 Sub <> ::x_'|-'_x_'\in'_x not
+R16199:16199 Sub <> ::x_'|-'_x_'\in'_x not
+R16170:16174 Sub <> Gamma var
+R16179:16180 Sub <> t1 var
+R16187:16192 Sub <> TArrow constr
+R16197:16198 Sub <> T2 var
+R16194:16195 Sub <> T1 var
+R16213:16216 Sub <> ::x_'|-'_x_'\in'_x not
+R16219:16223 Sub <> ::x_'|-'_x_'\in'_x not
+R16208:16212 Sub <> Gamma var
+R16217:16218 Sub <> t2 var
+R16224:16225 Sub <> T1 var
+R16126:16130 Sub <> ::x_'|-'_x_'\in'_x not
+R16141:16146 Sub <> ::x_'|-'_x_'\in'_x not
+R16121:16125 Sub <> Gamma var
+R16131:16134 Sub <> tapp constr
+R16139:16140 Sub <> t2 var
+R16136:16137 Sub <> t1 var
+R16147:16148 Sub <> T2 var
+R16287:16290 Sub <> tapp constr
+R16287:16290 Sub <> tapp constr
+prf 16506:16526 <> typing_inversion_true
+R16579:16582 Sub <> ::x_'<:'_x not
+R16574:16578 Sub <> TBool constr
+R16583:16583 Sub <> T var
+R16553:16556 Sub <> ::x_'|-'_x_'\in'_x not
+R16562:16566 Sub <> ::x_'|-'_x_'\in'_x not
+R16548:16552 Sub <> Gamma var
+R16557:16561 Sub <> ttrue constr
+R16567:16567 Sub <> T var
+R16636:16640 Sub <> ttrue constr
+R16636:16640 Sub <> ttrue constr
+prf 16739:16760 <> typing_inversion_false
+R16814:16817 Sub <> ::x_'<:'_x not
+R16809:16813 Sub <> TBool constr
+R16818:16818 Sub <> T var
+R16787:16790 Sub <> ::x_'|-'_x_'\in'_x not
+R16797:16801 Sub <> ::x_'|-'_x_'\in'_x not
+R16782:16786 Sub <> Gamma var
+R16791:16796 Sub <> tfalse constr
+R16802:16802 Sub <> T var
+R16871:16876 Sub <> tfalse constr
+R16871:16876 Sub <> tfalse constr
+prf 16975:16993 <> typing_inversion_if
+R17080:17086 Coq.Init.Logic <> :type_scope:x_'/\'_x not
+R17064:17067 Sub <> ::x_'|-'_x_'\in'_x not
+R17070:17074 Sub <> ::x_'|-'_x_'\in'_x not
+R17059:17063 Sub <> Gamma var
+R17068:17069 Sub <> t1 var
+R17075:17079 Sub <> TBool constr
+R17104:17109 Coq.Init.Logic <> :type_scope:x_'/\'_x not
+R17092:17095 Sub <> ::x_'|-'_x_'\in'_x not
+R17098:17102 Sub <> ::x_'|-'_x_'\in'_x not
+R17087:17091 Sub <> Gamma var
+R17096:17097 Sub <> t2 var
+R17103:17103 Sub <> T var
+R17115:17118 Sub <> ::x_'|-'_x_'\in'_x not
+R17121:17125 Sub <> ::x_'|-'_x_'\in'_x not
+R17110:17114 Sub <> Gamma var
+R17119:17120 Sub <> t3 var
+R17126:17126 Sub <> T var
+R17029:17033 Sub <> ::x_'|-'_x_'\in'_x not
+R17046:17051 Sub <> ::x_'|-'_x_'\in'_x not
+R17024:17028 Sub <> Gamma var
+R17034:17036 Sub <> tif constr
+R17044:17045 Sub <> t3 var
+R17041:17042 Sub <> t2 var
+R17038:17039 Sub <> t1 var
+R17052:17052 Sub <> T var
+R17190:17192 Sub <> tif constr
+R17190:17192 Sub <> tif constr
+prf 17404:17424 <> typing_inversion_unit
+R17479:17482 Sub <> ::x_'<:'_x not
+R17474:17478 Sub <> TUnit constr
+R17483:17483 Sub <> T var
+R17451:17454 Sub <> ::x_'|-'_x_'\in'_x not
+R17460:17464 Sub <> ::x_'|-'_x_'\in'_x not
+R17446:17450 Sub <> Gamma var
+R17455:17459 Sub <> tunit constr
+R17465:17465 Sub <> T var
+R17536:17540 Sub <> tunit constr
+R17536:17540 Sub <> tunit constr
+prf 17639:17647 <> abs_arrow
+R17735:17741 Coq.Init.Logic <> :type_scope:x_'/\'_x not
+R17729:17732 Sub <> ::x_'<:'_x not
+R17727:17728 Sub <> T1 var
+R17733:17734 Sub <> S1 var
+R17742:17742 Sub <> ::x_'|-'_x_'\in'_x not
+R17760:17764 Sub <> ::x_'|-'_x_'\in'_x not
+R17767:17771 Sub <> ::x_'|-'_x_'\in'_x not
+R17743:17748 Sub <> extend def
+R17758:17759 Sub <> S1 var
+R17756:17756 Sub <> x var
+R17750:17754 Sub <> empty def
+R17765:17766 Sub <> s2 var
+R17772:17773 Sub <> T2 var
+R17681:17685 Sub <> ::x_'|-'_x_'\in'_x not
+R17698:17704 Sub <> ::x_'|-'_x_'\in'_x not
+R17717:17717 Sub <> ::x_'|-'_x_'\in'_x not
+R17676:17680 Sub <> empty def
+R17686:17689 Sub <> tabs constr
+R17696:17697 Sub <> s2 var
+R17693:17694 Sub <> S1 var
+R17691:17691 Sub <> x var
+R17705:17710 Sub <> TArrow constr
+R17715:17716 Sub <> T2 var
+R17712:17713 Sub <> T1 var
+R17830:17849 Sub <> typing_inversion_abs thm
+R17830:17849 Sub <> typing_inversion_abs thm
+R17904:17922 Sub <> sub_inversion_arrow thm
+R17904:17922 Sub <> sub_inversion_arrow thm
+ind 18027:18041 <> appears_free_in
+constr 18069:18075 <> afi_var
+constr 18126:18133 <> afi_app1
+constr 18218:18225 <> afi_app2
+constr 18310:18316 <> afi_abs
+constr 18439:18445 <> afi_if1
+constr 18541:18547 <> afi_if2
+constr 18643:18649 <> afi_if3
+R18051:18052 Sub <> tm ind
+R18045:18046 SfLib <> id ind
+R18095:18109 Sub <> appears_free_in ind
+R18114:18117 Sub <> tvar constr
+R18119:18119 Sub <> x var
+R18111:18111 Sub <> x var
+R18183:18197 Sub <> appears_free_in ind
+R18202:18205 Sub <> tapp constr
+R18210:18211 Sub <> t2 var
+R18207:18208 Sub <> t1 var
+R18199:18199 Sub <> x var
+R18159:18173 Sub <> appears_free_in ind
+R18177:18178 Sub <> t1 var
+R18175:18175 Sub <> x var
+R18275:18289 Sub <> appears_free_in ind
+R18294:18297 Sub <> tapp constr
+R18302:18303 Sub <> t2 var
+R18299:18300 Sub <> t1 var
+R18291:18291 Sub <> x var
+R18251:18265 Sub <> appears_free_in ind
+R18269:18270 Sub <> t2 var
+R18267:18267 Sub <> x var
+R18400:18414 Sub <> appears_free_in ind
+R18419:18422 Sub <> tabs constr
+R18430:18432 Sub <> t12 var
+R18426:18428 Sub <> T11 var
+R18424:18424 Sub <> y var
+R18416:18416 Sub <> x var
+R18367:18381 Sub <> appears_free_in ind
+R18385:18387 Sub <> t12 var
+R18383:18383 Sub <> x var
+R18349:18352 Coq.Init.Logic <> :type_scope:x_'<>'_x not
+R18348:18348 Sub <> y var
+R18353:18353 Sub <> x var
+R18504:18518 Sub <> appears_free_in ind
+R18523:18525 Sub <> tif constr
+R18533:18534 Sub <> t3 var
+R18530:18531 Sub <> t2 var
+R18527:18528 Sub <> t1 var
+R18520:18520 Sub <> x var
+R18474:18488 Sub <> appears_free_in ind
+R18492:18493 Sub <> t1 var
+R18490:18490 Sub <> x var
+R18606:18620 Sub <> appears_free_in ind
+R18625:18627 Sub <> tif constr
+R18635:18636 Sub <> t3 var
+R18632:18633 Sub <> t2 var
+R18629:18630 Sub <> t1 var
+R18622:18622 Sub <> x var
+R18576:18590 Sub <> appears_free_in ind
+R18594:18595 Sub <> t2 var
+R18592:18592 Sub <> x var
+R18708:18722 Sub <> appears_free_in ind
+R18727:18729 Sub <> tif constr
+R18737:18738 Sub <> t3 var
+R18734:18735 Sub <> t2 var
+R18731:18732 Sub <> t1 var
+R18724:18724 Sub <> x var
+R18678:18692 Sub <> appears_free_in ind
+R18696:18697 Sub <> t3 var
+R18694:18694 Sub <> x var
+R18762:18776 Sub <> appears_free_in ind
+prf 18786:18803 <> context_invariance
+R18932:18935 Sub <> ::x_'|-'_x_'\in'_x not
+R18937:18941 Sub <> ::x_'|-'_x_'\in'_x not
+R18926:18931 Sub <> Gamma' var
+R18936:18936 Sub <> t var
+R18942:18942 Sub <> S var
+R18904:18906 Coq.Init.Logic <> :type_scope:x_'='_x not
+R18897:18901 Sub <> Gamma var
+R18903:18903 Sub <> x var
+R18907:18912 Sub <> Gamma' var
+R18914:18914 Sub <> x var
+R18874:18888 Sub <> appears_free_in ind
+R18892:18892 Sub <> t var
+R18890:18890 Sub <> x var
+R18842:18845 Sub <> ::x_'|-'_x_'\in'_x not
+R18847:18851 Sub <> ::x_'|-'_x_'\in'_x not
+R18837:18841 Sub <> Gamma var
+R18846:18846 Sub <> t var
+R18852:18852 Sub <> S var
+R19092:19096 Sub <> T_Var constr
+R19092:19096 Sub <> T_Var constr
+R19146:19150 Sub <> T_Abs constr
+R19146:19150 Sub <> T_Abs constr
+R19200:19205 Sub <> extend def
+R19218:19226 SfLib <> eq_id_dec thm
+R19218:19226 SfLib <> eq_id_dec thm
+R19264:19268 Sub <> T_App constr
+R19264:19268 Sub <> T_App constr
+R19306:19309 Sub <> T_If constr
+R19306:19309 Sub <> T_If constr
+prf 19327:19341 <> free_in_context
+R19417:19423 Coq.Init.Logic <> :type_scope:'exists'_x_'..'_x_','_x not
+R19426:19427 Coq.Init.Logic <> :type_scope:'exists'_x_'..'_x_','_x not
+R19435:19437 Coq.Init.Logic <> :type_scope:x_'='_x not
+R19428:19432 Sub <> Gamma var
+R19434:19434 Sub <> x var
+R19438:19441 Coq.Init.Datatypes <> Some constr
+R19443:19444 Sub <> T' var
+R19399:19402 Sub <> ::x_'|-'_x_'\in'_x not
+R19404:19408 Sub <> ::x_'|-'_x_'\in'_x not
+R19394:19398 Sub <> Gamma var
+R19403:19403 Sub <> t var
+R19409:19409 Sub <> T var
+R19368:19382 Sub <> appears_free_in ind
+R19386:19386 Sub <> t var
+R19384:19384 Sub <> x var
+R19651:19656 Sub <> extend def
+R19675:19680 SfLib <> neq_id prfax
+R19675:19680 SfLib <> neq_id prfax
+prf 19706:19734 <> substitution_preserves_typing
+R19838:19842 Sub <> ::x_'|-'_x_'\in'_x not
+R19850:19855 Sub <> ::x_'|-'_x_'\in'_x not
+R19833:19837 Sub <> Gamma var
+R19843:19843 Sub <> ::'['_x_':='_x_']'_x not
+R19845:19846 Sub <> ::'['_x_':='_x_']'_x not
+R19848:19848 Sub <> ::'['_x_':='_x_']'_x not
+R19844:19844 Sub <> x var
+R19847:19847 Sub <> v var
+R19849:19849 Sub <> t var
+R19856:19856 Sub <> S var
+R19811:19814 Sub <> ::x_'|-'_x_'\in'_x not
+R19816:19820 Sub <> ::x_'|-'_x_'\in'_x not
+R19806:19810 Sub <> empty def
+R19815:19815 Sub <> v var
+R19821:19821 Sub <> U var
+R19767:19767 Sub <> ::x_'|-'_x_'\in'_x not
+R19784:19788 Sub <> ::x_'|-'_x_'\in'_x not
+R19790:19794 Sub <> ::x_'|-'_x_'\in'_x not
+R19768:19773 Sub <> extend def
+R19783:19783 Sub <> U var
+R19781:19781 Sub <> x var
+R19775:19779 Sub <> Gamma var
+R19789:19789 Sub <> t var
+R19795:19795 Sub <> S var
+R20064:20083 Sub <> typing_inversion_var thm
+R20064:20083 Sub <> typing_inversion_var thm
+R20138:20143 Sub <> extend def
+R20168:20176 SfLib <> eq_id_dec thm
+R20168:20176 SfLib <> eq_id_dec thm
+R20293:20297 Sub <> empty def
+R20269:20286 Sub <> context_invariance thm
+R20293:20297 Sub <> empty def
+R20269:20286 Sub <> context_invariance thm
+R20342:20356 Sub <> free_in_context thm
+R20364:20368 Sub <> empty def
+R20342:20356 Sub <> free_in_context thm
+R20364:20368 Sub <> empty def
+R20455:20474 Sub <> typing_inversion_app thm
+R20455:20474 Sub <> typing_inversion_app thm
+R20536:20540 Sub <> T_App constr
+R20536:20540 Sub <> T_App constr
+R20613:20632 Sub <> typing_inversion_abs thm
+R20613:20632 Sub <> typing_inversion_abs thm
+R20703:20708 Sub <> TArrow constr
+R20691:20695 Sub <> T_Sub constr
+R20703:20708 Sub <> TArrow constr
+R20691:20695 Sub <> T_Sub constr
+R20726:20730 Sub <> T_Abs constr
+R20726:20730 Sub <> T_Abs constr
+R20749:20757 SfLib <> eq_id_dec thm
+R20749:20757 SfLib <> eq_id_dec thm
+R20795:20812 Sub <> context_invariance thm
+R20795:20812 Sub <> context_invariance thm
+R20858:20863 Sub <> extend def
+R20882:20890 SfLib <> eq_id_dec thm
+R20882:20890 SfLib <> eq_id_dec thm
+R20942:20959 Sub <> context_invariance thm
+R20942:20959 Sub <> context_invariance thm
+R20992:20997 Sub <> extend def
+R21016:21024 SfLib <> eq_id_dec thm
+R21016:21024 SfLib <> eq_id_dec thm
+R21055:21060 SfLib <> neq_id prfax
+R21055:21060 SfLib <> neq_id prfax
+R21101:21104 Sub <> ::x_'<:'_x not
+R21096:21100 Sub <> TBool constr
+R21127:21147 Sub <> typing_inversion_true thm
+R21101:21104 Sub <> ::x_'<:'_x not
+R21096:21100 Sub <> TBool constr
+R21127:21147 Sub <> typing_inversion_true thm
+R21200:21203 Sub <> ::x_'<:'_x not
+R21195:21199 Sub <> TBool constr
+R21226:21247 Sub <> typing_inversion_false thm
+R21200:21203 Sub <> ::x_'<:'_x not
+R21195:21199 Sub <> TBool constr
+R21226:21247 Sub <> typing_inversion_false thm
+R21324:21340 Coq.Init.Logic <> :type_scope:x_'/\'_x not
+R21290:21290 Sub <> ::x_'|-'_x_'\in'_x not
+R21307:21311 Sub <> ::x_'|-'_x_'\in'_x not
+R21314:21318 Sub <> ::x_'|-'_x_'\in'_x not
+R21291:21296 Sub <> extend def
+R21319:21323 Sub <> TBool constr
+R21371:21386 Coq.Init.Logic <> :type_scope:x_'/\'_x not
+R21341:21341 Sub <> ::x_'|-'_x_'\in'_x not
+R21358:21362 Sub <> ::x_'|-'_x_'\in'_x not
+R21365:21369 Sub <> ::x_'|-'_x_'\in'_x not
+R21342:21347 Sub <> extend def
+R21387:21387 Sub <> ::x_'|-'_x_'\in'_x not
+R21404:21408 Sub <> ::x_'|-'_x_'\in'_x not
+R21411:21415 Sub <> ::x_'|-'_x_'\in'_x not
+R21388:21393 Sub <> extend def
+R21436:21454 Sub <> typing_inversion_if thm
+R21324:21340 Coq.Init.Logic <> :type_scope:x_'/\'_x not
+R21290:21290 Sub <> ::x_'|-'_x_'\in'_x not
+R21307:21311 Sub <> ::x_'|-'_x_'\in'_x not
+R21314:21318 Sub <> ::x_'|-'_x_'\in'_x not
+R21291:21296 Sub <> extend def
+R21319:21323 Sub <> TBool constr
+R21371:21386 Coq.Init.Logic <> :type_scope:x_'/\'_x not
+R21341:21341 Sub <> ::x_'|-'_x_'\in'_x not
+R21358:21362 Sub <> ::x_'|-'_x_'\in'_x not
+R21365:21369 Sub <> ::x_'|-'_x_'\in'_x not
+R21342:21347 Sub <> extend def
+R21387:21387 Sub <> ::x_'|-'_x_'\in'_x not
+R21404:21408 Sub <> ::x_'|-'_x_'\in'_x not
+R21411:21415 Sub <> ::x_'|-'_x_'\in'_x not
+R21388:21393 Sub <> extend def
+R21436:21454 Sub <> typing_inversion_if thm
+R21608:21611 Sub <> ::x_'<:'_x not
+R21603:21607 Sub <> TUnit constr
+R21632:21652 Sub <> typing_inversion_unit thm
+R21608:21611 Sub <> ::x_'<:'_x not
+R21603:21607 Sub <> TUnit constr
+R21632:21652 Sub <> typing_inversion_unit thm
+prf 21683:21694 <> preservation
+R21767:21770 Sub <> ::x_'|-'_x_'\in'_x not
+R21773:21777 Sub <> ::x_'|-'_x_'\in'_x not
+R21762:21766 Sub <> empty def
+R21771:21772 Sub <> t' var
+R21778:21778 Sub <> T var
+R21745:21749 Sub <> ::x_'==>'_x not
+R21744:21744 Sub <> t var
+R21750:21751 Sub <> t' var
+R21723:21726 Sub <> ::x_'|-'_x_'\in'_x not
+R21728:21732 Sub <> ::x_'|-'_x_'\in'_x not
+R21718:21722 Sub <> empty def
+R21727:21727 Sub <> t var
+R21733:21733 Sub <> T var
+R21830:21834 Sub <> empty def
+R21830:21834 Sub <> empty def
+R22082:22090 Sub <> abs_arrow thm
+R22082:22090 Sub <> abs_arrow thm
+R22133:22161 Sub <> substitution_preserves_typing thm
+R22133:22161 Sub <> substitution_preserves_typing thm

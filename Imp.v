@@ -601,6 +601,8 @@ Inductive ceval : com -> state -> state -> Prop :=
 
   where "c1 '/' st '||' st'" := (ceval c1 st st').
 
+Check ceval_ind.
+
 Tactic Notation "ceval_cases" tactic(first) ident(c) :=
   first;
   [ Case_aux c "E_Skip" | Case_aux c "E_Ass" | Case_aux c "E_Seq"
