@@ -97,7 +97,7 @@ with TypeIndex : Type :=
 with RefType : Type :=
   | cls : Class -> RefType
   | arrRef : RefType -> nat -> RefType
-  | arrPrim : PrimType -> nat -> RefType
+  | arrPrim : pTypes -> nat -> RefType
 with Ref : Type :=
   | lRef : Location -> Ref
   | null : Ref
@@ -107,7 +107,7 @@ with Val : Type :=
   | siv : StringIndex -> Val
 with Object : Type :=
   | topObj : Object
-  | obj : ClassIndex -> list (FieldIndex * Val) -> Object
+  | obj : ClassIndex -> ClassIndex -> list (FieldIndex * Val) -> Object
 with Array : Type :=
   | arr : nat -> list Val -> Array
 with arrOrObj : Type :=
@@ -474,7 +474,7 @@ Fixpoint findFI {X:Type} (fi:FieldIndex) (l:list (FieldIndex * X)) : (@Option X)
 Fixpoint ifieldToVal (r1:Register) (fi:FieldIndex) (conf:Config) : (@Option Val) :=
   match (regToVal r1 conf) with
   | Some (ref rf) => match (refToVal rf conf) with
-    | Some (ob (obj ci flst)) => (findFI fi flst)
+    | Some (ob (obj ci ci2 flst)) => (findFI fi flst)
     | _ => None
     end
   | _ => None
@@ -630,8 +630,8 @@ Fixpoint setAtFI {X:Type} (x:X) (fi:FieldIndex) (l:list (FieldIndex * X)) : (@Op
 Fixpoint valToIfield (r1:Register) (fi:FieldIndex) (conf:Config) (vl:@Option Val) : (@Option Config) :=
   match (regToVal r1 conf) with
   | Some (ref rf) => match (refToVal rf conf),vl with
-    | Some (ob (obj ci flst)),Some vl => match (setAtFI vl fi flst) with
-      | Some flst' => (setAtRef rf conf (Some (ob (obj ci flst'))))
+    | Some (ob (obj ci ci2 flst)),Some vl => match (setAtFI vl fi flst) with
+      | Some flst' => (setAtRef rf conf (Some (ob (obj ci ci2 flst'))))
       | _ => None
       end
     | _,_ => None
@@ -664,17 +664,21 @@ Fixpoint createList {X:Type} (n:nat) (x:X) : list X :=
 Definition newArrPrim (n:nat) (pt:pTypes) : Array :=
   arr n (createList n (prim (newPrim pt))).
 
-Fixpoint newObject (c:Class) : Object :=
+(*Fixpoint newObject (c:Class) : Object :=
   match c with
   | top => topObject
   | (class SI CI FIs MIs) => 
+*)
 
-with newInstance (t:DalType) : (ValOrRef) :=
-  match ti with
+Fixpoint newInstance (t:DalType) : (ValOrRef) :=
+  match t with
   | (primT pt) => (v (prim (newPrim pt)))
-  | (refT (cls c)) => (a (ob (newObject c)))
-  | (refT (arrRef rt)) => (a (ar (newArrRef rt)))
-  | (refT (arrPrim pt)) => (v ())
+  | (refT (cls cl)) => (v (ref null))    (*(a (ob (newObject c))) *)
+  | (refT (arrRef rt n)) => (v (ref null)) (* (a (ar (newArrRef rt))) *)
+  | (refT (arrPrim pt n)) => (a (ar (newArrPrim n pt)))
+  end.
+
+with
 
 Fixpoint step (init:Config) (p:Program): (@Option Config) :=
   match (getInstAt (getPCconfig init) p) with
